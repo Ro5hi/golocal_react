@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    before_action :set_profile, only: [:show]
+
     # GET /users
     def index
         @users = User.all
