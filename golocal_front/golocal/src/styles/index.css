@@ -2,6 +2,12 @@
 
 
 * {
+  background: #FBEABE;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   margin: 0;
   padding: 0;
   outline: none;
@@ -12,7 +18,54 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.logo {
+  font-family: Abril Fatface;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  left: -5.21%;
+  right: 49.94%;
+  top: 9.27%;
+  bottom: 55.37%;
+  line-height: 194px;
+  letter-spacing: 0.015em;
+  color: #000000;
+}
+
+.container {
+  text-align: justify;
+  position: absolute;
+  width: 1574px;
+  height: 820px;
+  left: 58px;
+  top: 51px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.join-block {
+  position: absolute;
+  width: 475px;
+  height: 287px;
+  left: 112px;
+  top: 430px;
+  background: #F5F5F5;
+}
+
+.join-button {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #F2994A;
+  border-radius: 6px;
 }
