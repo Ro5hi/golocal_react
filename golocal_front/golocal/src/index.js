@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'styles/index.css';
-import App from 'components/App.js';
 import reportWebVitals from 'src/reportWebVitals';
+import { createStore, applyMiddleware } from 'redux';
+import { thunk } from 'redux-thunk';
+import { Provider } from 'react-redux';
+import App from 'components/App.js';
+import 'styles/index.css';
 
 ReactDOM.render(
   <React.StrictMode>

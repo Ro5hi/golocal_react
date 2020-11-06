@@ -4,9 +4,9 @@ import React, { Component } from 'react';
     const App = () => {
         return (
             <Wrapper>
-            <Container>
-                <h1>test</h1>
-            </Container>    
+                <Container>
+                    <h1>testing react app</h1>
+                </Container>    
             </Wrapper>
         );
     };
