@@ -1,12 +1,14 @@
 class User < ActiveRecord::Base
 
+    has_secure_password
+
     serialize :image, JSON
 
     has_many :posts, dependent: :destroy 
-    
-    validates :name, presence: true
-    validates :username, presence: true 
-    validates :description, length: { maximum: 50 }
+    has_many :comments 
+
+    validates :name, :username, :email, presence: true 
+    validates :username, uniqueness: true
 
     def profile_photo
         @user = User.find(params[:image])

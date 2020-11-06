@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 6) do
     t.string "name"
     t.string "email"
     t.string "username"
-    t.string "passsword_digest"
+    t.string "password_digest"
     t.string "image"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false

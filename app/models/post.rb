@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
     has_many :comments
     
-    has_many :taggs
+    has_many :taggables
     has_many :tags, through: :taggs 
 
     validates :caption, length: {maximum: 50 }
