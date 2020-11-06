@@ -51,7 +51,7 @@ end
 private
 
 def create_params 
-    params.require(:post).permit(:photo, :photo_cache, :user_id, :caption, :tag_list)
+    params.require(:post).permit(:image, :image_cache, :user_id, :caption, :tag_list)
 end
 
 def edit_params 

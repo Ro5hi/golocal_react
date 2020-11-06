@@ -15,6 +15,7 @@ class UsersController < ApplicationController
             render json: @user, status: :created
         else 
             render json: @user.errors, status: :unprocessable_entity
+        end
     end
 
     #GET /users/1
@@ -26,7 +27,9 @@ class UsersController < ApplicationController
     def update
         if @user.update(user_params)
             render json: @userelse 
+        else 
             render json: @user.errors, status: :unprocessable_entity
+        end 
     end 
 
     private 
@@ -34,6 +37,4 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :username, :user_id, :password)
     end 
-
-
-end
+end 

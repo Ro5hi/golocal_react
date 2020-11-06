@@ -3,12 +3,11 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       create_table :users do |t|
         t.string :name
         t.string :email
+        t.string :username
         t.string :passsword_digest
-        t.string :image 
-        t.string :session_id
+        t.string :image
         t.datetime :remember_created_at
         t.timestamps null: false
-        
       end 
     end
   end

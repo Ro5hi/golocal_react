@@ -5,12 +5,12 @@ class TagsController < ApplicationController
 
     def index
         @tags = Tag.includes(params[:name])
-        @tagg = Taggable.includes(params[:tag_id])
+        @taggable = Taggable.includes(params[:tag_id])
     end
 
     def show
         tag = Tag.find_by(name: params[:name])
-        @tagg = Taggabl.where(tag_id: tag.id)
+        @taggable = Taggable.where(tag_id: tag.id)
         post_ids = @tagg.map {|t| t.post_id}
         @posts = Post.where(id: post_ids)
         if @posts.length == 0

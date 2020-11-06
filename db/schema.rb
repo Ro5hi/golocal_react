@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 6) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "username"
     t.string "passsword_digest"
     t.string "image"
-    t.string "session_id"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
