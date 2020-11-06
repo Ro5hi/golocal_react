@@ -1,4 +1,4 @@
-class Api::V1::CommentsController < ApplicationController    
+class API::V1::CommentsController < ApplicationController    
 
     before_action :get_post, only: [:new, :show, :create]
 

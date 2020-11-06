@@ -1,4 +1,4 @@
-class Api::V1::TagsController < ApplicationController
+class API::V1::TagsController < ApplicationController
 
     
     before_action :set_tag, only: [:index]
