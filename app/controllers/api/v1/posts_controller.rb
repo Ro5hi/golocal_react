@@ -1,3 +1,5 @@
+class Api::V1::PostsController < ApplicationController
+
 before_action :set_post, only: [:show, :edit, :update, :destroy]
 before_action :set_tag, only: [:show]
 before_action :find_user, only: [:index, :new, :create, :show, :edit, :update, :destroy]
