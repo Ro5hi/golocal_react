@@ -45,12 +45,6 @@
   top: 51px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .join-block {
   position: absolute;
   width: 475px;
@@ -68,4 +62,12 @@
   bottom: 0%;
   background: #F2994A;
   border-radius: 6px;
+}
+
+.category {
+  position: absolute;
+  width: 1680px;
+  height: 568px;
+  left: 5px;
+  top: 871px;
 }
