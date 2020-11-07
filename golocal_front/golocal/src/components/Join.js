@@ -46,13 +46,13 @@ import styled from "styled-components";
 
     const Button = styled.div`
         height: 52px;
-        width: 192px;
+        width: 165px;
         left: 0px;
         top: 0px;
         position: absolute;
-        left: 0%;
+        left: 32%;
         right: 0%;
-        top: 0%;
+        top: 60%;
         bottom: 0%;
         background: #F2994A;
         border-radius: 6px;

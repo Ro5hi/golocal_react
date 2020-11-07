@@ -10,19 +10,24 @@ import Category from './Category.js';
                 <Title>GO LOCAL</Title>
                 <Join></Join>
                 <Category></Category>
+                <Footer>
+                    <FooterText>
+                        Go Local ©  2020
+                    </FooterText>
+                </Footer>
             </Container>
         );
     };
 
     const Container = styled.div`
         position: absolute;
-        width: 1680px;
-        height: 960px;
+        width: 100%;
+        height: 100%;
         left: 0px;
         top: 0px;
         background: #FBEABE;position: absolute;
-        width: 1680px;
-        height: 960px;
+        width: 100%;
+        height: 100%;
         left: 0px;
         top: 0px;
         background: #FBEABE;
@@ -44,6 +49,31 @@ import Category from './Category.js';
         text-align: center;
         letter-spacing: 0.015em;
         color: #000000;
+    `
+
+    const Footer = styled.div`
+        position: absolute;
+        width: 100%;
+        height: 80px;
+        left: 0px;
+        top: 1958px;
+        
+        background: #FFFFFF;
+    `
+    const FooterText = styled.div`
+        position: absolute;
+        width: 301px;
+        height: 24px;
+        left: 690px;
+        top: 37px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: -0.015em;
+        color: rgba(0, 0, 0, 0.8);    
     `
 
     export default App

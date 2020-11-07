@@ -6,30 +6,31 @@ import styled from 'styled-components'
         return (
             <Container>
                 <Header>Browse by Category</Header>
-                <Wrapper>Unique Finds</Wrapper>
-                <Wrapper>Services</Wrapper>
-                <Wrapper>Local Shops</Wrapper>
-                <Wrapper>Eat</Wrapper>
+                <Unique>Unique Finds</Unique>
+                <Services>Services</Services>
+                <Shops>Local Shops</Shops>
+                <Eat>Eat</Eat>
             </Container>
         )
     }
 
     const Container = styled.div`
         position: absolute;
-        width: 1680px;
-        height: 568px;
-        left: 5px;
-        top: 871px;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 960px;
+        background: #FBEABE;
     `
 
     const Header = styled.div`
         position: absolute;
-        left: -8.04%;
+        left: 8.04%;
         right: 55.71%;
-        top: 7.22%;
-        bottom: 66.37%;
+        top: -3.22%;
+        bottom: 0
         font-family: Abril Fatface;
-        font-style: normal;
+        font-style: strong;
         font-weight: normal;
         font-size: 64px;
         line-height: 86px;
@@ -40,15 +41,37 @@ import styled from 'styled-components'
         color: #000000;
     `
 
-    const Wrapper = styled.div`
+    const Unique = styled.div`
+        background-image
         position: absolute;
-        width: 392px;
-        height: 338px;
-        left: 1px;
-        top: 1px;
-        background: #FFFFFF;
-        border: 1px solid #000000;
-        box-sizing: border-box;
+        width: 393px;
+        height: 337px;
+        left: 22px;
+        top: 194px;
+    `
+
+    const Services = styled.div`
+        position: absolute;
+        width: 393px;
+        height: 337px;
+        left: 425px;
+        top: 196px;
+    `
+
+    const Shops = styled.div`
+        position: absolute;
+        width: 397px;
+        height: 342px;
+        left: 848px;
+        top: 194px;S
+    `
+
+    const Eat = styled.div`
+        position: absolute;
+        width: 400px;
+        height: 343px;
+        left: 1258px;
+        top: 193px;    
     `
 
     export default Category;
