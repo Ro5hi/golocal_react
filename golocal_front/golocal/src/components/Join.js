@@ -1,16 +1,85 @@
 import React from 'react';
-import App from './components/App.js'
 import styled from "styled-components";
-import { Link } from 'react-router-dom'
 
 
-    const join = () => {
+    const Join = () => {
         return (
-            <div class="join-block">
-                "Made for locally owned businesses who would like to make an online presence."
-                <Link to="/signup"><button id="join-button">Join Today</button></Link>
-            </div>
+            <Container>
+                <Body>
+                    Made for locally owned businesses who would like to make an online presence.
+                </Body>
+                <Button>
+                    <ButtonText>
+                        Join Today  
+                    </ButtonText>  
+                </Button>
+            </Container>
         );
     };
 
-    export default join;
+    const Container = styled.div`
+        position: absolute;
+        width: 475px;
+        height: 287px;
+        left: 112px;
+        top: 430px;
+        background: #F5F5F5;
+    `
+
+    const Body = styled.div`
+        position: absolute;
+        width: 467px;
+        height: 29px;
+        left: 8px;
+        top: 40px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 38px;
+        /* or 158% */
+        text-align: center;
+        letter-spacing: -0.015em;
+        color: rgba(0, 0, 0, 0.8);
+    
+    `
+
+    const Button = styled.div`
+        height: 52px;
+        width: 192px;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+        background: #F2994A;
+        border-radius: 6px;
+    `
+
+    const ButtonText = styled.div`
+        position: absolute;
+        left: 26.15%;
+        right: 26.97%;
+        top: 29.42%;
+        bottom: 30.19%;
+        
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 21px;
+        /* identical to box height */
+        
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: -0.015em;
+        
+        color: #FFFFFF;
+    `
+
+
+
+    export default Join;
