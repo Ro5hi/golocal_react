@@ -1,4 +1,4 @@
-import React, { component } from 'react'
+import React, { Component } from 'react'
 import Resizer from 'react-image-file-resizer'
 
     class Uploader extends Component {
