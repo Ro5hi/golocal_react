@@ -1,31 +1,89 @@
 import React from 'react'
+import Uploader from '.src/components/Uploader.js'
+import { connect } from 'react-redux'
+import { updateSignup } from '../actions/signupform.js'
+import { register } from '../actions/currentuser.js'
 import styled from 'styled-components'
 
 
-    const signupData = ({ signUp, updateSignup })
+
+    const signingUp = ({ signupFormData, register, updateSignup, history }) => {
+        const { name, value } = event.target
+        const formInput = {
+            ...signupFormData,
+            [name]: value
+        }
+        signupFormData(formInput)
+    }
+
+    const businessInfo = event => {
+        const { name, value } = event.target 
+        const businessInput = {
+            ...signupFormData,
+            business: {
+                ...signupFormData.business,
+                [name]: value
+            }
+        } 
+        signupFormData(businessInput)
+    }
+
+    const submitInput = event => {
+        event.preventDefault()
+        register(signupFormData, history)
+    }
+
+    // Extract data
+    const mapStateToProps = state => {
+        return {
+            signupFormData: state.signupForm
+        }
+    }
+
     const Signup = () => {
         return (
             <Container>
-                <Name>
-                </Name>
-                <Email>
-                </Email>
-                <Username>
-                </Username>
-                <Password>
-                </Password>
-                <Business>
-                </Business>
-                <Address>
-                </Address>
-                <City>
-                </City>
-                <State>
-                </State>
-                <Zipcode>
-                </Zipcode>
-                <Category>
-                </Category>
+                <Uploader>
+                </Uploader>
+                    <Name>
+                        <input placeholder="Name" value={signupFormData.name} name="name" type="text" onChange={signingUp} />
+                    </Name>
+                    <Email>
+                        <input placeholder="Email" value={signupFormData.email} name="email" type="text" onChange={signingUp} />
+                    </Email>
+                    <Username>
+                        <input placeholder="Username" value={signupFormData.username} name="username" type="text" onChange={signingUp} />
+                    </Username>
+                    <Password>
+                        <input placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={signingUp} />
+                    </Password>
+                        <Business>
+                            <input placeholder="Business Name" value={signupFormData.business.name} name="business_name" type="text" onChange={signingUp} />
+                        </Business>
+                        <Address>
+                            <input placeholder="Business Address" value={signupFormData.business.address} name="business_address" type="text" onChange={signingUp} />
+                        </Address>
+                        <City>
+                            <input placeholder="Business City" value={signupFormData.business.city} name="business_city" type="text" onChange={signingUp} />
+                        </City>
+                        <State>
+                            <input placeholder="Business State" value={signupFormData.business.state} name="business_state" type="text" onChange={signingUp} />
+                        </State>
+                        <Zipcode>
+                            <input placeholder="Business Zipcode" value={signupFormData.business.zipcode} name="business_zipcode" type="text" onChange={signingUp} />
+                        </Zipcode>
+                            <Category>
+                                <select name="type" id="category">
+                                <option value=""></option>
+                                <option value="Unique">Nourishment</option>
+                                <option value="Local Shop">Membership</option>
+                                <option value="Services">Entertainment</option>
+                                <option value="Eat">Service</option>
+                                </select>
+                            </Category>
+                    <submitBtn>
+                        <input type="submit" value="Register"/>
+                    </submitBtn>
             </Container>
         );
     }
@@ -42,6 +100,14 @@ import styled from 'styled-components'
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     `
 
+    const Uploader = styled.div`
+        position: absolute;
+        width: 244px;
+        height: 233px;
+        left: 485px;
+        top: 164px;
+    `
+    
     const Name = styled.div`
         position: absolute;
         width: 361px;
@@ -129,5 +195,15 @@ import styled from 'styled-components'
         top: 32px;
         background: #FFFFFF;
     `
+    const submitBtn = styled.div`
+        position: absolute;
+        width: 102px;
+        height: 26px;
+        left: 0px;
+        top: 1px;
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+    `
 
-    export default Signup 
+    export default connect(mapStateToProps, { updateSignup, register})(signingUp)

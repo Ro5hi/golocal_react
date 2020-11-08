@@ -22,7 +22,7 @@ import styled from 'styled-components'
     // Extract Data
     const mapStateToProps = state => {
         return {
-            loginFormData: state.loginform
+            loginFormData: state.loginForm
         }
     }
 
