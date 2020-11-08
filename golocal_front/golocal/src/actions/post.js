@@ -82,9 +82,9 @@ import axios from 'axios'
                 const request = axios({
                     method: 'POST',
                     body: JSON.stringify({
-                        image: image,
-                        descripion: descripion,
-                        user_id: user_id,
+                        image: Post.image,
+                        descripion: Post.descripion,
+                        user_id: Post.user_id,
                         url: `${root}/posts`,
                     })
                 })
@@ -95,4 +95,36 @@ import axios from 'axios'
                     type: UPLOAD_POST_SUCCESS,
                     payload: newPost
                 }
+            }
+
+            export async function uploadFailed(error) {
+                return {
+                    type: UPLOAD_POST_FAILED,
+                    payload: error
+                };
+            }
+
+            export async function deletePost(id) {
+                const request = axios({
+                    method: 'DELETE',
+                    url: `${root}/posts/${id}`,
+                })
+                return {
+                    type: POST_DELETED,
+                    payload: request
+                };
+            }
+
+            export async function postDeleted(deletedPost) {
+                return {
+                    type: POST_DELETED,
+                    payload: deletedPost
+                };
+            }
+            
+            export async function deleteFailed(response) {
+                return {
+                    type: DELETE_FAILED,
+                    payload: response
+                };
             }
