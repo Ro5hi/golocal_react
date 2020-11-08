@@ -1,19 +1,20 @@
 import React from 'react'
 import Uploader from '.src/components/Uploader.js'
 import { connect } from 'react-redux'
-import { updateSignup } from '../actions/signupform.js'
+import { updateSignupForm } from '../actions/signupform.js'
 import { register } from '../actions/currentuser.js'
 import styled from 'styled-components'
 
 
-
-    const signingUp = ({ signupFormData, register, updateSignup, history }) => {
-        const { name, value } = event.target
-        const formInput = {
-            ...signupFormData,
-            [name]: value
+    const signingUp = ({ signupFormData, updateSignupForm, register, history }) => {
+        const submitInput = event => {
+            const { name, value } = event.target
+            const userInfo = {
+                ...signupFormData,
+                [name]: value
+            }
+            updateSignupForm(formInput)
         }
-        signupFormData(formInput)
     }
 
     const businessInfo = event => {
@@ -42,20 +43,21 @@ import styled from 'styled-components'
 
     const Signup = () => {
         return (
+            <form onSubmit={submitInput}>
             <Container>
                 <Uploader>
                 </Uploader>
                     <Name>
-                        <input placeholder="Name" value={signupFormData.name} name="name" type="text" onChange={signingUp} />
+                        <input placeholder="Name" value={signupFormData.name} name="name" type="text" onChange={userInfo} />
                     </Name>
                     <Email>
-                        <input placeholder="Email" value={signupFormData.email} name="email" type="text" onChange={signingUp} />
+                        <input placeholder="Email" value={signupFormData.email} name="email" type="text" onChange={userInfo} />
                     </Email>
                     <Username>
-                        <input placeholder="Username" value={signupFormData.username} name="username" type="text" onChange={signingUp} />
+                        <input placeholder="Username" value={signupFormData.username} name="username" type="text" onChange={userInfo} />
                     </Username>
                     <Password>
-                        <input placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={signingUp} />
+                        <input placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={userInfo} />
                     </Password>
                         <Business>
                             <input placeholder="Business Name" value={signupFormData.business.name} name="business_name" type="text" onChange={businessInfo} />
@@ -75,16 +77,17 @@ import styled from 'styled-components'
                             <Category>
                                 <select name="type" id="category">
                                 <option value=""></option>
-                                <option value="Unique">Nourishment</option>
-                                <option value="Local Shop">Membership</option>
-                                <option value="Services">Entertainment</option>
-                                <option value="Eat">Service</option>
+                                <option value="Unique">Unique Find</option>
+                                <option value="Shop">Local Shop</option>
+                                <option value="Service">Service</option>
+                                <option value="Eat & Drink">Eat & Drink</option>
                                 </select>
                             </Category>
                     <submitBtn>
                         <input type="submit" value="Register"/>
                     </submitBtn>
             </Container>
+            </form>
         );
     }
 
@@ -206,4 +209,4 @@ import styled from 'styled-components'
         box-sizing: border-box;
     `
 
-    export default connect(mapStateToProps, { updateSignup, register})(signingUp)
+    export default connect(mapStateToProps, { updateSignupForm, register} )(Signup)
