@@ -11,7 +11,7 @@ import styled from 'styled-components'
             ...loginFormData,
             [name]: value
         }
-        updateLoginForm 
+        formInput 
     }
 
     const userSubmit = event => {
@@ -86,6 +86,5 @@ import styled from 'styled-components'
         border: 1px solid #000000;
         box-sizing: border-box;
     `
-
     
-    export default connect(mapStateToProps, { updateLoginForm, login} )(Login)
+    export default connect(mapStateToProps, { updateLoginForm, login})(Login)
