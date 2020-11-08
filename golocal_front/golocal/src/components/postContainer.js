@@ -1,9 +1,3 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deletepost } from './actions/'
-
-    const Post = () => {
-
-    }
-
-    const 
+import { deletepost } from '../actions/delete.js'
