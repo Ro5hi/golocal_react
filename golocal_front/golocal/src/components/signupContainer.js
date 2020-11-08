@@ -58,19 +58,19 @@ import styled from 'styled-components'
                         <input placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={signingUp} />
                     </Password>
                         <Business>
-                            <input placeholder="Business Name" value={signupFormData.business.name} name="business_name" type="text" onChange={signingUp} />
+                            <input placeholder="Business Name" value={signupFormData.business.name} name="business_name" type="text" onChange={businessInfo} />
                         </Business>
                         <Address>
-                            <input placeholder="Business Address" value={signupFormData.business.address} name="business_address" type="text" onChange={signingUp} />
+                            <input placeholder="Business Address" value={signupFormData.business.address} name="business_address" type="text" onChange={businessInfo} />
                         </Address>
                         <City>
-                            <input placeholder="Business City" value={signupFormData.business.city} name="business_city" type="text" onChange={signingUp} />
+                            <input placeholder="Business City" value={signupFormData.business.city} name="business_city" type="text" onChange={businessInfo} />
                         </City>
                         <State>
-                            <input placeholder="Business State" value={signupFormData.business.state} name="business_state" type="text" onChange={signingUp} />
+                            <input placeholder="Business State" value={signupFormData.business.state} name="business_state" type="text" onChange={businessInfo} />
                         </State>
                         <Zipcode>
-                            <input placeholder="Business Zipcode" value={signupFormData.business.zipcode} name="business_zipcode" type="text" onChange={signingUp} />
+                            <input placeholder="Business Zipcode" value={signupFormData.business.zipcode} name="business_zipcode" type="text" onChange={businessInfo} />
                         </Zipcode>
                             <Category>
                                 <select name="type" id="category">
@@ -107,7 +107,7 @@ import styled from 'styled-components'
         left: 485px;
         top: 164px;
     `
-    
+
     const Name = styled.div`
         position: absolute;
         width: 361px;
