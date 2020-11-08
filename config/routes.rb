@@ -5,10 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :users
       resources :businesses
-      resources :posts
-      resources :comments
-      resources :tags
-    end
+      resources :post
   end
   
 end
