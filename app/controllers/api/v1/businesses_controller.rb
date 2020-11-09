@@ -14,7 +14,7 @@ class API::V1::BusinessesController < ApplicationController
     def create
         @business = Business.new(business_params)
         if @business.save
-            render json: @business, status: :created
+            render json: BusinesseSerializer.new(@business), status: :created
         else 
             render json: @business.errors, status: :unprocessable_entity
         end 

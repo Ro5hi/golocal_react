@@ -8,9 +8,12 @@ class API::V1::UsersController < ApplicationController
     # POST /users
     def create
         @user = User.new(user_params)
+        @business = Business.find_or_create_by(name: params[:business][:name], address: params[:business][:address], city: params[:business][:city], country: params[:business][:country], category: params[:business][:category])
 
+        @user.business = @business
         if @user.save
-            render json: @user, status: :created
+            session[:user_id] = @user.id
+            render json: UserSerializer.new(@user), status: :created
         else 
             render json: @user.errors, status: :unprocessable_entity
         end
@@ -24,7 +27,7 @@ class API::V1::UsersController < ApplicationController
     # PATCH /users
     def update
         if @user.update(user_params)
-            render json: @userelse 
+            render json: @user 
         else 
             render json: @user.errors, status: :unprocessable_entity
         end 
