@@ -1,34 +1,6 @@
 import axios from 'axios'
 
-    // Post Feed 
-        export const GET_POSTS = 'GET_POSTS';
-        export const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS';
-        export const GET_POSTS_FAILED = 'GET_POSTS_FAILED';
-
-    // Fetch Post 
-        export const GET_POST = 'GET_POST';
-        export const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
-        export const GET_POST_FAILED = 'GET_POST_FAILED';
-
-    // New Post 
-        export const UPLOAD_POST = 'UPLOAD_POST';
-        export const UPLOAD_SUCCESS = 'UPLOAD_SUCCESS';
-        export const UPLOAD_FAILED = 'UPLOAD_FAILED';
-        
-    // Delete Post 
-        export const DELETE_POST = 'DELETE_POST';
-        export const POST_DELETED = 'POST_DELETED';
-        export const DELETE_FAILED = 'DELETE_FAILED';
-
-    // Validate Post Params
-        export const VALIDATE_POST_PARAMS = 'VALIDATE_POST_PARAMS';
-        export const POST_PARAMS_SUCCESS = 'POST_PARAMS_SUCCESS';
-        export const POST_PARAMS_FAILED = 'POST_PARAMS_FAILED';
-
-    // Reset Post Form
-        export const RESET_POST_FORM = 'RESET_POST_FORM';
-    
-        const root = location.href.indexOf('localhost') > 0 ? 'http://localhost:3001/api' : '/api';
+            const root = location.href.indexOf('localhost') > 0 ? 'http://localhost:3001/api' : '/api';
             export async function getPosts() {
                 const request = axios({
                     method: 'GET',
@@ -128,3 +100,32 @@ import axios from 'axios'
                     payload: response
                 };
             }
+
+            
+    // Post Feed 
+        export const GET_POSTS = 'GET_POSTS';
+        export const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS';
+        export const GET_POSTS_FAILED = 'GET_POSTS_FAILED';
+
+    // Fetch Post 
+        export const GET_POST = 'GET_POST';
+        export const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
+        export const GET_POST_FAILED = 'GET_POST_FAILED';
+
+    // New Post 
+        export const UPLOAD_POST = 'UPLOAD_POST';
+        export const UPLOAD_SUCCESS = 'UPLOAD_SUCCESS';
+        export const UPLOAD_FAILED = 'UPLOAD_FAILED';
+        
+    // Delete Post 
+        export const DELETE_POST = 'DELETE_POST';
+        export const POST_DELETED = 'POST_DELETED';
+        export const DELETE_FAILED = 'DELETE_FAILED';
+
+    // Validate Post Params
+        export const VALIDATE_POST_PARAMS = 'VALIDATE_POST_PARAMS';
+        export const POST_PARAMS_SUCCESS = 'POST_PARAMS_SUCCESS';
+        export const POST_PARAMS_FAILED = 'POST_PARAMS_FAILED';
+
+    // Reset Post Form
+        export const RESET_POST_FORM = 'RESET_POST_FORM';
