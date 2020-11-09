@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import { usersReducer } from './users'
-import { bizReducer } from './business'
-import { loginReducer } from './login'
-import { signupReducer } from './signup'
+import { bizReducer } from './businessForm'
+import { loginReducer } from './loginForm'
+import { signupReducer } from './signupForm'
 
 export const rootReducer = combineReducers({
     signup: signupReducer,
