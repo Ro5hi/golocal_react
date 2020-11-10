@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateLoginForm } from './actions/loginform.js'
-import { login } from './actions/currentuser.js' 
+import { updateLoginForm } from '../actions/loginForm.js'
+import { login } from '../actions/currentUser.js' 
 import styled from 'styled-components'
 
     const Login =  ({ loginFormData, updateLoginForm, login, history }) => {
@@ -11,7 +11,7 @@ import styled from 'styled-components'
                 ...loginFormData,
                 [name]: value
             }
-            formInput(loginformdata) 
+            updateLoginForm(formInput) 
         }
 
         const userSubmit = event => {
@@ -19,72 +19,72 @@ import styled from 'styled-components'
             login(loginFormData, history)
         }
 
-        // Extract Data
-        const mapStateToProps = state => {
+        
+        
+        return (
+            <form onSubmit={userSubmit}>
+                <Container>
+                    <Username>
+                        <input placeholder ="Username" value={loginFormData.username} name="Username" type="text" onChange={userInput} />
+                    </Username>
+                            <Password>
+                                <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={userInput} />
+                            </Password>
+                    <submitBtn>
+                        <input type="submit" value="Log In"/>
+                    </submitBtn>
+                </Container>
+            </form>
+            );
+        }
+            // Extract Data
+            const mapStateToProps = state => {
             return {
                 loginFormData: state.loginForm
             }
         }
-
-    
-        return (
-        <form onSubmit={userSubmit}>
-            <Container>
-                <Username>
-                    <input placeholder ="Username" value={loginform.username} name="Username" type="text" onChange={userInput} />
-                </Username>
-                        <Password>
-                            <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={userInput} />
-                        </Password>
-                <submitBtn>
-                    <input type="submit" value="Log In"/>
-                </submitBtn>
-            </Container>
-        </form>
-        );
-    }
-
-    const Container = styled.div`
-        position: absolute;
-        width: 778px;
-        height: 600px;
-        left: 0px;
-        top: 4px;
         
-        background: #FBEABE;
-        border: 1px solid rgba(9, 112, 38, 0.1);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    `
-
-    const Username = styled.div`
-        position: absolute;
-        width: 778px;
-        height: 600px;
-        left: 0px;
-        top: 4px;
-        background: #FBEABE;
-        border: 1px solid rgba(9, 112, 38, 0.1);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    `
-
-    const Password = styled.div`
-        position: absolute;
-        width: 361px;
-        height: 25px;
-        left: 0px;
-        top: 32px;
-        background: #FFFFFF;
-    `
-
-    const submitBtn = styled.div`
-        position: absolute;
-        width: 102px;
-        height: 26px;
-        left: 0px;
-        top: 1px;
-        background: #FFFFFF;
-        border: 1px solid #000000;
-        box-sizing: border-box;
-    `
-    
-    export default connect(mapStateToProps, { updateLoginForm, login})(Login)
+        const Container = styled.div`
+            position: absolute;
+            width: 778px;
+            height: 600px;
+            left: 0px;
+            top: 4px;
+            
+            background: #FBEABE;
+            border: 1px solid rgba(9, 112, 38, 0.1);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        `
+        
+        const Username = styled.div`
+            position: absolute;
+            width: 778px;
+            height: 600px;
+            left: 0px;
+            top: 4px;
+            background: #FBEABE;
+            border: 1px solid rgba(9, 112, 38, 0.1);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        `
+        
+        const Password = styled.div`
+            position: absolute;
+            width: 361px;
+            height: 25px;
+            left: 0px;
+            top: 32px;
+            background: #FFFFFF;
+        `
+        
+        const submitBtn = styled.div`
+            position: absolute;
+            width: 102px;
+            height: 26px;
+            left: 0px;
+            top: 1px;
+            background: #FFFFFF;
+            border: 1px solid #000000;
+            box-sizing: border-box;
+        `
+        
+        export default connect(mapStateToProps, { updateLoginForm, login})(Login)

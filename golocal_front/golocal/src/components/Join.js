@@ -1,6 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import Login from './Login.js'
+import SignUp from './Signup.js'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    useRouteMatch
+  } from "react-router-dom";
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
 
 
     const Join = () => {

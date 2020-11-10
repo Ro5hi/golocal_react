@@ -2,7 +2,7 @@ import React from 'react'
 // import ImageUploader from '.src/components/Uploader.js'
 import { connect } from 'react-redux'
 import { updateSignupForm } from '../actions/signupform.js'
-import { register } from '../actions/currentuser.js'
+import { register } from '../actions/currentUser.js'
 import styled from 'styled-components'
 
         const Container = styled.div`
@@ -124,58 +124,50 @@ import styled from 'styled-components'
         `
 
 
-    const signingUp = ({ signupFormData, updateSignupForm, register, history }) => {
+    const SignUp = ({ signupFormData, updateSignupForm, register, history }) => {
         const submitInput = event => {
             const { name, value } = event.target
-            const formInput = {
+            const submitInput = {
                 ...signupFormData,
                 [name]: value
             }
-            updateSignupForm(formInput)
+            updateSignupForm(submitInput)
         }
     
 
         const businessInfo = event => {
             const { name, value } = event.target 
-            const businessInput = {
+            const submitInput = {
                 ...signupFormData,
                 business: {
                     ...signupFormData.business,
                     [name]: value
                 }
             } 
-            signupFormData(businessInput)
+            updateSignupForm(submitInput)
         }
 
         const submitHandler = event => {
             event.preventDefault()
             register(signupFormData, history)
         }
-
-        // Extract data
-        const mapStateToProps = state => {
-            return {
-                signupFormData: state.signupForm
-            }
-        }
-
-        const Signup = () => {
+        
             return (
                 <form onSubmit={submitHandler}>
                 <Container>
                     {/* <ImageUploader>
                     </ImageUploader> */}
                         <Name>
-                            <input placeholder="Name" value={signupFormData.name} name="name" type="text" onChange={formInput} />
+                            <input placeholder="Name" value={signupFormData.name} name="name" type="text" onChange={submitInput} />
                         </Name>
                         <Email>
-                            <input placeholder="Email" value={signupFormData.email} name="email" type="text" onChange={formInput} />
+                            <input placeholder="Email" value={signupFormData.email} name="email" type="text" onChange={submitInput} />
                         </Email>
                         <Username>
-                            <input placeholder="Username" value={signupFormData.username} name="username" type="text" onChange={formInput} />
+                            <input placeholder="Username" value={signupFormData.username} name="username" type="text" onChange={submitInput} />
                         </Username>
                         <Password>
-                            <input placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={formInput} />
+                            <input placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={submitInput} />
                         </Password>
                             <Business>
                                 <input placeholder="Business Name" value={signupFormData.business.name} name="business_name" type="text" onChange={businessInfo} />
@@ -194,11 +186,11 @@ import styled from 'styled-components'
                             </Zipcode>
                                 <Category>
                                     <select name="type" id="category">
-                                    <option value=""></option>
-                                    <option value="Unique">Unique Find</option>
-                                    <option value="Shop">Local Shop</option>
-                                    <option value="Service">Service</option>
-                                    <option value="Eat & Drink">Eat & Drink</option>
+                                    <option value={signupFormData.business.blank} name=""></option>
+                                    <option value={signupFormData.business.unique} name="Unique Find">Unique Find</option>
+                                    <option value={signupFormData.business.shop} name="Local Shop">Local Shop</option>
+                                    <option value={signupFormData.business.service} name="Service">Service</option>
+                                    <option value={signupFormData.business.eat} name="Eat & Drink">Eat & Drink</option>
                                     </select>
                                 </Category>
                         <submitBtn>
@@ -208,6 +200,12 @@ import styled from 'styled-components'
                 </form>
             );
         }
-    }
+        
+        // Extract data
+        const mapStateToProps = state => {
+            return {
+                signupFormData: state.signupForm
+            }
+        }
 
-    export default connect(mapStateToProps, { updateSignupForm, register} )(Signup)
+    export default connect(mapStateToProps, { updateSignupForm, register} )(SignUp)

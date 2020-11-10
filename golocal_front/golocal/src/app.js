@@ -5,7 +5,14 @@ import Navbar from './components/Navbar.js'
 import Home from './components/Home.js'
 import LoggingOut from './components/Logout'
 import { render } from 'react-dom'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    useRouteMatch
+  } from "react-router-dom";
 import Editprofile from './components/EditProfile.js'
 import Posts from './components/Posts.js'
 import Post from './components/Post.js'

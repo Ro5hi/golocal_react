@@ -1,5 +1,5 @@
-import { resetLoginForm } from './loginform.js'
-import { resetSignupForm } from './sigupform.js'
+import { resetLoginForm } from './reducers/loginForm.js'
+import { resetSignupForm } from './reducers/signupForm.js'
 
     // See current user 
     export const currentUser = user => {
