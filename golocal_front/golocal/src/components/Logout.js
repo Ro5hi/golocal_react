@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from '../actions/currentuser.js'
 
-    const LoggingOut = ({ logout, history }) => {
+    const loggingOut = ({ logout, history }) => {
         return (
         <form onSubmit={(event) => {
             event.preventDefault()
@@ -16,4 +16,4 @@ import { logout } from '../actions/currentuser.js'
         )
     }
 
-    export default withRouter(connect(null { logout } )(LoggingOut))
+    export default withRouter(connect(null, { logout } )(loggingOut))

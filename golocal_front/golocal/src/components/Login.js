@@ -4,29 +4,29 @@ import { updateLoginForm } from './actions/loginform.js'
 import { login } from './actions/currentuser.js' 
 import styled from 'styled-components'
 
-
-    const userInput = event => {
-        const { name, value } = event.target
-        const formInput = {
-            ...loginFormData,
-            [name]: value
+    const Login =  ({ loginFormData, updateLoginForm, login, history }) => {
+        const userInput = event => {
+            const { name, value } = event.target
+            const formInput = {
+                ...loginFormData,
+                [name]: value
+            }
+            formInput(loginformdata) 
         }
-        formInput 
-    }
 
-    const userSubmit = event => {
-        event.preventDefault()
-        login(loginFormData, history)
-    }
-
-    // Extract Data
-    const mapStateToProps = state => {
-        return {
-            loginFormData: state.loginForm
+        const userSubmit = event => {
+            event.preventDefault()
+            login(loginFormData, history)
         }
-    }
 
-    const Login = () => {
+        // Extract Data
+        const mapStateToProps = state => {
+            return {
+                loginFormData: state.loginForm
+            }
+        }
+
+    
         return (
         <form onSubmit={userSubmit}>
             <Container>

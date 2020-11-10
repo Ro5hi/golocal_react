@@ -53,7 +53,7 @@ import { resetSignupForm } from './sigupform.js'
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(profile)
+                body: JSON.stringify(userInfo)
             })
             .then(r => r.json())
             .then(response => {
@@ -68,36 +68,36 @@ import { resetSignupForm } from './sigupform.js'
             .catch(console.log)
         }
 
-        // Logout user 
-        export const logout = event => {
-            return dispatch => {
-                dispatch(clearSession())
-                return fetch ('http://localhost:3001/api/v1/logout'), {
-                    credentials: "include",
-                    method: "DELETE"
-                }
-            }
-        }
+        // // Logout user 
+        // export const logout = event => {
+        //     return dispatch => {
+        //         dispatch(clearSession())
+        //         return fetch ('http://localhost:3001/api/v1/logout'), {
+        //             credentials: "include",
+        //             method: "DELETE"
+        //         }
+        //     }
+        // }
 
-        // Get user session
-        export const getSession = () => {
-            return dispatch => {
-                return fetch("http://localhost:3001/api/v1/get_session", {
-                    credentials: "include",
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                })
-                .then(r => r.json())
-                .then(response => {
-                    if (response.error) {
-                        alert(response.error)
-                    } else {
-                        dispatch(currentUser(response.data))
-                    }
-                })
-                .catch(console.log)
-            }
-        }
+        // // Get user session
+        // export const getSession = () => {
+        //     return dispatch => {
+        //         return fetch("http://localhost:3001/api/v1/get_session", {
+        //             credentials: "include",
+        //             method: "GET",
+        //             headers: {
+        //                 "Content-Type": "application/json"
+        //             },
+        //         })
+        //         .then(r => r.json())
+        //         .then(response => {
+        //             if (response.error) {
+        //                 alert(response.error)
+        //             } else {
+        //                 dispatch(currentUser(response.data))
+        //             }
+        //         })
+        //         .catch(console.log)
+        //     }
+        // }
     }
