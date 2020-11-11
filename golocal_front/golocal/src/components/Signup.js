@@ -1,7 +1,7 @@
 import React from 'react'
 // import ImageUploader from '.src/components/Uploader.js'
 import { connect } from 'react-redux'
-import { updateSignupForm } from '../actions/signupform.js'
+import { updateSignupForm } from '../actions/signupForm.js'
 import { register } from '../actions/currentUser.js'
 import styled from 'styled-components'
 

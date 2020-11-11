@@ -1,5 +1,6 @@
-import { resetLoginForm } from './reducers/loginForm.js'
-import { resetSignupForm } from './reducers/signupForm.js'
+import { resetLoginForm } from './loginForm.js'
+import { resetSignupForm } from './signupForm.js'
+import { userPosts } from './post.js'
 
     // See current user 
     export const currentUser = user => {
@@ -33,6 +34,7 @@ import { resetSignupForm } from './reducers/signupForm.js'
                 alert(response.error)
             } else {
                 dispatch(currentUser(response.data))
+                dispatch(userPosts())
                 dispatch(resetLoginForm())
                 history.push('/')
             }
@@ -67,37 +69,36 @@ import { resetSignupForm } from './reducers/signupForm.js'
             })
             .catch(console.log)
         }
-
-        // // Logout user 
-        // export const logout = event => {
-        //     return dispatch => {
-        //         dispatch(clearSession())
-        //         return fetch ('http://localhost:3001/api/v1/logout'), {
-        //             credentials: "include",
-        //             method: "DELETE"
-        //         }
-        //     }
-        // }
-
-        // // Get user session
-        // export const getSession = () => {
-        //     return dispatch => {
-        //         return fetch("http://localhost:3001/api/v1/get_session", {
-        //             credentials: "include",
-        //             method: "GET",
-        //             headers: {
-        //                 "Content-Type": "application/json"
-        //             },
-        //         })
-        //         .then(r => r.json())
-        //         .then(response => {
-        //             if (response.error) {
-        //                 alert(response.error)
-        //             } else {
-        //                 dispatch(currentUser(response.data))
-        //             }
-        //         })
-        //         .catch(console.log)
-        //     }
-        // }
     }
+
+        export const logout = () => {
+            return dispatch => {
+              dispatch(clearSession())
+              return fetch('http://localhost:3001/api/v1/logout', {
+                credentials: "include",
+                method: "DELETE"
+              })
+            }
+          }
+          
+          export const getCurrentSession = () => {
+            return dispatch => {
+              return fetch("http://localhost:3001/api/v1/get_current_user", {
+                credentials: "include",
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+              })
+                .then(r => r.json())
+                .then(response => {
+                  if (response.error) {
+                    alert(response.error)
+                  } else {
+                    dispatch(currentUser(response.data))
+                    dispatch(userPosts())
+                  }
+                })
+                .catch(console.log)
+            }
+          }

@@ -1,22 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { currentuser } from './actions/currentuser.js'
-import Navbar from './components/Navbar.js'
-import Home from './components/Home.js'
+import { currentuser } from './actions/currentUser.js'
 import LoggingOut from './components/Logout'
-import { render } from 'react-dom'
 import {
-    BrowserRouter as Router,
     Switch,
-    Route,
-    Link,
-    useParams,
-    useRouteMatch
+    Route
   } from "react-router-dom";
 import Editprofile from './components/EditProfile.js'
 import Posts from './components/Posts.js'
 import Post from './components/Post.js'
 import Profile from './components/Profile.js'
+import { withRouter } from 'react-router-dom/cjs/react-router-dom.min'
 
     class App extends React.Component {
         componentDidMount() {
@@ -25,21 +19,27 @@ import Profile from './components/Profile.js'
     
 
         render() {
-            const { loggedIn } = this.props 
+            const { loggedIn, posts } = this.props 
             return (
                 <div className= "Home">
-                    { loggedIn ? <Navbar location={this.props.location}/> : <Home/ > }
+                        { loggedIn ? <LoggingOut/> : null }
                     <Switch>
                         <Route exact path='/posts' component={Posts}/>
                         <Route exact path='/newpost' component={Post}/>
-                        <Route exact path='/profile' component={Profile}/>
+                        <Route exact path='/profile' render={props => {
+                            const post = posts.find(post => post.id === props.match.params.id)
+                            return <PostCard post={post} {...props}/>
+                        } }  />
                         <Route exact path='/account/:id' component={Editprofile}/>
-                        <Route exact path='/logout' component={LoggingOut}/>
                     </Switch>
                 </div>
-            )
-        };
-
+            );
+        }
     }
+        mapStateToProps = state => {
+            return ({
+                loggedIn: !!state.currentuser
+            })  
+        }
 
-    export default App;
+    export default withRouter(connect(mapStateToProps, { currentuser })(App))

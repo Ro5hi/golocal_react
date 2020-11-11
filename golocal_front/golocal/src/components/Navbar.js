@@ -1,5 +1,8 @@
 import React from 'react'
+import connect from 'react-redux/lib/connect/connect'
 import { Link } from 'react-router-dom'
+import { currentUser } from '../actions/currentUser'
+import LoggingOut from './Logout.js'
 import styled from 'styled-components'
 
     const Navbar = () => {
@@ -15,11 +18,20 @@ import styled from 'styled-components'
                         <li><Link to={{ pathname: `/profile`}}>Profile</Link></li>
                         <li><Link to={{ pathname: `/account`}}>Account</Link></li>
                         <li><Link to={{ pathname: `/logout`}}>Log Out</Link></li>
+                        { loggedIn ? <><p id="loggedin">{currentUser.attributes.name}</p><LoggingOut/></> : null}
                     </ul>
                 </Links>
             </Bar>
-        );
+        )
     }
+        const mapStateToProps = ({ currentUser }) => {
+            return {
+                currentUser, 
+                loggedIn: !!currentUser 
+            }
+        }
+    
+    export default connect(mapStateToProps)(Navbar)
 
     const Links = styled.div`
         position: absolute;
