@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { logout } from '../actions/currentuser.js'
+import { logout } from '../actions/currentUser.js'
 
     const loggingOut = ({ logout, history }) => {
         return (

@@ -31,9 +31,8 @@ import styled from 'styled-components'
             }
         }
     
-    export default connect(mapStateToProps)(Navbar)
-
-    const Links = styled.div`
+        
+        const Links = styled.div`
         position: absolute;
         left: 0%;
         right: 0%;
@@ -51,30 +50,30 @@ import styled from 'styled-components'
         letter-spacing: -0.035em;
         
         color: #FFFFFF;
-    `
-    
-    const Logo = styled.div`
+        `
+        
+        const Logo = styled.div`
         position: absolute;
         width: 332px;
         height: 46px;
         left: 0px;
         top: 14px;
-
+        
         font-family: Abril Fatface;
         font-style: normal;
         font-weight: normal;
         font-size: 48px;
         line-height: 25px;
         /* or 52% */
-
+        
         text-align: center;
         letter-spacing: 0.13em;
         text-transform: uppercase;
-
+        
         color: #FFFFFF;
-    `
-    
-    const Bar = styled.div`
+        `
+        
+        const Bar = styled.div`
         position: absolute;
         width: 1680px;
         height: 60px;
@@ -83,6 +82,5 @@ import styled from 'styled-components'
         background: #EAAD75;
         border: 1px solid rgba(255, 122, 0, 0.44);
         box-sizing: border-box;
-    `
-
-    export default Navbar
+        `
+        export default connect(mapStateToProps)(Navbar)
