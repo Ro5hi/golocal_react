@@ -1,11 +1,11 @@
 import React from 'react'
 import connect from 'react-redux/lib/connect/connect'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { currentUser } from '../actions/currentUser'
 import LoggingOut from './Logout.js'
 import styled from 'styled-components'
 
-    const Navbar = () => {
+    const Navbar = ({ currentUser, loggedIn }) => {
         return (
             <Bar>
                 <Logo>
@@ -13,11 +13,10 @@ import styled from 'styled-components'
                 </Logo>
                 <Links>
                     <ul>
-                        <li><Link to={{ pathname: `/posts` }}>Feed</Link></li>
-                        <li><Link to={{ pathname: `/newpost`}}>New Post</Link></li>
-                        <li><Link to={{ pathname: `/profile`}}>Profile</Link></li>
-                        <li><Link to={{ pathname: `/account`}}>Account</Link></li>
-                        <li><Link to={{ pathname: `/logout`}}>Log Out</Link></li>
+                        <NavLink exact activeClassName="active" to="/posts"  >Feed</NavLink>
+                        <NavLink exact activeClassName="active" to="/newpost"  >New Trips</NavLink>
+                        <NavLink exact activeClassName="active" to="/profile"  >Profile</NavLink>
+                        <NavLink exact activeClassName="active" to="/account"  >Account</NavLink>
                         { loggedIn ? <><p id="loggedin">{currentUser.attributes.name}</p><LoggingOut/></> : null}
                     </ul>
                 </Links>
@@ -25,12 +24,12 @@ import styled from 'styled-components'
         )
     }
         const mapStateToProps = ({ currentUser }) => {
-            return {
-                currentUser, 
-                loggedIn: !!currentUser 
-            }
+        return {
+          currentUser,
+          loggedIn: !!currentUser
         }
-    
+      }
+      
         
         const Links = styled.div`
         position: absolute;

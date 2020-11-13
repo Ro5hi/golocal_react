@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
+import styled from 'styled-components'
 
     const PostCard = () => {
         render() 
@@ -26,9 +27,9 @@ import { render } from 'react-dom'
                     <Description>
                         <h4>{post && post.description}</h4>
                     </Description>
-                    <Image>
+                    {/* <Image>
                         {image}
-                    </Image>
+                    </Image> */}
                 </Card>
 
             )

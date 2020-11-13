@@ -2,24 +2,25 @@ import React from 'react'
 import PostCard from './components/PostCard.js'
 import ProfileCard from './compoents/ProfileCard.js'
 import Navbar from './components/Navbar.js'
+import styled from 'styled-components'
 
     const Profile = () => {
         return (
-            <Profile>
-                <NavBar>
+            <UserProfile>
+                <Navibar>
                     {Navbar}
-                </NavBar>
+                </Navibar>
                     <User>
                         {ProfileCard}
                     </User>
                 <UserPosts>
                     {PostCard}
                 </UserPosts>
-            </Profile> 
+            </UserProfile> 
         );    
     }
 
-    const Profile = styled.div`
+    const UserProfile = styled.div`
         position: absolute;
         width: 390px;
         height: 875px;
@@ -27,7 +28,7 @@ import Navbar from './components/Navbar.js'
         top: 72px;
     `
 
-    const Navbar = styled.div`
+    const Navibar = styled.div`
         position: absolute;
         width: 1680px;
         height: 60px;

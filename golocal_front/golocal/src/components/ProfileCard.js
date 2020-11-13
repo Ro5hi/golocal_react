@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import render from 'react-dom'
 
-    const Profile = () => {
+    const ProfileCard = () => {
         render() 
             let user = this.props.user.user;
             let business = this.props.business.business;
@@ -101,4 +101,4 @@ import render from 'react-dom'
         color: #000000;
     `
 
-    export default Profile 
+    export default ProfileCard
