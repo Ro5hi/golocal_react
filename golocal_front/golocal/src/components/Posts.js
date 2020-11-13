@@ -1,7 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-    const Posts = () => {
-
+    class Posts extends Component {
+        render() {
+            return (
+                <div>
+                    {this.props.posts.map((post) => <Post key={post.id} post={post} />)}
+                </div>
+            )
+        }
     }
 
-    export default Posts
+    const mapStateToProps = (state) => {
+        return {
+            posts: state 
+        }
+    }
+
+    export default connect(mapStateToProps)(Posts)

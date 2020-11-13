@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
 import Login from './Login.js'
 import SignUp from './Signup.js'

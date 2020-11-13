@@ -7,7 +7,7 @@ import styled from 'styled-components'
             let username = this.props.user.username
             let business = this.props.business.business
             let post = this.props.post.description
-            let image = this.props.post.image 
+            // let image = this.props.post.image 
             return (
                 <Card>
                     <Username>
@@ -16,14 +16,6 @@ import styled from 'styled-components'
                     <Business>
                         <h4>{business && business.name} </h4>
                     </Business>
-                    <Address>
-                        <h4>{business && business.address}
-                            {business && business.city},
-                            {business && business.state},
-                            {business && business.zipcode},
-                            {business && business.country}
-                        </h4>
-                    </Address>
                     <Description>
                         <h4>{post && post.description}</h4>
                     </Description>

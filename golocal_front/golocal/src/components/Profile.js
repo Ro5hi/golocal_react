@@ -1,6 +1,6 @@
 import React from 'react'
 import PostCard from './components/PostCard.js'
-import ProfileCard from './compoents/ProfileCard.js'
+import ProfileCard from './components/ProfileCard.js'
 import Navbar from './components/Navbar.js'
 import styled from 'styled-components'
 
