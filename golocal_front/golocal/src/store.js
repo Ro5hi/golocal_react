@@ -1,14 +1,21 @@
-import rootReducer from './reducers/root.js'
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+import businessReducer from './reducers/businessReducer'
+import loginReducer from './reducers/loginReducer'
+import postReducer from './reducers/postReducer'
+import signupReducer from './reducers/signupReducer'
+import usersReducer from './reducers/usersReducer'
 import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { createStore, applyMiddleware} from 'redux'
 
-    const initialState = {}
-    const middleware = [thunk]
-    const Store = createStore(
-        rootReducer,
-        initialState,
-        composeWithDevTools(applyMiddleware(...middleware))
-    )
+    const reducer = combineReducers({
+        businessReducer,
+        loginReducer,
+        postReducer,
+        signupReducer,
+        usersReducer
+    })
 
-    export default Store
+    const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+    const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
+
+    export default store
