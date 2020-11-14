@@ -1,14 +1,12 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import {
-    BrowserRouter as Router,
-    Link,
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Router } from 'react-router-dom'
 
 
     const Join = () => {
         return (
+            <Router>
             <Container>
                 <Body>
                     Made for locally owned businesses who would like to make an online presence.
@@ -24,6 +22,7 @@ import styled from "styled-components";
                         </LogInButtonText>  
                     </LogInButton>    
             </Container>
+            </Router>
         );
     };
 

@@ -8,8 +8,8 @@ import NewPost from './components/NewPost.js'
 import Posts from './components/Posts.js'
 import Editprofile from './components/Editprofile.js'
 import Profile from './components/Profile.js'
-import styled from 'styled-components'
-import { Route, Switch, withRouter } from 'react-router-dom'
+// import styled from 'styled-components'
+import { Route, Router } from 'react-router-dom'
 
     class App extends React.Component {
         componentDidMount() {
@@ -19,24 +19,26 @@ import { Route, Switch, withRouter } from 'react-router-dom'
         render() {
             const { loggedIn } = this.props 
             return (
-                <Home>
-                    { loggedIn ? <LoggingOut/> : null}
-                    <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
-                    <Route exact path='/login' component={Login}/>
-                    <Route exact path='/profile' component={Profile}/>
-                    <Route exact path='/newpost' component={NewPost}/>
-                    <Route exact path='/posts' component={Posts}/>
-                    <Route exact path='/account' component={Editprofile}/>
-                </Home>
+                <Router>
+                        { loggedIn ? <LoggingOut/> : null}
+                        <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
+                        <Route exact path='/login' component={Login}/>
+                        <Route exact path='/profile' component={Profile}/>
+                        <Route exact path='/newpost' component={NewPost}/>
+                        <Route exact path='/posts' component={Posts}/>
+                        <Route exact path='/account' component={Editprofile}/>
+                </Router>
             );
         }
-            mapStateToProps = state => {
-                return ({
-                    loggedIn: !!state.currentUser
-                })  
-            }
-        }
+    }
+    const mapStateToProps = state => {
+        return ({
+                loggedIn: !!state.currentUser
+        })  
+    }
 
-        const Home = styled.div``
+        // const Home = styled.div`
+        // background-color: white
+        // `
         
-    export default withRouter(connect(mapStateToProps, { currentUser })(App))
+export default connect(mapStateToProps, { currentUser })(App)

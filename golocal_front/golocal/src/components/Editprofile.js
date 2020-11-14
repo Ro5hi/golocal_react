@@ -127,7 +127,7 @@ import { Component } from 'react/cjs/react.production.min'
     class EditProfile extends Component {
 
         editProfile = ({ profileFormData, updateSignupForm, register, history }) => {
-            const submitInput = event => {
+            const formInput = event => {
                 const { name, value } = event.target
                 const userInfo = {
                     ...profileFormData,
@@ -136,19 +136,19 @@ import { Component } from 'react/cjs/react.production.min'
                 updateSignupForm(userInfo)
             }
 
-            businessInfo = event => {
+            const businessInfo = event => {
                 const { name, value } = event.target 
-                const submitInput = {
+                const updatedInput = {
                     ...profileFormData,
                     business: {
                         ...profileFormData.business,
                         [name]: value
                     }
                 } 
-                updateSignupForm(submitInput)
+                updateSignupForm(updatedInput)
             }
 
-            submitInput = event => {
+            const submitInput = event => {
                 event.preventDefault()
                 register(profileFormData, history)
             }
@@ -157,31 +157,31 @@ import { Component } from 'react/cjs/react.production.min'
                     <form onSubmit={this.submitInput}>
                         <Container>
                                 <Name>
-                                    <input placeholder="Name" value={profileFormData.name} name="name" type="text" onChange={this.submitInput} />
+                                    <input placeholder="Name" value={profileFormData.name} name="name" type="text" onChange={this.formInput} />
                                 </Name>
                                 <Email>
-                                    <input placeholder="Email" value={profileFormData.email} name="email" type="text" onChange={this.submitInput} />
+                                    <input placeholder="Email" value={profileFormData.email} name="email" type="text" onChange={this.formInput} />
                                 </Email>
                                 <Username>
-                                    <input placeholder="Username" value={profileFormData.username} name="username" type="text" onChange={this.submitInput} />
+                                    <input placeholder="Username" value={profileFormData.username} name="username" type="text" onChange={this.formInput} />
                                 </Username>
                                 <Password>
-                                    <input placeholder="Password" value={profileFormData.password} name="password" type="text" onChange={this.submitInput} />
+                                    <input placeholder="Password" value={profileFormData.password} name="password" type="text" onChange={this.formInput} />
                                 </Password>
                                     <Business>
-                                        <input placeholder="Business Name" value={profileFormData.business.name} name="business_name" type="text" onChange={this.submitInput} />
+                                        <input placeholder="Business Name" value={profileFormData.business.name} name="business_name" type="text" onChange={this.businessInfo} />
                                     </Business>
                                     <Address>
-                                        <input placeholder="Business Address" value={profileFormData.business.address} name="business_address" type="text" onChange={this.submitInput} />
+                                        <input placeholder="Business Address" value={profileFormData.business.address} name="business_address" type="text" onChange={this.businessInfo} />
                                     </Address>
                                     <City>
-                                        <input placeholder="Business City" value={profileFormData.business.city} name="business_city" type="text" onChange={this.submitInput} />
+                                        <input placeholder="Business City" value={profileFormData.business.city} name="business_city" type="text" onChange={this.businessInfo} />
                                     </City>
                                     <State>
-                                        <input placeholder="Business State" value={profileFormData.business.state} name="business_state" type="text" onChange={this.submitInput} />
+                                        <input placeholder="Business State" value={profileFormData.business.state} name="business_state" type="text" onChange={this.businessInfo} />
                                     </State>
                                     <Zipcode>
-                                        <input placeholder="Business Zipcode" value={profileFormData.business.zipcode} name="business_zipcode" type="text" onChange={this.submitInput} />
+                                        <input placeholder="Business Zipcode" value={profileFormData.business.zipcode} name="business_zipcode" type="text" onChange={this.businessInfo} />
                                     </Zipcode>
                                         <Category>
                                             <select name="type" id="category">
@@ -201,7 +201,7 @@ import { Component } from 'react/cjs/react.production.min'
                 }
             }        
             // Extract data
-            mapStateToProps = state => {
+            const mapStateToProps = state => {
             return {
                 profileFormData: state.signupForm
             }

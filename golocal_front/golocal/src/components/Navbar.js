@@ -5,10 +5,10 @@ import { currentUser } from '../actions/currentUser'
 import LoggingOut from './Logout.js'
 import styled from 'styled-components'
 
-    class Navbar extends Component ({ currentUser, loggedIn }) {
-        render() {
-            return (
-                <Bar>
+
+    const Navbar = ({ currentUser, loggedIn }) => {
+        return (
+            <Bar>
                 <Logo>
                     GO LOCAL
                 </Logo>
@@ -24,7 +24,7 @@ import styled from 'styled-components'
             </Bar>
         )
     }
-}
+    
     const mapStateToProps = ({ currentUser }) => {
         return {
             currentUser,
