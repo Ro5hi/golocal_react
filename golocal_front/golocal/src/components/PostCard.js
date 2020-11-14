@@ -22,10 +22,9 @@ import styled from 'styled-components'
                     {/* <Image>
                         {image}
                     </Image> */}
+                    <Button onClick={()=>this.props.dispatch({type: 'DELETE_POST',id:this.props.post.id})}>Delete Post</Button>
                 </Card>
-
             )
-
     }
 
     const Card = styled.div`
