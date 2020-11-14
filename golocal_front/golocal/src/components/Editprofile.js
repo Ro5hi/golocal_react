@@ -2,7 +2,7 @@ import React from 'react'
 // import Uploader from '.src/components/Uploader.js'
 import { connect } from 'react-redux'
 import { updateProfileForm } from '../actions/editProfileForm.js'
-import { register } from '../actions/currentuser.js'
+import { register } from '../actions/currentUser.js'
 import styled from 'styled-components'
 import { Component } from 'react/cjs/react.production.min'
 

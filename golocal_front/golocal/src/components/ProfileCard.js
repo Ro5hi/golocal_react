@@ -7,7 +7,7 @@ import render from 'react-dom'
             let user = this.props.user.user;
             let business = this.props.business.business;
             return (
-            <ProfileCard>
+            <Card>
                     <Image>
                     </Image>
                     <Name>
@@ -27,11 +27,11 @@ import render from 'react-dom'
                 <Bio>
                     <h4>Bio: { user && user.bio } </h4>
                 </Bio>
-            </ProfileCard>
+            </Card>
         )
     }
 
-    const ProfileCard = styled.div`
+    const Card = styled.div`
         position: absolute;
         width: 336px;
         height: 859px;

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Component from 'react'
 
     class Posts extends Component {
         render() {
