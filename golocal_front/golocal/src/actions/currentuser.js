@@ -71,17 +71,20 @@ import { userPosts } from './post.js'
         }
     }
 
-        export const logout = () => {
+        export const logout = (credentials, history) => {
             return dispatch => {
               dispatch(clearSession())
               return fetch('http://localhost:3001/api/v1/logout', {
                 credentials: "include",
-                method: "DELETE"
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
               })
             }
           }
           
-          export const getCurrentSession = () => {
+        export const getCurrentSession = () => {
             return dispatch => {
               return fetch("http://localhost:3001/api/v1/get_current_user", {
                 credentials: "include",
@@ -101,4 +104,4 @@ import { userPosts } from './post.js'
                 })
                 .catch(console.log)
             }
-          }
+        }

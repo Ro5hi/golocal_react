@@ -1,12 +1,19 @@
 // Synchronous
 
-export const userPosts = posts => {
+  export const userPosts = posts => {
+      return {
+        type: "USER_POSTS",
+        posts
+      }
+    }
+
+  export const deletedPost = postID => {
     return {
-      type: "USER_POSTS",
-      posts
+      type: "DELETE_POST",
+      postID
     }
   }
-  
+
   // Asynchronous
   
   export const getPosts = () => {
@@ -30,3 +37,25 @@ export const userPosts = posts => {
         .catch(console.log)
     }
   }
+
+  export const deletePost = (post, history) => {
+    return dispatch => {
+      return fetch(`http://localhost:3000/api/v1/posts/%{post.id}`, {
+        credentials: "include",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(r => r.json())
+      .then(resp => {
+        if (resp.error) {
+        alert(resp.error)
+      } else {
+        dispatch(deletedPost(post.id))
+        dispatch(getPosts())
+      }
+    })
+    .catch(console.log)
+  }
+}
