@@ -9,7 +9,7 @@ import Posts from './components/Posts.js'
 import Editprofile from './components/Editprofile.js'
 import Profile from './components/Profile.js'
 // import styled from 'styled-components'
-import { Route, Router } from 'react-router-dom'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 
     class App extends React.Component {
         componentDidMount() {

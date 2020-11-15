@@ -1,5 +1,6 @@
 import { resetLoginForm } from './loginForm.js'
 import { resetSignupForm } from './signupForm.js'
+import { updateProfileForm } from './editProfileForm.js'
 import { userPosts } from './post.js'
 
     // See current user 
@@ -64,6 +65,33 @@ import { userPosts } from './post.js'
                 } else {
                     dispatch(currentUser(response.data))
                     dispatch(resetSignupForm)
+                    history.push('/')
+                }
+            })
+            .catch(console.log)
+        }
+    }
+
+    export const edit = (credentials, history) => {
+        return dispatch => {
+            const profileInfo = {
+                user: credentials
+            }
+            return fetch("http://localhost:3001/api/v1/editprofile", {
+                credentials: "include",
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(profileInfo)
+            })
+            .then(r => r.json())
+            .then(response => {
+                if (response.error) {
+                    alert(response.error)
+                } else {
+                    dispatch(currentUser(response.data))
+                    dispatch(updateProfileForm)
                     history.push('/')
                 }
             })

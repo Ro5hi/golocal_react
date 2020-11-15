@@ -3,7 +3,6 @@ import PostCard from './PostCard.js'
 import ProfileCard from './ProfileCard.js'
 import Navbar from './Navbar.js'
 import styled from 'styled-components'
-import reactDom, { render } from 'react-dom'
 import { Component } from 'react'
 
     export default class Profile extends Component {

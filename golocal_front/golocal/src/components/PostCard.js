@@ -71,22 +71,6 @@ import styled from 'styled-components'
         color: #000000;
     `
 
-    const Address = styled.div`
-        position: absolute;
-        width: 184px;
-        height: 24px;
-        left: 433px;
-        top: 116px;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 25px;
-        text-align: center;
-        letter-spacing: -0.035em;
-        color: #000000;
-    `
-
     const Description = styled.div`
         position: absolute;
         width: 227px;
