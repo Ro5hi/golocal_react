@@ -21,7 +21,7 @@ import { userPosts } from './post.js'
     // POST user login
     export const login = (credentials, history) => {
         return dispatch => {
-            return fetch('http://localhost:3001/api/v1/login', {
+            return fetch('http://localhost:3000/api/v1/login', {
                 credentials: "include",
                 method: "POST",
                 headers: {
@@ -30,11 +30,11 @@ import { userPosts } from './post.js'
                 body: JSON.stringify(credentials)
             })
             .then(r => r.json())
-            .then(response => {
-                if (response.error) { 
-                alert(response.error)
+            .then(user => {
+                if (user.error) { 
+                alert(user.error)
             } else {
-                dispatch(currentUser(response.data))
+                dispatch(currentUser(user.data))
                 dispatch(userPosts())
                 dispatch(resetLoginForm())
                 history.push('/')
@@ -50,20 +50,20 @@ import { userPosts } from './post.js'
             const userInfo = {
                 user: credentials
             }
-            return fetch("http://localhost:3001/api/v1/signup", {
+            return fetch("http://localhost:3000/api/v1/signup", {
                 credentials: "include",
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(userInfo)
+                body: JSON.stringify(credentials)
             })
             .then(r => r.json())
-            .then(response => {
-                if (response.error) {
-                    alert(response.error)
+            .then(user => {
+                if (user.error) {
+                    alert(user.error)
                 } else {
-                    dispatch(currentUser(response.data))
+                    dispatch(currentUser(user.data))
                     dispatch(resetSignupForm)
                     history.push('/')
                 }
@@ -77,7 +77,7 @@ import { userPosts } from './post.js'
             const profileInfo = {
                 user: credentials
             }
-            return fetch("http://localhost:3001/api/v1/editprofile", {
+            return fetch("http://localhost:3000/api/v1/editprofile", {
                 credentials: "include",
                 method: "PATCH",
                 headers: {
@@ -86,11 +86,11 @@ import { userPosts } from './post.js'
                 body: JSON.stringify(profileInfo)
             })
             .then(r => r.json())
-            .then(response => {
-                if (response.error) {
-                    alert(response.error)
+            .then(user => {
+                if (user.error) {
+                    alert(user.error)
                 } else {
-                    dispatch(currentUser(response.data))
+                    dispatch(currentUser(user.data))
                     dispatch(updateProfileForm)
                     history.push('/')
                 }
@@ -102,7 +102,7 @@ import { userPosts } from './post.js'
         export const logout = (credentials, history) => {
             return dispatch => {
               dispatch(clearSession())
-              return fetch('http://localhost:3001/api/v1/logout', {
+              return fetch('http://localhost:3000/api/v1/logout', {
                 credentials: "include",
                 method: "DELETE",
                 headers: {
@@ -114,7 +114,7 @@ import { userPosts } from './post.js'
           
         export const getCurrentSession = () => {
             return dispatch => {
-              return fetch("http://localhost:3001/api/v1/get_current_user", {
+              return fetch("http://localhost:3000/api/v1/get_current_user", {
                 credentials: "include",
                 method: "GET",
                 headers: {
@@ -122,11 +122,11 @@ import { userPosts } from './post.js'
                 },
               })
                 .then(r => r.json())
-                .then(response => {
-                  if (response.error) {
-                    alert(response.error)
+                .then(user => {
+                  if (user.error) {
+                    alert(user.error)
                   } else {
-                    dispatch(currentUser(response.data))
+                    dispatch(currentUser(user.data))
                     dispatch(userPosts())
                   }
                 })
