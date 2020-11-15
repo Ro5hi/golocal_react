@@ -1,27 +1,27 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Router } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 
     const Join = () => {
         return (
             <Router>
-            <Container>
-                <Body>
-                    Made for locally owned businesses who would like to make an online presence.
-                </Body>
-                    <SignUpButton>
-                        <SignUpButtonText>
-                            <Link to='/signup'>Join Today</Link>
-                        </SignUpButtonText>  
-                    </SignUpButton>
-                    <LogInButton>
-                        <LogInButtonText>
-                            <Link to='/login'>Log In</Link>
-                        </LogInButtonText>  
-                    </LogInButton>    
-            </Container>
+                <Container>
+                    <Body>
+                        Made for locally owned businesses who would like to make an online presence.
+                    </Body>
+                        <SignUpButton>
+                            <SignUpButtonText>
+                                <Link to='/signup'>Join Today</Link>
+                            </SignUpButtonText>  
+                        </SignUpButton>
+                        <LogInButton>
+                            <LogInButtonText>
+                                <Link to='/login'>Log In</Link>
+                            </LogInButtonText>  
+                        </LogInButton>    
+                </Container>
             </Router>
         );
     };

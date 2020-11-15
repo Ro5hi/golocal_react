@@ -8,8 +8,8 @@ import Category from './Category.js';
         return (
             <Container>
                 <Title>GO LOCAL</Title>
-                <Join></Join>
-                <Category></Category>
+                <Join />
+                <Category />
                 <Footer>
                     <FooterText>
                         Go Local ©  2020

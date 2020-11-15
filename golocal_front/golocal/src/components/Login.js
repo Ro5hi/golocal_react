@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { updateLoginForm } from '../actions/loginForm.js'
+import loginForm from '../reducers/loginReducer'
 import { login } from '../actions/currentUser.js' 
 import styled from 'styled-components'
 
-    const Login =  ({ loginFormData, updateLoginForm, login, history }) => {
+    const Login =  ({ loginFormData, updateLoginForm, login }) => {
         const userInput = event => {
             const { name, value } = event.target
             const formInput = {
@@ -16,7 +17,7 @@ import styled from 'styled-components'
 
         const userSubmit = event => {
             event.preventDefault()
-            login(loginFormData, history)
+            login(loginFormData)
         }
 
         
@@ -25,10 +26,10 @@ import styled from 'styled-components'
             <form onSubmit={userSubmit}>
                 <Container>
                     <Username>
-                        <input placeholder ="Username" value={loginFormData.username} name="Username" type="text" onChange={userInput} />
+                        <input placeholder ="Username" value={loginForm.username} name="Username" type="text" onChange={userInput} />
                     </Username>
                             <Password>
-                                <input placeholder="password" value={loginFormData.password} name="password" type="text" onChange={userInput} />
+                                <input placeholder="password" value={loginForm.password} name="password" type="text" onChange={userInput} />
                             </Password>
                     <submitBtn>
                         <input type="submit" value="Log In"/>

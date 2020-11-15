@@ -1,22 +1,21 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Component } from 'react'
-import NewPost from './NewPost'
+import React from "react";
+import { connect } from "react-redux";
+import PostCard from "./PostCard";
+import { getPosts } from "../actions/post";
 
-    class Posts extends Component {
-        render() {
-            return (
-                <div>
-                    {this.props.posts.map((post) => <NewPost key={post.id} post={post} />)}
-                </div>
-            )
-        }
-    }
+    const Posts = props => {
+        const postCards = props.posts.length > 0 ?
+        props.posts.map( p => <PostCard post={p} key={p.id}/>):
+        null
 
+        return (
+            postCards 
+        )
+    }                     
     const mapStateToProps = (state) => {
         return {
-            posts: state 
+            posts: state.Posts
         }
     }
 
-    export default connect(mapStateToProps)(Posts)
+    export default connect(mapStateToProps, { getPosts })(Posts);

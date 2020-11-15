@@ -3,22 +3,16 @@
 
 .container {
   position: absolute;
-  width: 1574px;
-  height: 820px;
+  width: 100%;
+  height: 100%;
   left: 58px;
   top: 51px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .join-block {
   position: absolute;
-  width: 475px;
-  height: 287px;
+  width: 100%;
+  height: 100%;
   left: 112px;
   top: 430px;
   background: #F5F5F5;
