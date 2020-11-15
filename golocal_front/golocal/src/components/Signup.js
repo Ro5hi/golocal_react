@@ -154,9 +154,7 @@ import styled from 'styled-components'
         
             return (
                 <form onSubmit={submitHandler}>
-                <Container>
-                    {/* <ImageUploader>
-                    </ImageUploader> */}
+                    <Container>
                         <Name>
                             <input placeholder="Name" value={signupFormData.name} name="name" type="text" onChange={submitInput} />
                         </Name>
@@ -196,7 +194,7 @@ import styled from 'styled-components'
                         <submitBtn>
                             <input type="submit" value="Register"/>
                         </submitBtn>
-                </Container>
+                    </Container>
                 </form>
             );
         }
