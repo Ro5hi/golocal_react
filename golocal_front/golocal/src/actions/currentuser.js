@@ -45,7 +45,7 @@ import { userPosts } from './post.js'
     }
 
     // POST user signup
-    export const register = (credentials, history) => {
+    export const register = credentials => {
         return dispatch => {
             const userInfo = {
                 user: credentials
@@ -63,9 +63,8 @@ import { userPosts } from './post.js'
                 if (user.error) {
                     alert(user.error)
                 } else {
-                    dispatch(currentUser(user.data))
-                    dispatch(resetSignupForm)
-                    history.push('/')
+                    dispatch(currentUser(user))
+                    dispatch(resetSignupForm())
                 }
             })
             .catch(console.log)
@@ -74,16 +73,13 @@ import { userPosts } from './post.js'
 
     export const edit = (credentials, history) => {
         return dispatch => {
-            const profileInfo = {
-                user: credentials
-            }
             return fetch("http://localhost:3001/api/v1/editprofile", {
                 credentials: "include",
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(profileInfo)
+                body: JSON.stringify(credentials)
             })
             .then(r => r.json())
             .then(user => {

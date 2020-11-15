@@ -1,5 +1,6 @@
     const initialState = {
         name: "",
+        email: "",
         username: "",
         password: "",
         business: {
@@ -13,7 +14,7 @@
         }
     }
 
-    export const signupReducer = (state=initialState, action) => {
+    const signupForm = (state=initialState, action) => {
         switch (action.type) {
             case "UPDATE_SIGNUP_FORM":
                 return action.formData
@@ -24,4 +25,4 @@
         }
     }
 
-    export default signupReducer
+    export default signupForm
