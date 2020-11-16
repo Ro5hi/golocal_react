@@ -7,7 +7,6 @@ class CreateBusinesses < ActiveRecord::Migration[6.0]
         t.string :state 
         t.string :zipcode
         t.string :country
-        t.string :category
         t.references :user
       end
     end

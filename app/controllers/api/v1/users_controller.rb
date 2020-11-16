@@ -8,7 +8,7 @@ class API::V1::UsersController < ApplicationController
     # POST /users
     def create
         @user = User.new(user_params)
-        @business = Business.find_or_create_by(name: params[:business][:name], address: params[:business][:address], city: params[:business][:city], country: params[:business][:country], category: params[:business][:category])
+        @business = Business.find_or_create_by(name: params[:user][:business][:name], address: params[:user][:business][:address], city: params[:user][:business][:city], country: params[:user][:business][:country])
 
         @user.business = @business
         if @user.save
@@ -40,6 +40,6 @@ class API::V1::UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:username, :user_id, :password_digest)
+        params.require(:user).permit(:name, :username, :password, :business)
     end 
 end 

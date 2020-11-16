@@ -3,7 +3,7 @@ class API::V1::SessionsController < ApplicationController
     def create
       @user = User.find_by(params[:username])
       
-      if params[params[:email] == "" || params[:password] == ""]
+      if params[params[:username] == "" || params[:password] == ""]
       render json: {
         error: "Incorrect username or password. Please try again."
       }

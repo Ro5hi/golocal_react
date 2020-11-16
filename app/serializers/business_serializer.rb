@@ -1,5 +1,6 @@
 class BusinessSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :address, :city, :state, :zipcode, :country, :category, :user_id
-  belongs_to :user 
+  
+  attributes :name, :address, :city, :state,  :country, :zipcode
+  
 end

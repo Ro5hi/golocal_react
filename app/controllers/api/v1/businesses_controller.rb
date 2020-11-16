@@ -1,14 +1,10 @@
 class API::V1::BusinessesController < ApplicationController
 
-    before_action :set_business, only: [:show, :update]
+    before_action :set_business, only: [:index, :create]
 
     def index
         @business = Business.all 
         render json: @business
-    end 
-
-    def show
-        render json: @business 
     end 
 
     def create
@@ -20,14 +16,6 @@ class API::V1::BusinessesController < ApplicationController
         end 
     end 
 
-    def update
-        if @business.update(business_params)
-            render json: @business 
-        else 
-            render json: @business.errors, status: unprocessable_entity 
-        end
-    end 
-
     private 
 
     def set_business
@@ -35,7 +23,7 @@ class API::V1::BusinessesController < ApplicationController
     end
 
     def business_params
-        params.require(:business).permit(:name, :address, :city, :country, :category)
+        params.require(:business).permit(:name, :address, :city, :country)
     end
 
 end
