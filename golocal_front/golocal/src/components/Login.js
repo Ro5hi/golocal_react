@@ -30,7 +30,7 @@ import styled from 'styled-components'
                         <input placeholder ="Username" value={loginForm.username} name="Username" type="text" onChange={userInput} />
                     </Username>
                             <Password>
-                                <input placeholder="password" value={loginForm.password_digest} name="password" type="text" onChange={userInput} />
+                                <input placeholder="password" value={loginForm.password} name="password" type="text" onChange={userInput} />
                             </Password>
                     <Button>
                         <input type="submit" value="Log In"/>

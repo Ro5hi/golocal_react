@@ -2,7 +2,7 @@
         name: "",
         email: "",
         username: "",
-        password_digest: "",
+        password: "",
         image: "",
         business: {
             name: "",

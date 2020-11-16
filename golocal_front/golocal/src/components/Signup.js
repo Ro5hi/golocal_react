@@ -50,7 +50,7 @@ import styled from 'styled-components'
                             <input placeholder="Username" value={signupForm.username} name="username" type="text" onChange={userInfo} />
                         </Username>
                         <Password>
-                            <input placeholder="Password" value={signupForm.password_digest} name="password" type="text" onChange={userInfo} />
+                            <input placeholder="Password" value={signupForm.password} name="password" type="text" onChange={userInfo} />
                         </Password>
                             <Business>
                                 <input placeholder="Business Name" value={signupForm.business.name} name="name" type="text" onChange={businessInfo} />
