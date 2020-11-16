@@ -1,7 +1,6 @@
 class API::V1::PostsController < ApplicationController
 
 before_action :set_post, only: [:show, :edit, :update, :destroy]
-before_action :set_tag, only: [:show]
 before_action :find_user, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
 def index 
@@ -53,20 +52,16 @@ end
 private
 
 def create_params 
-    params.require(:post).permit(:image, :image_cache, :user_id, :caption, :tag_list)
+    params.require(:post).permit(:user_id, :caption)
 end
 
 def edit_params 
-    params.require(:post).permit(:caption, :tag_list, :user_id, :id)
+    params.require(:post).permit(:caption, :user_id, :id)
 end
 
 def set_post
     @post = Post.find_by(id: params[:id])
 end
-
-def set_tag 
-    @tag = Tag.find_by(params[:name])
-end 
 
 def find_user 
     @user = User.where(params[:id])

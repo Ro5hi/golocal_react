@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(id: 1, name: "Tony Zammar", username: "TonyZ", email: "tonyzmrr@gmail.com", password_digest: "password", image: "profile.jpg")
+User.create(id: 2, name: "John Smith", username: "Super", email: "thisisjohnsmith@gmail.com", password_digest: "supersecret", image: "profile.jpg")
 Business.create(id: 1, name: "Yats", address: "1625 W University Ave", city: "Muncie", state: "IN", zipcode: "47304", country: "USA", category: "Food", user_id: 1)

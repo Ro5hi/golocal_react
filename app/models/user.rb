@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
     serialize :image, JSON
 
     has_many :posts, dependent: :destroy 
-    has_many :comments 
 
     validates :name, :username, :email, presence: true 
     validates :username, uniqueness: true
