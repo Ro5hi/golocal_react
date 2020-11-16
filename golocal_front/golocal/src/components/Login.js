@@ -23,15 +23,18 @@ import styled from 'styled-components'
         return (
             <form onSubmit={userSubmit}>
                 <Container>
+                    <Header>
+                        <h1> Log In </h1>
+                    </Header>
                     <Username>
                         <input placeholder ="Username" value={loginForm.username} name="Username" type="text" onChange={userInput} />
                     </Username>
                             <Password>
                                 <input placeholder="password" value={loginForm.password} name="password" type="text" onChange={userInput} />
                             </Password>
-                    <submitBtn>
+                    <Button>
                         <input type="submit" value="Log In"/>
-                    </submitBtn>
+                    </Button>
                 </Container>
             </form>
             );
@@ -45,8 +48,8 @@ import styled from 'styled-components'
         
         const Container = styled.div`
             position: absolute;
-            width: 778px;
-            height: 600px;
+            width: 100%;
+            height: 100%;
             left: 0px;
             top: 4px;
             
@@ -55,13 +58,26 @@ import styled from 'styled-components'
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         `
         
+        const Header = styled.div`
+            position: absolute;
+            width: 167px;
+            height: 71px;
+            left: 314px;
+            top: 140px
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 34px;
+            line-height: 59px;
+            color: #000000;
+        `
+
         const Username = styled.div`
             position: absolute;
             width: 778px;
             height: 600px;
-            left: 0px;
-            top: 4px;
-            background: #FBEABE;
+            left: 300px;
+            top: 204px;
             border: 1px solid rgba(9, 112, 38, 0.1);
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         `
@@ -70,20 +86,17 @@ import styled from 'styled-components'
             position: absolute;
             width: 361px;
             height: 25px;
-            left: 0px;
-            top: 32px;
-            background: #FFFFFF;
+            left: 300px;
+            top: 244px;
+            
         `
         
-        const submitBtn = styled.div`
+        const Button = styled.div`
             position: absolute;
             width: 102px;
-            height: 26px;
-            left: 0px;
-            top: 1px;
-            background: #FFFFFF;
-            border: 1px solid #000000;
-            box-sizing: border-box;
+            height: -46px;
+            left: 300px;
+            top: 290px;
         `
         
         export default connect(mapStateToProps, { updateLoginForm, login})(Login)

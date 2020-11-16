@@ -4,6 +4,7 @@ import loginReducer from './reducers/loginReducer'
 import postReducer from './reducers/postReducer'
 import signupReducer from './reducers/signupReducer'
 import usersReducer from './reducers/usersReducer'
+import currentUser from './reducers/currentUserReducer'
 import thunk from 'redux-thunk'
 
     const reducer = combineReducers({
@@ -11,7 +12,8 @@ import thunk from 'redux-thunk'
         loginReducer,
         postReducer,
         signupReducer,
-        usersReducer
+        usersReducer,
+        currentUser
     })
 
     const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

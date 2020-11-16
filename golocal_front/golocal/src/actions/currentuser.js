@@ -18,6 +18,13 @@ import { userPosts } from './post.js'
         }
     }
 
+    export const updateUser = user => {
+        return {
+            type: "UPDATED_USER",
+            user
+        }
+    }
+
     // POST user login
     export const login = (credentials, history) => {
         return dispatch => {

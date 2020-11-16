@@ -7,10 +7,17 @@
       }
     }
 
-  export const deletedPost = postID => {
+  export const addPost = post => {
+    return {
+      type: "ADD_POST",
+      post
+    }
+  } 
+
+  export const deletedPost = postId => {
     return {
       type: "DELETE_POST",
-      postID
+      postId
     }
   }
 
@@ -18,20 +25,26 @@
 
   export const createPost = (post, history) => {
     return dispatch => {
+      const newPostData = {
+        image: post.image,
+        caption: post.caption,
+        user_id: post.userId 
+      }
       return fetch("https://localhost:3001/api/v/posts", {
         credentials: "include",
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(post)
+        body: JSON.stringify(newPostData)
       })
       .then(r => r.json())
       .then(resp => {
         if (resp.error) {
           alert(resp.error)
         } else {
-          history.push(`/`)
+          dispatch(addPost(resp.data))
+          history.push(`/posts/${resp.data.id}`)
         }
       })
       .catch(console.log)
@@ -60,9 +73,9 @@
     }
   }
 
-  export const deletePost = (postID, history) => {
+  export const deletePost = (postId, history) => {
     return dispatch => {
-      return fetch(`http://localhost:3001/api/v1/posts/${postID}`, {
+      return fetch(`http://localhost:3001/api/v1/posts/${postId}`, {
         credentials: "include",
         method: "DELETE",
         headers: {
@@ -74,7 +87,7 @@
         if (resp.error) {
         alert(resp.error)
       } else {
-        dispatch(deletedPost(postID))
+        dispatch(deletedPost(postId))
         dispatch(getPosts())
         history.push(`/posts`)
       }
