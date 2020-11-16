@@ -22,9 +22,8 @@ import { Route, Switch, withRouter } from 'react-router-dom'
         render() {
             const { loggedIn, posts, users } = this.props 
             return (
-                <>
-                { loggedIn ? <Navbar/> : <Home/> }
                 <Background>
+                { loggedIn ? <Navbar/> : <Home/> }
                     <Switch>
                         <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
                         <Route exact path='/login' component={Login}/>
@@ -43,8 +42,8 @@ import { Route, Switch, withRouter } from 'react-router-dom'
                         }
                         }/>
                     </Switch>
+                
                 </Background>
-                </>
             );
         }
     }
@@ -57,8 +56,8 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 
         const Background = styled.div`
             position: absolute;
-            width: 1680px;
-            height: 960px;
+            width: 100%;
+            height: 100%;
             left: 0px;
             top: 0px;
             background: #FBEABE;

@@ -81,13 +81,15 @@ import styled from 'styled-components'
         }
 
             const Container = styled.div`
-                position: absolute;
                 display: flex;
-                width: 100%;
-                height: 100%;
-                left: 0px;
+                position: absolute;
+                width: 400px;
+                height: 920px;
+                left: 1000px;
                 top: 4px;
                 background: #FBEABE;
+                border: 1px solid rgba(9, 112, 38, 0.1);
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             `
 
             const Header = styled.div`
@@ -95,11 +97,11 @@ import styled from 'styled-components'
                 width: 663px;
                 height: 71px;
                 left: 29px;
-                top: 36px;
+                top: 13%;
                 font-family: Montserrat;
                 font-style: normal;
                 font-weight: normal;
-                font-size: 48px;
+                font-size: 28px;
                 line-height: 59px;
                 color: #000000;
             `

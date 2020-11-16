@@ -48,11 +48,10 @@ import styled from 'styled-components'
         
         const Container = styled.div`
             position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0px;
+            width: 300px;
+            height: 920px;
+            left: 1000px;
             top: 4px;
-            
             background: #FBEABE;
             border: 1px solid rgba(9, 112, 38, 0.1);
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -60,15 +59,15 @@ import styled from 'styled-components'
         
         const Header = styled.div`
             position: absolute;
-            width: 167px;
+            width: 663px;
             height: 71px;
-            left: 314px;
-            top: 140px
+            left: 29px;
+            top: 13%;
             font-family: Montserrat;
             font-style: normal;
             font-weight: normal;
-            font-size: 34px;
-            line-height: 65px;
+            font-size: 28px;
+            line-height: 59px;
             color: #000000;
         `
 
@@ -76,24 +75,24 @@ import styled from 'styled-components'
             position: absolute;
             width: 778px;
             height: 600px;
-            left: 300px;
-            top: 204px
+            left: 29px;
+            top: 300px;
         `
         
         const Password = styled.div`
             position: absolute;
             width: 361px;
             height: 25px;
-            left: 300px;
-            top: 244px;
+            left: 29px;
+            top: 325px;
         `
         
         const Button = styled.div`
             position: absolute;
             width: 102px;
             height: -46px;
-            left: 300px;
-            top: 290px;
+            left: 29px;
+            top: 375px;
         `
         
         export default connect(mapStateToProps, { updateLoginForm, login})(Login)

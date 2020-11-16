@@ -20,7 +20,7 @@ import Join from './Join.js';
     };
 
     const Container = styled.div`
-        position: absolute;
+        display: flex;
         width: 100%;
         height: 100%;
         left: 0px;
@@ -35,7 +35,7 @@ import Join from './Join.js';
 
     const Title = styled.div`
         position: absolute;
-        left: 5.21%;
+        left: 1.21%;
         right: 49.94%;
         top: 9.27%;
         bottom: 55.37%;
@@ -53,12 +53,11 @@ import Join from './Join.js';
 
     const Footer = styled.div`
         position: absolute;
+        display: flex;
         width: 100%;
         height: 80px;
         left: 0px;
-        top: 1958px;
-        
-        background: #FFFFFF;
+        top: 100%;
     `
     const FooterText = styled.div`
         position: absolute;

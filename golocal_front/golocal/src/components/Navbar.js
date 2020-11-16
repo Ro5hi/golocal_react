@@ -1,5 +1,6 @@
 import React from 'react'
 import connect from 'react-redux/lib/connect/connect'
+import { NavLink } from 'react-router-dom'
 import LoggingOut from './Logout.js'
 import styled from 'styled-components'
 
@@ -13,6 +14,11 @@ import styled from 'styled-components'
                 <Links>
                     <ul>
                         { currentUser ? <><p id="curentuser">{currentUser.attributes.username}</p><LoggingOut/></> : null}
+                        <li><NavLink to="/home">Home</NavLink></li>
+                        <li><NavLink to="/posts">Feed</NavLink></li>
+                        <li><NavLink to="/newpost">New Post</NavLink></li>
+                        <li><NavLink to="/profile">Profile</NavLink></li>
+                        <li><NavLink to="/editprofile">Account</NavLink></li>
                     </ul>
                 </Links>
             </Bar>

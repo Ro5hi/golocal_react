@@ -46,7 +46,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
         font-weight: normal;
         font-size: 24px;
         line-height: 38px;
-        /* or 158% */
         text-align: center;
         letter-spacing: -0.015em;
         color: rgba(0, 0, 0, 0.8);
@@ -54,47 +53,39 @@ import { BrowserRouter as Router } from 'react-router-dom'
     `
 
     const SignUpButton = styled.div`
+        width: 192px;
         height: 52px;
-        width: 165px;
-        left: 0px;
-        top: 0px;
+        left: 250px;
+        top: 140px;
         position: absolute;
-        left: 32%;
-        right: 0%;
-        top: 60%;
-        bottom: 0%;
         background: #F2994A;
         border-radius: 6px;
     `
 
     const SignUpButtonText = styled.div`
         position: absolute;
-        left: 26.15%;
-        right: 26.97%;
-        top: 29.42%;
+        left: 62px;
+        top: 15px;
         bottom: 30.19%;
-        
         font-family: Montserrat;
         font-style: normal;
         font-weight: 500;
         font-size: 17px;
         line-height: 21px;
-        /* identical to box height */
-        
         display: flex;
         align-items: center;
         text-align: center;
         letter-spacing: -0.015em;
-        
         color: #FFFFFF;
     `
 
     const LogInButton = styled.div`
         position: absolute;
-        left: 0%;
-        right: 0%;
-        top: 0%;
-        bottom: 0%;
+        width: 192px;
+        height: 52px;
+        left: 241px;
+        top: 140px;
+        left: 25px;
         background: #F2994A;
         border-radius: 6px;
     `
@@ -102,8 +93,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
     const LogInButtonText = styled.div`
         position: absolute;
         left: 36.05%;
-        right: 36.35%;
-        top: 29.42%;
+        top: 15px;
         bottom: 30.19%;
         font-family: Montserrat;
         font-style: normal;
