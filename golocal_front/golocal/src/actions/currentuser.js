@@ -54,7 +54,8 @@ import { userPosts } from './post.js'
     export const register = credentials => {
         return dispatch => {
             const userInfo = {
-                user: credentials
+                user: credentials,
+                business: credentials
             }
             return fetch("http://localhost:3001/api/v1/signup", {
                 credentials: "include",

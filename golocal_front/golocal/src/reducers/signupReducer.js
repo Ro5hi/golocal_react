@@ -1,28 +1,25 @@
     const initialState = {
         name: "",
-        email: "",
         username: "",
         password: "",
-        image: "",
         business: {
             name: "",
             address: "",
             city: "",
             state: "",
-            zipcode: "",
-            category: "",
-            image: "",
+            country: "",
+            zipcode: ""
         }
     }
 
-    const signupForm = (state=initialState, action) => {
+    export const signupForm = (state=initialState, action) => {
         switch (action.type) {
             case "UPDATE_SIGNUP_FORM":
-                return action.formData
+              return action.formData
             case "RESET_SIGNUP_FORM":
-                return initialState
+              return initialState
             default:
-                return state 
+              return state
         }
     }
 

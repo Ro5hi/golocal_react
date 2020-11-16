@@ -3,8 +3,7 @@ const initialState = {
     caption: "",
 }
 
-
-const postReducer = (state = [], action) => {
+const postForm = (state = [], action) => {
     switch (action.type) {
     case 'ADD_POST':
         return state.concat([action.data])
@@ -15,4 +14,4 @@ const postReducer = (state = [], action) => {
         }
     }
 
-    export default postReducer
+    export default postForm

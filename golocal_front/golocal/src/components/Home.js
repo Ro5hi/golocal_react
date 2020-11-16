@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import Join from './Join.js';
-import Category from './Category.js';
+// import Search from './Search.js';
 
 
     const Home = () => {
@@ -9,7 +9,7 @@ import Category from './Category.js';
             <Container>
                 <Title>GO LOCAL</Title>
                 <Join />
-                <Category />
+                {/* <Search /> */}
                 <Footer>
                     <FooterText>
                         Go Local ©  2020
