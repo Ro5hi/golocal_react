@@ -1,15 +1,16 @@
 class API::V1::SessionsController < ApplicationController
 
     def create
-      @user = User.find_by(username: params[:username])
-  
-      if @user && @user.authenticate(params[:username])
-        session[:user_id] = @user.id
-        render json: UserSerializer.new(@user), status: :ok
-      else
-        render json: {
-          error: "Incorrect username or password. Please try again."
-        }
+      @user = User.find_by(params[:username])
+      
+      if params[params[:email] == "" || params[:password] == ""]
+      render json: {
+        error: "Incorrect username or password. Please try again."
+      }
+    else
+      @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      render json: UserSerializer.new(@user), status: :ok
       end
     end
   
