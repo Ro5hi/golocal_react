@@ -54,16 +54,17 @@ import Join from './Join.js';
     const Footer = styled.div`
         position: absolute;
         display: flex;
-        width: 100%;
+        width: 301px;
         height: 80px;
         left: 0px;
         top: 100%;
     `
     const FooterText = styled.div`
         position: absolute;
+        display: flex;
         width: 301px;
         height: 24px;
-        left: 690px;
+        left: 800px;
         top: 37px;
         font-family: Montserrat;
         font-style: normal;

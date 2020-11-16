@@ -32,7 +32,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
         height: 287px;
         left: 112px;
         top: 430px;
-        background: #F5F5F5;
+        background: #FFFFFF;
     `
 
     const Body = styled.div`
@@ -63,6 +63,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
     `
 
     const SignUpButtonText = styled.div`
+        a:link, a:hover {
+        text-decoration: none;
+        color: white;
         position: absolute;
         left: 62px;
         top: 15px;
@@ -71,12 +74,13 @@ import { BrowserRouter as Router } from 'react-router-dom'
         font-style: normal;
         font-weight: 500;
         font-size: 17px;
+        text-decoration: none;
         line-height: 21px;
         display: flex;
         align-items: center;
         text-align: center;
         letter-spacing: -0.015em;
-        color: #FFFFFF;
+        color: #FFFFFF; }
     `
 
     const LogInButton = styled.div`
@@ -91,6 +95,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
     `
 
     const LogInButtonText = styled.div`
+        a:link, a:hover {
+        text-decoration: none;
+        color: white;
         position: absolute;
         left: 36.05%;
         top: 15px;
@@ -99,11 +106,12 @@ import { BrowserRouter as Router } from 'react-router-dom'
         font-style: normal;
         font-weight: 500;
         font-size: 17px;
+        text-decoration: none;
         line-height: 21px;
         display: flex;
         align-items: center;
         text-align: center;
         letter-spacing: -0.015em;
-        color: #FFFFFF;
+        color: #FFFFFF; }
     `
     export default Join;

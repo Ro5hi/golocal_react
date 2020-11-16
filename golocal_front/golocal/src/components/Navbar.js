@@ -5,20 +5,20 @@ import LoggingOut from './Logout.js'
 import styled from 'styled-components'
 
 
-    const Navbar = ({ currentUser }) => {
+    const Navbar = ({ currentUser, loggedIn }) => {
         return (
             <Bar>
                 <Logo>
                     GO LOCAL
                 </Logo>
                 <Links>
+                        { currentUser ? <><p id="curentuser">Hello, {currentUser.attributes.username}</p><LoggingOut/></> : null}
                     <ul>
-                        { currentUser ? <><p id="curentuser">{currentUser.attributes.username}</p><LoggingOut/></> : null}
-                        <li><NavLink to="/home">Home</NavLink></li>
-                        <li><NavLink to="/posts">Feed</NavLink></li>
-                        <li><NavLink to="/newpost">New Post</NavLink></li>
-                        <li><NavLink to="/profile">Profile</NavLink></li>
-                        <li><NavLink to="/editprofile">Account</NavLink></li>
+                        <li><NavLink exact to="/home">Home</NavLink></li>
+                        <li><NavLink exact to="/posts">Feed</NavLink></li>
+                        <li><NavLink exact to="/newpost">New Post</NavLink></li>
+                        <li><NavLink exact to="/profile">Profile</NavLink></li>
+                        <li><NavLink exact to="/editprofile">Account</NavLink></li>
                     </ul>
                 </Links>
             </Bar>
@@ -27,7 +27,8 @@ import styled from 'styled-components'
     
     const mapStateToProps = ({ currentUser }) => {
         return {
-            currentUser
+            currentUser,
+            loggedIn: !!currentUser
         }
     }
       
