@@ -30,7 +30,7 @@ import styled from 'styled-components'
                         <input placeholder ="Username" value={loginForm.username} name="Username" type="text" onChange={userInput} />
                     </Username>
                             <Password>
-                                <input placeholder="password" value={loginForm.password} name="password" type="text" onChange={userInput} />
+                                <input placeholder="password" value={loginForm.password_digest} name="password" type="text" onChange={userInput} />
                             </Password>
                     <Button>
                         <input type="submit" value="Log In"/>
@@ -68,7 +68,7 @@ import styled from 'styled-components'
             font-style: normal;
             font-weight: normal;
             font-size: 34px;
-            line-height: 59px;
+            line-height: 65px;
             color: #000000;
         `
 
@@ -77,9 +77,7 @@ import styled from 'styled-components'
             width: 778px;
             height: 600px;
             left: 300px;
-            top: 204px;
-            border: 1px solid rgba(9, 112, 38, 0.1);
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            top: 204px
         `
         
         const Password = styled.div`
@@ -88,7 +86,6 @@ import styled from 'styled-components'
             height: 25px;
             left: 300px;
             top: 244px;
-            
         `
         
         const Button = styled.div`

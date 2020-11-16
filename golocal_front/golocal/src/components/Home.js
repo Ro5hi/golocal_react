@@ -40,7 +40,7 @@ import Category from './Category.js';
         top: 9.27%;
         bottom: 55.37%;
         font-family: Abril Fatface;
-        font-style: strong;
+        font-style: normal;
         font-weight: normal;
         font-size: 144px;
         line-height: 194px;

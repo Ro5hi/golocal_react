@@ -1,6 +1,6 @@
 const initialState = {
     username: "",
-    password: ""
+    password_digest: ""
   }
   
   export const loginForm = (state = initialState, action) => {

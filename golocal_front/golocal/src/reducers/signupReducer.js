@@ -2,7 +2,8 @@
         name: "",
         email: "",
         username: "",
-        password: "",
+        password_digest: "",
+        image: "",
         business: {
             name: "",
             address: "",

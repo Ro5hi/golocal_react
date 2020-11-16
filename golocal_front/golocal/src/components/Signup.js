@@ -37,6 +37,9 @@ import styled from 'styled-components'
             return (
                 <form onSubmit={submitHandler}>
                     <Container>
+                        <Header>
+                            <h1>User Profile</h1>
+                        </Header>
                         <Name>
                             <input placeholder="Name" value={signupForm.name} name="name" type="text" onChange={userInfo} />
                         </Name>
@@ -47,7 +50,7 @@ import styled from 'styled-components'
                             <input placeholder="Username" value={signupForm.username} name="username" type="text" onChange={userInfo} />
                         </Username>
                         <Password>
-                            <input placeholder="Password" value={signupForm.password} name="password" type="text" onChange={userInfo} />
+                            <input placeholder="Password" value={signupForm.password_digest} name="password" type="text" onChange={userInfo} />
                         </Password>
                             <Business>
                                 <input placeholder="Business Name" value={signupForm.business.name} name="name" type="text" onChange={businessInfo} />
@@ -97,6 +100,20 @@ import styled from 'styled-components'
                 background: #FBEABE;
                 border: 1px solid rgba(9, 112, 38, 0.1);
                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            `
+
+            const Header = styled.div`
+                position: absolute;
+                width: 663px;
+                height: 71px;
+                left: 29px;
+                top: 36px;
+                font-family: Montserrat;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 48px;
+                line-height: 59px;
+                color: #000000;
             `
 
             const Name = styled.div`

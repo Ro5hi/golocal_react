@@ -1,19 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@200&display=swap');
 
 
-.container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 58px;
-  top: 51px;
-}
-
-.join-block {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 112px;
-  top: 430px;
-  background: #F5F5F5;
+* {
+  background: #FBEABE;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  outline: none;
 }

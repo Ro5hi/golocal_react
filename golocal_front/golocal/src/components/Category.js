@@ -42,7 +42,6 @@ import styled from 'styled-components'
     `
 
     const Unique = styled.div`
-        background-image
         position: absolute;
         width: 393px;
         height: 337px;
