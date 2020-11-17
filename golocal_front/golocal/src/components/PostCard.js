@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { deletePost } from '../actions/post.js'
+import { Link } from 'react-router-dom'
 
     const PostCard = ({ user, post }) => {
         return (
@@ -14,6 +15,7 @@ import { deletePost } from '../actions/post.js'
                     <Caption>
                         <h3>{post.attributes.caption}</h3>
                     </Caption>
+                    <Link to={`/posts/${post.id}/edit`}>Update Post</Link>
                 <button onClick={deletePost}>Delete</button>
             </Card>
         )

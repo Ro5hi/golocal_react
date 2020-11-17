@@ -5,7 +5,7 @@ import { updatePostForm } from '../actions/post.js'
 
     const PostForm = ({ formData, updatePostForm, userId, post, postSubmit, editThisPost}) => {
         const { caption } = formData 
-
+        
         const submitHandler = event => {
           const { name, value } = event.target 
           updatePostForm(name, value)

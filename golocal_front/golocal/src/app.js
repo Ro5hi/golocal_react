@@ -8,7 +8,7 @@ import Signup from './components/Signup.js'
 import Login from './components/Login.js'
 import PostForm from './components/PostForm.js'
 import Posts from './components/Posts.js'
-import Editprofile from './components/Editprofile.js'
+import ProfileEdit from './components/ProfileEdit.js'
 import Profile from './components/Profile.js'
 import styled from 'styled-components'
 import { Route, Switch, withRouter } from 'react-router-dom'
@@ -17,13 +17,11 @@ import { Route, Switch, withRouter } from 'react-router-dom'
         componentDidMount() {
             this.props.currentUser()
         }
-        // {loggedIn ? <RouterComp /> : null}
-
         render() {
             const { loggedIn, posts, users } = this.props 
             return (
                 <Background>
-                { loggedIn ? <Navbar/> : <Index/> }
+                { loggedIn ? <Navbar location={this.props.location}/> : <Index/> }
                     <Switch>
                         <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
                         <Route exact path='/login' component={Login}/>
@@ -31,9 +29,9 @@ import { Route, Switch, withRouter } from 'react-router-dom'
                         <Route exact path='/profile' component={Profile}/>
                         <Route exact path='/newpost' component={PostForm}/>
                         <Route exact path='/posts' component={Posts}/>
-                        <Route exact path='/account/:id' render={props => {
+                        <Route exact path='/editprofile/:id' render={props => {
                             const user = users.find(user => user.id === props.match.params.id) 
-                            return <Editprofile user={user} {...props} />
+                            return <ProfileEdit user={user} {...props} />
                         }
                         }/>
                         <Route exact path='/posts/:id' render={props => {

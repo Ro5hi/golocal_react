@@ -2,7 +2,7 @@
         caption: ""
     }
 
-    const postForm = (state = [], action) => {
+    const postForm = (state = initialState, action) => {
         switch (action.type) {
         case "UPDATE_NEW_POST_FORM":
             const postFormInput = {
@@ -10,14 +10,12 @@
                 [action.formData.name]: action.formData.value
             }
             return postFormInput 
-        case 'ADD_POST':
-            return state.concat([action.data])
-        case 'DELETE_POST':
-            return state.filter((post) => post.id !== action.id)
-        case 'EDIT_POST':
-            return action.postFormData
+        case "RESET_POST_FORM":
+            return initialState
+        case "EDIT_POST_FORM":
+            return action.postFormData 
         default:
-            return initialState;
+            return state;
         }
     }
 
