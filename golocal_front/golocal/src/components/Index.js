@@ -4,7 +4,7 @@ import Join from './Join.js';
 // import Search from './Search.js';
 
 
-    const Home = () => {
+    const Index = () => {
         return (
             <Container>
                 <Title>GO LOCAL</Title>
@@ -76,4 +76,4 @@ import Join from './Join.js';
         color: rgba(0, 0, 0, 0.8);    
     `
 
-    export default Home
+    export default Index

@@ -44,6 +44,7 @@ import { userPosts } from './post.js'
                 dispatch(currentUser(user))
                 dispatch(userPosts())
                 dispatch(resetLoginForm())
+                history.push(`/`)
             }
             })
             .catch(console.log)
@@ -51,11 +52,10 @@ import { userPosts } from './post.js'
     }
 
     // POST user signup
-    export const register = credentials => {
+    export const register = (credentials, history) => {
         return dispatch => {
             const userInfo = {
-                user: credentials,
-                business: credentials
+                user: credentials
             }
             return fetch("http://localhost:3001/api/v1/signup", {
                 credentials: "include",
@@ -66,12 +66,13 @@ import { userPosts } from './post.js'
                 body: JSON.stringify(userInfo)
             })
             .then(r => r.json())
-            .then(user => {
-                if (user.error) {
-                    alert(user.error)
+            .then(response => {
+                if (response.error) {
+                    alert(response.error)
                 } else {
-                    dispatch(currentUser(user))
+                    dispatch(currentUser(response.data))
                     dispatch(resetSignupForm())
+                    history.push(`/`)
                 }
             })
             .catch(console.log)

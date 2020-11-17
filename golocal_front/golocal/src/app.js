@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { currentUser } from './actions/currentUser.js'
 import Navbar from './components/Navbar.js'
-import Home from './components/Home.js'
+import Index from './components/Index.js'
 import PostCard from './components/PostCard.js'
 import Signup from './components/Signup.js'
 import Login from './components/Login.js'
@@ -23,11 +23,11 @@ import { Route, Switch, withRouter } from 'react-router-dom'
             const { loggedIn, posts, users } = this.props 
             return (
                 <Background>
-                { loggedIn ? <Navbar/> : <Home/> }
+                { loggedIn ? <Navbar/> : <Index/> }
                     <Switch>
                         <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
                         <Route exact path='/login' component={Login}/>
-                        <Route exact path='/home' component={Home}/>
+                        <Route exact path='/home' component={Index}/>
                         <Route exact path='/profile' component={Profile}/>
                         <Route exact path='/newpost' component={NewPost}/>
                         <Route exact path='/posts' component={Posts}/>
