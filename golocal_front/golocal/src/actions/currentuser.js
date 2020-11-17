@@ -114,7 +114,7 @@ import { userPosts } from './post.js'
                 }
               })
             }
-          }
+        }
           
         export const getCurrentSession = () => {
             return dispatch => {

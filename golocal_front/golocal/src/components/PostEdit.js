@@ -1,7 +1,7 @@
 import React from 'react';
 import PostForm from './PostForm.js'
 import { editPost, deletePost } from '../actions/post.js'
-import { updatePostForm, resetPostForm } from '../actions/postForm'
+import { updatePostForm, resetPostForm } from '../actions/post'
 import { connect } from 'react-redux'
 
 class EditPost extends React.Component {

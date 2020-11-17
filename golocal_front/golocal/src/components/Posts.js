@@ -1,21 +1,26 @@
 import React from "react";
-import { connect } from "react-redux";
-import PostCard from "./PostCard";
-import { getPosts } from "../actions/post";
+import PostCard from './PostCard.js'
 
-    const Posts = props => {
-        const postCards = props.posts.length > 0 ?
-        props.posts.map( p => <PostCard post={p} key={p.id}/>):
-        null
 
-        return (
-            postCards 
-        )
-    }                     
-    const mapStateToProps = (state) => {
-        return {
-            posts: state.Posts
+    export default class Posts extends React.component { 
+        state = {
+            posts: []
+        }
+
+        componentDidMount() {
+            fetch(`http://localhost:3001/api/v1/post`)
+            .then(response => response.json())
+            .then(posts => {
+                this.setState({posts: posts.data})
+                console.log(posts)
+            });
+        }
+        render(){
+            return
+            <PostCard>
+                {this.state.posts.map(function(post){
+                return <div key={post.id}>{post.caption}</div>
+            })}
+            </PostCard>
         }
     }
-
-    export default connect(mapStateToProps, { getPosts })(Posts);
