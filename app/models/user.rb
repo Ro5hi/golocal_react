@@ -4,11 +4,11 @@ class User < ActiveRecord::Base
 
     serialize :image, JSON
     
-    belongs_to :business 
-
+    belongs_to :business, class_name: "Business", :foreign_key => "business_id"
+    
     has_many :posts, dependent: :destroy 
 
-    validates :name, :username, :password, presence: true 
+    validates :name, :username, :password, :business, presence: true 
     validates :username, uniqueness: true
 
     def profile_photo

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post "/api/v1/deletepost/:id", to: "api/v1/posts#destroy"
   get "/api/v1/profile", to: "api/v1/users#show"
   get "/api/v1/get_session", to: "api/v1/sessions#get_session"
-  patch "/api/v1/profile", to: "api/v1/users#update"
+  patch "/api/v1/editprofile", to: "api/v1/users#update"
   delete "/api/v1/logout", to: "api/v1/sessions#destroy"
   # change routes
   namespace :api do 

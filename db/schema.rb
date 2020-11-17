@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "username"
     t.string "password_digest"
     t.string "image"
-    t.string "business_id"
+    t.integer "business_id"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -6,8 +6,8 @@ class UserSerializer
 
   attribute :business do |user|
     {
-      name: user.business.city,
-      address: user.business.state,
+      name: user.business.name,
+      address: user.business.address,
       city: user.business.city,
       state: user.business.state,
       country: user.business.country,

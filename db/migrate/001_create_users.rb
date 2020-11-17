@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
         t.string :username
         t.string :password_digest
         t.string :image
-        t.string :business_id
+        t.integer :business_id
         t.datetime :remember_created_at
         t.timestamps null: false
       end 

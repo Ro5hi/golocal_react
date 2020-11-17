@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(id: 1, name: "Tony Zammar", username: "TonyZ", email: "tonyzmrr@gmail.com", password: "password", image: "profile.jpg")
-User.create(id: 2, name: "John Smith", username: "Super", email: "thisisjohnsmith@gmail.com", password: "supersecret", image: "profile.jpg")
-Business.create(id: 1, name: "Yats", address: "1625 W University Ave", city: "Muncie", state: "IN", zipcode: "47304", country: "USA", category: "Food", user_id: 1)
+User.create(id: 1, name: "Tony", username: "TonyZ", password: "password", image: "profile.jpg", business_id: 1)
+User.create(id: 2, name: "John", username: "Super", password: "supersecret", image: "profile.jpg", business_id: 2)
+Business.create(id: 1, name: "A Business", address: "123 4th Street", city: "Denver", state: "CO", zipcode: "80019", country: "USA", user_id: 1)
+Business.create(id: 2, name: "The Business", address: "34 5th Street", city: "Denver", state: "CO", zipcode: "80019", country: "USA", user_id: 2)
