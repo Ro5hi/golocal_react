@@ -5,7 +5,7 @@ import loginForm from '../reducers/loginReducer'
 import { login } from '../actions/currentUser.js' 
 import styled from 'styled-components'
 
-    const Login =  ({ loginFormData, updateLoginForm, login }) => {
+    const Login =  ({ loginFormData, updateLoginForm, login, history }) => {
         const userInput = event => {
             const { name, value } = event.target
             const formInput = {

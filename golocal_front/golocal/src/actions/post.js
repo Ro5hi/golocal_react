@@ -7,19 +7,42 @@
       }
     }
 
-  export const updatePostForm = post => {
+  export const clearPosts = () => {
     return {
-      type: "UPDATE_POST_FORM",
+      type: "CLEAR_POSTS"
+    }
+  }
+
+  export const updatePost = post => {
+    return {
+      type: "UPDATED_POST",
       post
     }
   }
 
+  
   export const addPost = post => {
     return {
       type: "ADD_POST",
       post
     }
-  } 
+  }
+  
+  export const resetPostForm = () => {
+    return {
+      type: "RESET_POST_FORM"
+    }
+  }
+
+  export const updatePostForm = post => {
+    const postFormData = {
+      caption: post.attributes.caption    
+    }
+    return {
+      type: "UPDATE_POST_FORM",
+      postFormData
+    }
+  }
 
   export const deletedPost = postId => {
     return {
@@ -51,6 +74,7 @@
           alert(resp.error)
         } else {
           dispatch(addPost(resp.data))
+          dispatch(resetPostForm())
           history.push(`/posts/${resp.data.id}`)
         }
       })
@@ -78,6 +102,33 @@
         })
         .catch(console.log)
     }
+  }
+
+
+  export const editPost = (postData, history) => {
+    return dispatch => {
+        const postEditData = {
+            caption: postData.caption
+        }
+        return fetch(`http://localhost:3001/api/posts/${postData.postId}`, {
+            credentials: "include",
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(postEditData)
+        })
+        .then(r => r.json())
+        .then(resp => {
+            if (resp.error) {
+                alert(resp.error)
+            } else {
+                dispatch(updatePostForm(resp.data))
+                history.push(`/posts/${resp.data.id}`)
+            }
+        })
+        .catch(console.log)
+      }
   }
 
   export const deletePost = (postId, history) => {

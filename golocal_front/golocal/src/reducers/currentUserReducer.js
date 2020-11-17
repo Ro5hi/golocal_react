@@ -5,7 +5,7 @@ export const currentUser = (state = initialState, action) => {
         case "SET_CURRENT_USER":
             return action.user 
         case "CLEAR_CURRENT_USER":
-            return initialState
+            return null
         default:
             return state
     }

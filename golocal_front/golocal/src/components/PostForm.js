@@ -1,39 +1,34 @@
+import React from 'react'
 import { connect } from "react-redux";
 import { updatePostForm } from '../actions/post.js'
-import { createPost } from '../actions/post.js'
 // import styled from 'styled-components'
 
-    const PostForm = ({ postFormData, updatePostForm, createPost, history }) => {
-        const postCaption = event => {
-          const { name, value } = event.target 
-          const postInput = {
-            ...postFormData,
-            [name]: value
-          }
-          updatePostForm(postInput)
-        }
+    const PostForm = ({ formData, updatePostForm, userId, post, postSubmit, editThisPost}) => {
+        const { caption } = formData 
 
         const submitHandler = event => {
-          event.preventDefault()
-          createPost(postFormData, history)
+          const { name, value } = event.target 
+          updatePostForm(name, value)
         }
 
         return (
-          <div className="post">
-          <h1>New Post</h1>
-          <form onSubmit={submitHandler}>
-            <input type="text" placeholder="caption" value={postFormData.caption} onChange={postCaption} />
-            <button>Submit Post</button>
-          </form>
-        </div>  
-      );
-    }
-    const mapStateToProps = state => {
-      const userId = state.currentUser ? state.currentUser.id : ""
-      return {
-        postFormData: state.postForm,
-        userId
+          <div className="post-form">
+            <h1>New Post</h1>
+            <form onSubmit={event => {
+              event.preventDefault()
+              postSubmit(formData) }}>
+              <input type="text" placeholder="post" value={caption} onChange={submitHandler}/>
+              <input type="submit" value={ editThisPost ? "Update Post" : "New Post"}/>
+            </form>
+          </div>  
+        );
       }
-    }
+      const mapStateToProps = state => {
+        const userId = state.currentUser ? state.currentUser.id : ""
+        return {
+          formData: state.postForm,
+          userId
+        }
+      }
 
-export default connect(mapStateToProps, { updatePostForm, createPost} )(PostForm);
+export default connect(mapStateToProps, { updatePostForm })(PostForm);

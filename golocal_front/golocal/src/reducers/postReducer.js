@@ -1,6 +1,5 @@
     const initialState = {
-        image: "",
-        caption: "",
+        caption: ""
     }
 
     const postForm = (state = [], action) => {
@@ -8,13 +7,15 @@
         case "UPDATE_NEW_POST_FORM":
             const postFormInput = {
                 ...state,
-                [action.formData.nam]: action.formData.value
+                [action.formData.name]: action.formData.value
             }
             return postFormInput 
         case 'ADD_POST':
             return state.concat([action.data])
         case 'DELETE_POST':
             return state.filter((post) => post.id !== action.id)
+        case 'EDIT_POST':
+            return action.postFormData
         default:
             return initialState;
         }

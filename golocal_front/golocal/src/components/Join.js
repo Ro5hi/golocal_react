@@ -1,12 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { BrowserRouter as Router } from 'react-router-dom'
 
 
     const Join = () => {
         return (
-            <Router>
                 <Container>
                     <Body>
                         Made for locally owned businesses who would like to make an online presence.
@@ -21,8 +19,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
                                 <Link to='/login'>Log In</Link>
                             </LogInButtonText>  
                         </LogInButton>    
-                </Container>
-            </Router>
+                </Container> 
         );
     };
 

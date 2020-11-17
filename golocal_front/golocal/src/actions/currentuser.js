@@ -41,7 +41,7 @@ import { userPosts } from './post.js'
                 if (user.error) { 
                 alert(user.error)
             } else {
-                dispatch(currentUser(user))
+                dispatch(currentUser(user.data))
                 dispatch(userPosts())
                 dispatch(resetLoginForm())
                 history.push(`/`)
