@@ -1,30 +1,22 @@
 import React from 'react'
-import { render } from 'react-dom'
 import styled from 'styled-components'
+import { deletePost } from '../actions/post.js'
 
-    const PostCard = () => {
-        render() 
-            let username = this.props.user.username
-            let business = this.props.business.business
-            let post = this.props.post.description
-            // let image = this.props.post.image 
-            return (
-                <Card>
-                    <Username>
-                        <h4>{username}</h4>
-                    </Username>
+    const PostCard = ({ user, post }) => {
+        return (
+            <Card>
+                <Username>
+                    <h2>{user.attributes.username}</h2>
+                </Username>
                     <Business>
-                        <h4>{business && business.name} </h4>
+                        <h2>{user.attributes.business}</h2>
                     </Business>
-                    <Description>
-                        <h4>{post && post.description}</h4>
-                    </Description>
-                    {/* <Image>
-                        {image}
-                    </Image> */}
-                    <button onClick={()=>this.props.dispatch({type: 'DELETE_POST',id:this.props.post.id})}>Delete Post</button>
-                </Card>
-            )
+                    <Caption>
+                        <h3>{post.attributes.caption}</h3>
+                    </Caption>
+                <button onClick={deletePost}>Delete</button>
+            </Card>
+        )
     }
 
     const Card = styled.div`
@@ -71,7 +63,7 @@ import styled from 'styled-components'
         color: #000000;
     `
 
-    const Description = styled.div`
+    const Caption = styled.div`
         position: absolute;
         width: 227px;
         height: 153px;

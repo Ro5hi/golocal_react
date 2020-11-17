@@ -7,6 +7,13 @@
       }
     }
 
+  export const updatePostForm = post => {
+    return {
+      type: "UPDATE_POST_FORM",
+      post
+    }
+  }
+
   export const addPost = post => {
     return {
       type: "ADD_POST",

@@ -6,7 +6,7 @@ import Index from './components/Index.js'
 import PostCard from './components/PostCard.js'
 import Signup from './components/Signup.js'
 import Login from './components/Login.js'
-import NewPost from './components/NewPost.js'
+import PostForm from './components/PostForm.js'
 import Posts from './components/Posts.js'
 import Editprofile from './components/Editprofile.js'
 import Profile from './components/Profile.js'
@@ -29,7 +29,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
                         <Route exact path='/login' component={Login}/>
                         <Route exact path='/home' component={Index}/>
                         <Route exact path='/profile' component={Profile}/>
-                        <Route exact path='/newpost' component={NewPost}/>
+                        <Route exact path='/newpost' component={PostForm}/>
                         <Route exact path='/posts' component={Posts}/>
                         <Route exact path='/account/:id' render={props => {
                             const user = users.find(user => user.id === props.match.params.id) 

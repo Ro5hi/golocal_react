@@ -2,30 +2,25 @@ import React from 'react'
 import styled from 'styled-components'
 import { render } from 'react-dom'
 
-    const ProfileCard = () => {
+    const ProfileCard = ({ user, business }) => {
         render() 
-            let user = this.props.user.user;
-            let business = this.props.business.business;
             return (
             <Card>
-                    <Image>
-                    </Image>
-                    <Name>
-                        <h4>Name: {user && user.name }</h4>
-                    </Name>
+                <Name>
+                    <h4> {user && user.name }</h4>
+                </Name>
                     <Business>
-                        <h4>
-                            Business: 
+                        <h5>
                             { business && business.name }  
                             { business && business.address }
                             { business && business.city }
                             { business && business.state }
                             { business && business.zipcode }
                             { business && business.country}
-                        </h4>
+                        </h5>
                     </Business>
                 <Bio>
-                    <h4>Bio: { user && user.bio } </h4>
+                    <h4> { user && user.bio } </h4>
                 </Bio>
             </Card>
         )
@@ -40,17 +35,6 @@ import { render } from 'react-dom'
         background: #FFFFFF;
         border: 1px solid rgba(0, 0, 0, 0.25);
         box-sizing: border-box;
-    `
-    
-    const Image = styled.div`
-        position: absolute;
-        width: 125px;
-        height: 125px;
-        left: 50px;
-        top: 81px;
-        background: #FFFFFF;
-        border: 1px solid rgba(0, 0, 0, 0.25);
-
     `
 
     const Name = styled.div`
