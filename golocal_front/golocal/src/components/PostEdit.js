@@ -1,7 +1,7 @@
 import React from 'react';
 import PostForm from './PostForm.js'
 import { editPost, deletePost } from '../actions/post.js'
-import { updatePostForm, resetPostForm } from '../actions/postForm'
+import { setFormDataForEdit, resetPostForm } from '../actions/postForm'
 import { connect } from 'react-redux'
 
 class EditPost extends React.Component {
@@ -36,4 +36,4 @@ class EditPost extends React.Component {
   }
 };
 
-export default connect(null, { editPost, updatePostForm, resetPostForm, deletePost })(EditPost);
+export default connect(null, { editPost, setFormDataForEdit, resetPostForm, deletePost })(EditPost);

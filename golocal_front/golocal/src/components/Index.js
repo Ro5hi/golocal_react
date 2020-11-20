@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from "styled-components";
 import Join from './Join.js';
+import Navbar from './Navbar.js'
 import PostForm from './PostForm.js'
+import Posts from './Posts.js'
 import { loggedIn } from '../actions/currentUser.js'
 
 
     const Index = () => {
         return (
             <Container>
-                <Title>GO LOCAL</Title>
-                { loggedIn ? <PostForm /> : <Join /> }
+                {/* <Posts /> */}
                 <Footer>
                     <FooterText>
                         Go Local ©  2020
@@ -31,24 +32,6 @@ import { loggedIn } from '../actions/currentUser.js'
         left: 0px;
         top: 0px;
         background: #FBEABE;
-    `
-
-    const Title = styled.div`
-        position: absolute;
-        left: 1.21%;
-        right: 49.94%;
-        top: 9.27%;
-        bottom: 55.37%;
-        font-family: Abril Fatface;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 74px;
-        line-height: 194px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: 0.015em;
-        color: #000000;
     `
 
     const Footer = styled.div`

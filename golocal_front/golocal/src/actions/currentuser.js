@@ -5,8 +5,9 @@ import { userPosts } from './post.js'
 
     // See current user 
     export const currentUser = user => {
+        console.log(user)
         return {
-            type: "CURRENT_USER",
+            type: "SET_CURRENT_USER",
             user
         }
     }
@@ -48,10 +49,11 @@ import { userPosts } from './post.js'
                 if (user.error) { 
                 alert(user.error)
             } else {
+                console.log("inside the fetch", user)
                 dispatch(currentUser(user.data))
                 dispatch(userPosts())
-                dispatch(resetLoginForm())
-                history.push(`/posts`)
+                dispatch(resetLoginForm)
+                history.push(`/`)
             }
             })
             .catch(console.log)

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
         return (
             <Card>
                 <Username>
-                    <h2>{user.attributes.username}</h2>
+                    <h2>{user.attributes.username}</h2> // link to username for profile?
                 </Username>
                     <Business>
                         <h2>{user.attributes.business}</h2>

@@ -6,6 +6,7 @@ import styled from "styled-components";
     const Join = () => {
         return (
                 <Container>
+                    <Title>GO LOCAL</Title>
                     <Body>
                         Made for locally owned businesses who would like to make an online presence.
                     </Body>
@@ -30,6 +31,24 @@ import styled from "styled-components";
         left: 112px;
         top: 430px;
         background: #FFFFFF;
+    `
+    
+    const Title = styled.div`
+        position: absolute;
+        left: 1.21%;
+        right: 49.94%;
+        top: -500px;
+        bottom: 55.37%;
+        font-family: Abril Fatface;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 124px;
+        line-height: 140px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.015em;
+        color: #000000;
     `
 
     const Body = styled.div`

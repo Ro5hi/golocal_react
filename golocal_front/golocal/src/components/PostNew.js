@@ -4,8 +4,8 @@ import { createPost } from '../actions/post.js'
 import { connect } from 'react-redux'
 
 const NewPost = ({ history, createPost }) => {
-
-    const handleSubmit = (formData, userId) => {
+    const handleSubmit = (event, formData, userId) => {
+        event.preventDefault()
         createPost({
             ...formData,
             userId

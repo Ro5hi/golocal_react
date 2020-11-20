@@ -1,34 +1,40 @@
-/* import React from "react";
-import PostCard from './PostCard.js'
+// import React from "react";
+// import PostCard from './PostCard.js'
 
 
-    export default class Posts extends React.component { 
-        state = {
-            posts: []
-        }
-
-        componentDidMount() {
-            fetch(`http://localhost:3001/api/v1/post`)
-            .then(response => response.json())
-            .then(posts => {
-                this.setState({posts: posts.data})
-                console.log(posts)
-            });
-        }
-        render(){
-            return
-            <PostCard>
-                {this.state.posts.map(function(post){
-                return <div key={post.id}>{post.caption}</div>
-            })}
-            </PostCard>
-        }
-    }
-
-    const Container = styled.div`
-    `
-
-    const Feed = styled.div`
-    `
+//    const Posts {
+//             return (
+//             <Container>
+//                 <Header>
+//                     All Posts
+//                 </Header>
+//                 <PostCard />
+//             </Container>
+//             )
+//    }
     
-    */
+
+//  const Container = styled.div`
+//         position: absolute;
+//         width: 300px;
+//         height: 500px;
+//         left: 400px;
+//         top: 350px;
+//         background: #FBEABE;
+//         border: 1px solid rgba(9, 112, 38, 0.1);
+//         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+//       `
+
+//       const Header = styled.div`
+//         position: absolute;
+//         width: 663px;
+//         height: 71px;
+//         left: 29px;
+//         top: 13%;
+//         font-family: Montserrat;
+//         font-style: normal;
+//         font-weight: normal;
+//         font-size: 28px;
+//         line-height: 59px;
+//         color: #000000;
+//       `
