@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from "styled-components";
 import Join from './Join.js';
-// import Search from './Search.js';
+import PostForm from './PostForm.js'
+import { loggedIn } from '../actions/currentUser.js'
 
 
     const Index = () => {
         return (
             <Container>
                 <Title>GO LOCAL</Title>
-                <Join />
-                {/* <Search /> */}
+                { loggedIn ? <PostForm /> : <Join /> }
                 <Footer>
                     <FooterText>
                         Go Local ©  2020
@@ -42,7 +42,7 @@ import Join from './Join.js';
         font-family: Abril Fatface;
         font-style: normal;
         font-weight: normal;
-        font-size: 144px;
+        font-size: 74px;
         line-height: 194px;
         display: flex;
         align-items: center;

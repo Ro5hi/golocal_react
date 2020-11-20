@@ -25,6 +25,13 @@ import { userPosts } from './post.js'
         }
     }
 
+    export const loggedIn = user => {
+        return {
+            type: "LOGGED_IN",
+            user
+        }
+    }
+
     // POST user login
     export const login = (credentials, history) => {
         return dispatch => {
@@ -44,7 +51,7 @@ import { userPosts } from './post.js'
                 dispatch(currentUser(user.data))
                 dispatch(userPosts())
                 dispatch(resetLoginForm())
-                history.push(`/`)
+                history.push(`/posts`)
             }
             })
             .catch(console.log)

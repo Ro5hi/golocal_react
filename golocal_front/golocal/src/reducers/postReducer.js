@@ -5,11 +5,11 @@
     const postForm = (state = initialState, action) => {
         switch (action.type) {
         case "UPDATE_NEW_POST_FORM":
-            const postFormInput = {
+            const postFormData = {
                 ...state,
-                [action.formData.name]: action.formData.value
+                [action.formData.caption]: action.formData.value
             }
-            return postFormInput 
+            return postFormData 
         case "RESET_POST_FORM":
             return initialState
         case "EDIT_POST_FORM":

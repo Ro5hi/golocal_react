@@ -1,3 +1,6 @@
+import { resetPostForm } from './postForm.js'
+import { updatePostForm } from './postForm.js'
+
 // Synchronous
 
   export const userPosts = posts => {
@@ -12,35 +15,11 @@
       type: "CLEAR_POSTS"
     }
   }
-
-  export const updatePost = post => {
-    return {
-      type: "UPDATED_POST",
-      post
-    }
-  }
-
   
   export const addPost = post => {
     return {
       type: "ADD_POST",
       post
-    }
-  }
-  
-  export const resetPostForm = () => {
-    return {
-      type: "RESET_POST_FORM"
-    }
-  }
-
-  export const updatePostForm = post => {
-    const postFormData = {
-      caption: post.attributes.caption    
-    }
-    return {
-      type: "UPDATE_POST_FORM",
-      postFormData
     }
   }
 
@@ -56,11 +35,10 @@
   export const createPost = (post, history) => {
     return dispatch => {
       const newPostData = {
-        image: post.image,
         caption: post.caption,
-        user_id: post.userId 
+        user_id: post.userId,
       }
-      return fetch("https://localhost:3001/api/v/posts", {
+      return fetch("https://localhost:3001/api/v1/posts", {
         credentials: "include",
         method: "POST",
         headers: {
@@ -103,7 +81,6 @@
         .catch(console.log)
     }
   }
-
 
   export const editPost = (postData, history) => {
     return dispatch => {

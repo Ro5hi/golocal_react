@@ -1,29 +1,29 @@
-import React from 'react';
+// import React from 'react';
  
-export default class User extends React.Component {
+// export default class User extends React.Component {
  
-  state = {
-    user: []
-  }
+//   state = {
+//     user: []
+//   }
  
-  componentDidMount () {
-    const { id } = this.props.match.params
+//   componentDidMount () {
+//     const { id } = this.props.match.params
  
-    fetch(`https://localhost:3001/user/${user.id}`)
-      .then(response => response.json())
-      .then((user) => {
-        this.setState(() => ({
-          user: user.id
-        }));
-        console.log(user.id);
-      })
-  }
+//     fetch(`https://localhost:3001/user/${user.id}`)
+//       .then(response => response.json())
+//       .then((user) => {
+//         this.setState(() => ({
+//           user: user.id
+//         }));
+//         console.log(user.id);
+//       })
+//   }
  
-  render(){
-    return (
-      <div className="user">
+//   render(){
+//     return (
+//       <div className="user">
  
-      </div>
-    );
-  }
-}
+//       </div>
+//     );
+//   }
+// }

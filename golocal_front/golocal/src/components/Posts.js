@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import PostCard from './PostCard.js'
 
 
@@ -24,3 +24,11 @@ import PostCard from './PostCard.js'
             </PostCard>
         }
     }
+
+    const Container = styled.div`
+    `
+
+    const Feed = styled.div`
+    `
+    
+    */

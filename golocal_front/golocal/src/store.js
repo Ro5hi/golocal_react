@@ -1,16 +1,18 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import loginForm from './reducers/loginReducer'
-import postReducer from './reducers/postReducer'
+import postForm from './reducers/postReducer'
 import signupForm from './reducers/signupReducer'
 import usersReducer from './reducers/usersReducer'
+import postsReducer from './reducers/postsReducer'
 import currentUser from './reducers/currentUserReducer'
 import thunk from 'redux-thunk'
 
     const reducer = combineReducers({
         loginForm,
-        postReducer,
+        postForm,
         signupForm,
         usersReducer,
+        postsReducer,
         currentUser
     })
 
