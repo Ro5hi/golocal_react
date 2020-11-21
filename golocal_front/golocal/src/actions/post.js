@@ -34,26 +34,23 @@ import { updatePostForm } from './postForm.js'
 
   export const createPost = (post, history) => {
     return dispatch => {
-      const newPostData = {
-        caption: post.caption,
-        user_id: post.userId,
-      }
       return fetch("https://localhost:3001/api/v1/posts", {
         credentials: "include",
         method: "POST",
+        body: JSON.stringify(post), 
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(newPostData)
       })
       .then(r => r.json())
-      .then(resp => {
-        if (resp.error) {
-          alert(resp.error)
+      .then(post => {
+        if (post.error) {
+          alert(post.error)
         } else {
-          dispatch(addPost(resp.data))
+          console.log("Did this post?", post)
+          dispatch(addPost(post.data))
           dispatch(resetPostForm())
-          history.push(`/posts/${resp.data.id}`)
+          history.push(`/posts`)
         }
       })
       .catch(console.log)

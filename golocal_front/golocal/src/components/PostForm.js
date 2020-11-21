@@ -1,21 +1,21 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { createPost } from '../actions/post.js';
+import { addPost } from '../actions/post.js';
 import { updatePostForm } from '../actions/postForm.js'
 import styled from 'styled-components'
 
-    const PostForm = ({ formData, updatePostForm, userId, post, editThisPost}) => {
+    const PostForm = ({ formData, userId, post, history, updatePostForm, editThisPost}) => {
         // debugger
-        const { caption, value } = formData 
+        const { caption } = formData 
 
         const changeHandler = event => {
-          const { caption, value } = event.target 
-          updatePostForm(caption)
+          const { name, value } = event.target 
+          updatePostForm(name, value)
         }
 
-        const handleSubmit = event => {
-          event.preventDefault()
-          createPost(formData)
+        const handleSubmit = (event) => {
+          event.preventDefault();
+          addPost({ ...formData }, history);
         }
         
         return (
@@ -25,7 +25,7 @@ import styled from 'styled-components'
             </Header>
               <FormBox>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Make your new post here..." value={value} onChange={changeHandler}/>
+                    <input type="text" name="caption" placeholder="Make your new post here..." value={caption} onChange={changeHandler}/>
                   <submitButton>
                     <input type="submit" value={ editThisPost ? "Update Post" : "New Post"}/>
                   </submitButton>
@@ -84,4 +84,4 @@ import styled from 'styled-components'
         top: 375px;
       `
       
-export default connect(mapStateToProps, { createPost, updatePostForm })(PostForm);
+export default connect(mapStateToProps, { addPost, updatePostForm })(PostForm);

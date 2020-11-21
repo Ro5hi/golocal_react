@@ -1,5 +1,5 @@
-export const updatePostForm = (caption) => {
-    const formData = { caption }
+export const updatePostForm = (name, value) => {
+    const formData = { name, value }
     return {
       type: "UPDATE_NEW_POST_FORM",
       formData

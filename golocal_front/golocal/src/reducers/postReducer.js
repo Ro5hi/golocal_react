@@ -2,18 +2,18 @@
         caption: ""
     }
 
-    const postForm = (state = initialState, action) => {
+    const postForm = (state=initialState, action) => {
         switch (action.type) {
-        case "UPDATE_NEW_POST_FORM":
-            const postFormData = {
-                ...state,
-                [action.formData.caption]: action.formData.value
+          case "UPDATE_NEW_POST_FORM":
+            const inputVal = {
+              ...state,
+              [action.formData.name]: action.formData.value
             }
-            return postFormData 
+            return inputVal
         case "RESET_POST_FORM":
             return initialState
         case "EDIT_POST_FORM":
-            return action.postFormData 
+            return action.postformData 
         default:
             return state;
         }

@@ -5,6 +5,7 @@ const initialState = []
       case "SET_USER_POSTS":
         return action.posts
       case "ADD_POST":
+        console.log("POSTS reeeeeducer", action)
         return state.concat(action.post)
       case "UPDATE_POST":
         return state.map(post => post.id === action.post.id ? action.post : post)

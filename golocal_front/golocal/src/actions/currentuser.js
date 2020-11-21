@@ -127,7 +127,7 @@ import { userPosts } from './post.js'
           
         export const getCurrentSession = () => {
             return dispatch => {
-              return fetch("http://localhost:3001/api/v1/get_current_user", {
+              return fetch("http://localhost:3001/api/v1/get_session", {
                 credentials: "include",
                 method: "GET",
                 headers: {
