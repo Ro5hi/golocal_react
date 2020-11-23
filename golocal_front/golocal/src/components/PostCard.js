@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
         return (
             <Card>
                 <Username>
-                    <h2>{user.attributes.username}</h2>
+                <Link to={`/profile/${user.id}`}><h2>{user.attributes.username}</h2></Link>
                 </Username>
                     <Business>
                         <h2>{user.attributes.business}</h2>
@@ -23,14 +23,11 @@ import { Link } from 'react-router-dom'
 
     const Card = styled.div`
         position: absolute;
-        width: 673px;
-        height: 553px;
-        left: 534px;
-        top: 204px;
-        
+        width: 475px;
+        height: 287px;
+        left: 112px;
+        top: 430px;
         background: #FFFFFF;
-        border: 1px solid #000000;
-        box-sizing: border-box;
     `
 
     const Username = styled.div`

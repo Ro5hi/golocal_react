@@ -8,20 +8,20 @@ import currentUser from '../actions/currentUser.js'
             return (
             <Card>
                 <Name>
-                    <h4> {user && user.name }</h4>
+                    <h4> {user.attributes.name }</h4>
                 </Name>
                     <Business>
                         <h5>
-                            { business && business.name }  
-                            { business && business.address }
-                            { business && business.city }
-                            { business && business.state }
-                            { business && business.zipcode }
-                            { business && business.country}
+                            { business.attributes.name }  
+                            { business.attributes.address }
+                            { business.attributes.city }
+                            { business.attributes.state }
+                            { business.attributes.zipcode }
+                            { business.attributes.country}
                         </h5>
                     </Business>
                 <Bio>
-                    <h4> { user && user.bio } </h4>
+                    <h4> { user.attributes.bio } </h4>
                 </Bio>
             </Card>
         )
@@ -29,13 +29,11 @@ import currentUser from '../actions/currentUser.js'
 
     const Card = styled.div`
         position: absolute;
-        width: 336px;
-        height: 859px;
-        left: 23px;
-        top: 10px;
+        width: 475px;
+        height: 287px;
+        left: 112px;
+        top: 430px;
         background: #FFFFFF;
-        border: 1px solid rgba(0, 0, 0, 0.25);
-        box-sizing: border-box;
     `
 
     const Name = styled.div`
