@@ -12,7 +12,7 @@ class API::V1::SessionsController < ApplicationController
         }
       end
     end
-  
+    
     def current_session
       if logged_in?
         render json: UserSerializer.new(current_user)

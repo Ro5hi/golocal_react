@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 3) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "image"
     t.string "caption"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -39,7 +38,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "name"
     t.string "username"
     t.string "password_digest"
-    t.string "image"
+    t.string "bio"
     t.integer "business_id"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false

@@ -1,5 +1,7 @@
 class API::V1::UsersController < ApplicationController
 
+    before_action :set_user, only: [:show, :update]
+
     # GET /users
     def index
         @users = User.all
@@ -29,7 +31,7 @@ class API::V1::UsersController < ApplicationController
 
     # PATCH /users
     def update
-        if @user.update(user_params)
+        if @user.update(edit_params)
             render json: @user 
         else 
             render json: @user.errors, status: :unprocessable_entity
@@ -43,7 +45,11 @@ class API::V1::UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:name, :username, :password)
+        params.require(:user).permit(:name, :username, :password, :business)
     end 
+
+    def edit_params
+        params.require(:user).permit(:bio)
+    end
 
 end 

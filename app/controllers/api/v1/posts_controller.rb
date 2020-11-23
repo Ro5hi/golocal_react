@@ -12,13 +12,14 @@ def new
     @user = current_user
 end
 
+
 def create
     @post = current_user.posts.build(create_params)
     if @post.save
         render json: @post
     else
         @post == 0 
-        render json: @post.errors
+        render json: @post.error
     end 
 end 
 
@@ -49,20 +50,21 @@ def destroy
     end 
 end
 
-private
+    private
 
-def create_params 
-    params.require(:post).permit(:user_id, :caption)
-end
+    def create_params 
+        params.require(:post).permit(:user_id, :caption)
+    end
 
-def edit_params 
-    params.require(:post).permit(:caption, :user_id, :id)
-end
+    def edit_params 
+        params.require(:post).permit(:caption, :user_id, :id)
+    end
 
-def set_post
-    @post = Post.find_by(id: params[:id])
-end
+    def set_post
+        @post = Post.find_by(id: params[:id])
+    end
 
-def find_user 
-    @user = User.where(params[:id])
+    def find_user 
+        @user = User.where(params[:id])
+    end 
 end 
