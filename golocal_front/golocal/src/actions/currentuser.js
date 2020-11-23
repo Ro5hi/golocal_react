@@ -1,7 +1,8 @@
 import { resetLoginForm } from './loginForm.js'
 import { resetSignupForm } from './signupForm.js'
 import { updateProfileForm } from './editProfileForm.js'
-import { getMyPosts } from './post.js'
+import {  setProfileDataForEdit } from './editProfileForm'
+import { userPosts } from './post.js'
 
     // See current user 
     export const currentUser = user => {
@@ -51,7 +52,7 @@ import { getMyPosts } from './post.js'
             } else {
                 console.log("inside the fetch", user)
                 dispatch(currentUser(user.data))
-                dispatch(getMyPosts())
+                dispatch(userPosts())
                 dispatch(resetLoginForm)
                 history.push(`/`)
             }
@@ -88,7 +89,7 @@ import { getMyPosts } from './post.js'
         }
     }
 
-    export const edit = (credentials, history) => {
+    export const edit = (profileData, history) => {
         return dispatch => {
             return fetch("http://localhost:3001/api/v1/editprofile", {
                 credentials: "include",
@@ -96,7 +97,7 @@ import { getMyPosts } from './post.js'
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(credentials)
+                body: JSON.stringify(profileData)
             })
             .then(r => r.json())
             .then(user => {
@@ -105,6 +106,7 @@ import { getMyPosts } from './post.js'
                 } else {
                     dispatch(currentUser(user.data))
                     dispatch(updateProfileForm)
+                    dispatch(setProfileDataForEdit)
                     history.push('/')
                 }
             })
@@ -140,7 +142,7 @@ import { getMyPosts } from './post.js'
                     alert(user.error)
                   } else {
                     dispatch(currentUser(user.data))
-                    dispatch(getMyPosts())
+                    dispatch(userPosts())
                   }
                 })
                 .catch(console.log)

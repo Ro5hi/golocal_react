@@ -6,7 +6,7 @@ import editThisPost from './PostEdit.js'
 import styled from 'styled-components'
 
     const PostForm = ({ formData, userId, post, history, updatePostForm, editThisPost}) => {
-        // debugger
+
         const { caption } = formData 
 
         const changeHandler = event => {
@@ -18,6 +18,7 @@ import styled from 'styled-components'
           event.preventDefault();
           createPost(formData, history);
         }
+
         return (
           <Container>
             <Header>
@@ -26,7 +27,7 @@ import styled from 'styled-components'
               <FormBox>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="caption" placeholder="Make your new post here..." value={caption} onChange={changeHandler}/>
-                    <input type="submit" value="submit"/>
+                    <input type="submit" value={editThisPost ? "Edit Post" : "New Post"}/>
                 </form>
               </FormBox>
           </Container>  
@@ -39,7 +40,6 @@ import styled from 'styled-components'
           userId
         }
       }
-
 
       const Container = styled.div`
         position: absolute;

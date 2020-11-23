@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { render } from 'react-dom'
+import currentUser from '../actions/currentUser.js'
 
     const ProfileCard = ({ user, business }) => {
         render() 

@@ -1,4 +1,3 @@
-import { currentUser } from './currentUser.js'
 import { resetPostForm } from './postForm.js'
 import { updatePostForm } from './postForm.js'
 
@@ -35,7 +34,7 @@ import { updatePostForm } from './postForm.js'
 
   // debugger
   export const createPost = (post, history) => {
-  //  return dispatch => {
+   return dispatch => {
       console.log("Trying to create", post)
       return fetch('http://localhost:3001/api/v1/newpost', {
         credentials: "include",
@@ -50,13 +49,13 @@ import { updatePostForm } from './postForm.js'
             alert(post.error)
           } else {
           console.log("successfully created", post)
-          // dispatch(addPost(post.data))
-          // dispatch(resetPostForm())
+          dispatch(addPost(post))
+          dispatch(resetPostForm())
           history.push("/posts")
         }
         })
         .catch(console.log)
-    // }
+    }
   }
   
   export const getPosts = () => {

@@ -1,8 +1,9 @@
 import React from 'react'
 import connect from 'react-redux/lib/connect/connect'
 import { NavLink } from 'react-router-dom'
-import LoggingOut from './Logout.js'
+import loggingOut from './Logout.js'
 import styled from 'styled-components'
+import currentUser from '../actions/currentUser.js'
 
     const Navbar = ({ currentUser, loggedIn }) => {
         return (
@@ -15,7 +16,7 @@ import styled from 'styled-components'
                     <li><NavLink exact to="/newpost">New Post</NavLink></li>
                     <li><NavLink exact to="/profile">Profile</NavLink></li>
                     <li><NavLink exact to="/editprofile">Account</NavLink></li>
-                { loggedIn ? <><p id="loggedIn">Hello, {currentUser.attributes.username}</p><LoggingOut/></> : null}
+                { loggedIn ? <><p id="loggedIn">Hello, {currentUser.attributes.username}</p><loggingOut/></> : null}
             </Bar>
         )
     }

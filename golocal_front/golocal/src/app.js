@@ -15,7 +15,6 @@ import PostCard from './components/PostCard.js'
 import PostForm from './components/PostForm.js'
 import PostNew from './components/PostNew.js'
 import PostEdit from './components/PostEdit.js'
-import User from './components/User';
 import styled from 'styled-components'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
