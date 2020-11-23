@@ -1,7 +1,7 @@
 import { resetLoginForm } from './loginForm.js'
 import { resetSignupForm } from './signupForm.js'
 import { updateProfileForm } from './editProfileForm.js'
-import { userPosts } from './post.js'
+import { getMyPosts } from './post.js'
 
     // See current user 
     export const currentUser = user => {
@@ -51,7 +51,7 @@ import { userPosts } from './post.js'
             } else {
                 console.log("inside the fetch", user)
                 dispatch(currentUser(user.data))
-                dispatch(userPosts())
+                dispatch(getMyPosts())
                 dispatch(resetLoginForm)
                 history.push(`/`)
             }
@@ -140,7 +140,7 @@ import { userPosts } from './post.js'
                     alert(user.error)
                   } else {
                     dispatch(currentUser(user.data))
-                    dispatch(userPosts())
+                    dispatch(getMyPosts())
                   }
                 })
                 .catch(console.log)

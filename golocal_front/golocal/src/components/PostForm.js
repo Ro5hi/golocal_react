@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { addPost } from '../actions/post.js';
+import { createPost } from '../actions/post.js';
 import { updatePostForm } from '../actions/postForm.js'
+import editThisPost from './PostEdit.js'
 import styled from 'styled-components'
 
     const PostForm = ({ formData, userId, post, history, updatePostForm, editThisPost}) => {
@@ -15,9 +16,8 @@ import styled from 'styled-components'
 
         const handleSubmit = (event) => {
           event.preventDefault();
-          addPost({ ...formData }, history);
+          createPost(formData, history);
         }
-        
         return (
           <Container>
             <Header>
@@ -26,9 +26,7 @@ import styled from 'styled-components'
               <FormBox>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="caption" placeholder="Make your new post here..." value={caption} onChange={changeHandler}/>
-                  <submitButton>
-                    <input type="submit" value={ editThisPost ? "Update Post" : "New Post"}/>
-                  </submitButton>
+                    <input type="submit" value="submit"/>
                 </form>
               </FormBox>
           </Container>  
@@ -84,4 +82,4 @@ import styled from 'styled-components'
         top: 375px;
       `
       
-export default connect(mapStateToProps, { addPost, updatePostForm })(PostForm);
+export default connect(mapStateToProps, { createPost, updatePostForm })(PostForm);

@@ -1,3 +1,4 @@
+import { currentUser } from './currentUser.js'
 import { resetPostForm } from './postForm.js'
 import { updatePostForm } from './postForm.js'
 
@@ -32,29 +33,30 @@ import { updatePostForm } from './postForm.js'
 
   // Asynchronous
 
+  // debugger
   export const createPost = (post, history) => {
-    return dispatch => {
-      return fetch("https://localhost:3001/api/v1/posts", {
+  //  return dispatch => {
+      console.log("Trying to create", post)
+      return fetch('http://localhost:3001/api/v1/newpost', {
         credentials: "include",
         method: "POST",
-        body: JSON.stringify(post), 
-        headers: {
-          "Content-Type": "application/json"
-        },
+        body: JSON.stringify(post),
+        headers: { "Content-Type": "application/json" }
       })
-      .then(r => r.json())
-      .then(post => {
-        if (post.error) {
-          alert(post.error)
-        } else {
-          console.log("Did this post?", post)
-          dispatch(addPost(post.data))
-          dispatch(resetPostForm())
-          history.push(`/posts`)
+        .then(r => r.json())
+        .then(post => {
+          if (post.error) {
+            console.log("error creating", post)
+            alert(post.error)
+          } else {
+          console.log("successfully created", post)
+          // dispatch(addPost(post.data))
+          // dispatch(resetPostForm())
+          history.push("/posts")
         }
-      })
-      .catch(console.log)
-    }
+        })
+        .catch(console.log)
+    // }
   }
   
   export const getPosts = () => {

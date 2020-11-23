@@ -13,7 +13,7 @@ import thunk from 'redux-thunk'
         currentUser,
         usersReducer,
         postForm,
-        postsReducer,
+        posts: postsReducer,
     })
 
     const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

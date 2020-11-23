@@ -10,8 +10,9 @@ import { loggedIn } from '../actions/currentUser.js'
     const Index = () => {
         return (
             <Container>
-                {/* <Posts /> */}
-                <Footer>
+                <Navbar />
+                    <Posts />
+                    <Footer>
                     <FooterText>
                         Go Local ©  2020
                     </FooterText>

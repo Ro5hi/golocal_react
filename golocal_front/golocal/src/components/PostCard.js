@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom'
                     <Caption>
                         <h3>{post.attributes.caption}</h3>
                     </Caption>
-                    <Link to={`/posts/${post.id}/edit`}>Update Post</Link>
+                    <Link to={`/posts/${post.id}/edit`}>Edit this Post</Link>
                 <button onClick={deletePost}>Delete</button>
             </Card>
         )
