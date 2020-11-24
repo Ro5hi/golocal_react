@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 
     const PostCard = ({ user, post }) => {
         return (
+            post ? 
             <Card>
                 <Username>
-                <Link to={`/profile/${user.id}`}><h2>{user.attributes.username}</h2></Link>
+                <Link to={`/profile/${user.username}`}><h2>{user.attributes.username}</h2></Link>
                 </Username>
                     <Business>
                         <h2>{user.attributes.business}</h2>
@@ -17,7 +18,8 @@ import { Link } from 'react-router-dom'
                     </Caption>
                     <Link to={`/posts/${post.id}/edit`}>Edit this Post</Link>
                 <button onClick={deletePost}>Delete</button>
-            </Card>
+            </Card> :
+          <p>No content made.</p>
         )
     }
 

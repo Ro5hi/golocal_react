@@ -1,6 +1,7 @@
 // Edit Profile Actions
 
 export const updateProfileForm = formData => {
+  console.log("here")
     return {
         type: "UPDATE_PROFILE_FORM",
         formData

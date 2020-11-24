@@ -2,10 +2,9 @@ import React from 'react'
 import { connect } from "react-redux";
 import { createPost } from '../actions/post.js';
 import { updatePostForm } from '../actions/postForm.js'
-import editThisPost from './PostEdit.js'
 import styled from 'styled-components'
 
-    const PostForm = ({ formData, userId, post, history, updatePostForm, editThisPost}) => {
+    const PostForm = ({ formData, userId, post, history, createPost, updatePostForm}) => {
 
         const { caption } = formData 
 
@@ -27,7 +26,7 @@ import styled from 'styled-components'
               <FormBox>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="caption" placeholder="Make your new post here..." value={caption} onChange={changeHandler}/>
-                    <input type="submit" value={editThisPost ? "Edit Post" : "New Post"}/>
+                    <input type="submit" value="submit"/>
                 </form>
               </FormBox>
           </Container>  

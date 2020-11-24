@@ -12,6 +12,7 @@ import { loggedIn } from '../actions/currentUser.js'
             <Container>
                 <Navbar />
                     <Posts />
+                    
                     <Footer>
                     <FooterText>
                         Go Local ©  2020

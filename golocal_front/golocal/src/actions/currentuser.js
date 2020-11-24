@@ -1,7 +1,6 @@
 import { resetLoginForm } from './loginForm.js'
 import { resetSignupForm } from './signupForm.js'
-import { updateProfileForm } from './editProfileForm.js'
-import {  setProfileDataForEdit } from './editProfileForm'
+import { setProfileDataForEdit } from './editProfileForm'
 import { userPosts } from './post.js'
 
     // See current user 
@@ -17,13 +16,6 @@ import { userPosts } from './post.js'
     export const clearSession = () => {
         return {
             type: "CLEAR_SESSION"
-        }
-    }
-
-    export const updateUser = user => {
-        return {
-            type: "UPDATED_USER",
-            user
         }
     }
 
@@ -89,7 +81,7 @@ import { userPosts } from './post.js'
         }
     }
 
-    export const edit = (profileData, history) => {
+    export const edit = (formData, history) => {
         return dispatch => {
             return fetch("http://localhost:3001/api/v1/editprofile", {
                 credentials: "include",
@@ -97,7 +89,7 @@ import { userPosts } from './post.js'
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(profileData)
+                body: JSON.stringify(formData)
             })
             .then(r => r.json())
             .then(user => {
@@ -105,7 +97,6 @@ import { userPosts } from './post.js'
                     alert(user.error)
                 } else {
                     dispatch(currentUser(user.data))
-                    dispatch(updateProfileForm)
                     dispatch(setProfileDataForEdit)
                     history.push('/')
                 }

@@ -32,15 +32,10 @@ import { Route, Switch, withRouter } from 'react-router-dom'
                             <Route exact path='/login' component={Login}/>
                             <Route exact path='/logout' component={loggingOut}/>
                             <Route exact path='/home' component={Index}/>
-                            <Route exact path='/user/:id' component={Profile}/>
+                            <Route exact path='/profile/:id' component={Profile}/>
                             <Route exact path='/editprofile/:id' component={ProfileEdit}/>
                             <Route exact path='/newpost' component={PostForm}/>
                             <Route exact path='/posts' component={Posts}/>
-                            <Route exact path='/account/:id' render={props => {
-                                const user = users.find(user => user.id === props.match.params.id) 
-                                return <ProfileEdit user={user} {...props} />
-                            }
-                            }/>
                             <Route exact path='/posts/:id' render={props => {
                                 const post = posts.find(post => post.id === props.match.params.id)
                                 return <PostEdit post={post} {...props}/>
@@ -54,8 +49,8 @@ import { Route, Switch, withRouter } from 'react-router-dom'
     }
     const mapStateToProps = state => {
         return ({
-                loggedIn: !!state.getCurrentSession,
-                posts: state.getPosts
+                loggedIn: !!state.currentUser,
+                posts: state.userPosts
         })  
     }
 

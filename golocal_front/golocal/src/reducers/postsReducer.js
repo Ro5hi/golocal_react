@@ -1,6 +1,6 @@
 const initialState = []
 
-export default (state = initialState, action) => {
+const postsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_USER_POSTS":
       return action.posts
@@ -16,3 +16,5 @@ export default (state = initialState, action) => {
       return state
   }
 }
+
+export default postsReducer

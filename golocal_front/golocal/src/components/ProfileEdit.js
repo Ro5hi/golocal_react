@@ -4,43 +4,39 @@ import { updateProfileForm } from '../actions/editProfileForm.js'
 import { edit } from '../actions/currentUser.js'
 import styled from 'styled-components'
 
-        const editProfile = ({ profileFormData, updateProfileForm, edit, history }) => {
+        const editProfile = ({ formData, user, userId, updateProfileForm, edit, history }) => {
 
-            const { bio } = profileFormData 
+            const { bio } = formData 
 
             const profileInput = event => {
-                    const { name, value } = event.target
-                    const profileInfo = {
-                        ...profileFormData,
-                        [name]: value,
-                    }
-                    updateProfileForm(profileInfo)
-                }
+                const { name, value } = event.target 
+                updateProfileForm(name, value)
+              }
 
-                const submitHandler = event => {
+                const submitHandler = (event) => {
                     event.preventDefault()
-                    edit(profileFormData, history)
+                    edit(formData, history)
                 }
 
                 return (
-                    <form onSubmit={submitHandler}>
-                        <Container>
-                                <Header>
-                                    <h1>User Profile</h1>
-                                </Header>
-                                <Bio>
-                                    <input placeholder="Bio" value={profileFormData.bio} name="Bio" type="text" onchange={profileInput} />
-                                </Bio>
-                                <Button>
-                                    <input type="submit" value="Edit Profile"/>
-                                </Button>
-                        </Container>
-                    </form>
+                    <Container>
+                        <form onSubmit={submitHandler}>
+                            <Header>
+                                <h1>User Profile</h1>
+                            </Header>
+                            <Bio>
+                                <input placeholder="Bio" value={bio} name="Bio" type="text" onchange={profileInput} />
+                            </Bio>
+                            <Button>
+                                <input type="submit" value="submit"/>
+                            </Button>
+                        </form>
+                    </Container>
                     );
                 }
                 const mapStateToProps = state => {
                         return {
-                            profileFormData: state.profileForm 
+                            formData: state.profileForm 
                     }
                 }
         

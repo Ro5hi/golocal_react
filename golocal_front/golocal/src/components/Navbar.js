@@ -1,9 +1,7 @@
 import React from 'react'
 import connect from 'react-redux/lib/connect/connect'
 import { NavLink } from 'react-router-dom'
-import loggingOut from './Logout.js'
 import styled from 'styled-components'
-import currentUser from '../actions/currentUser.js'
 
     const Navbar = ({ currentUser, loggedIn }) => {
         return (

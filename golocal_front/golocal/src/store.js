@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+import { combineReducers } from 'redux'
 import signupForm from './reducers/signupReducer'
 import loginForm from './reducers/loginReducer'
 import { currentUser } from './reducers/currentUserReducer'
@@ -12,8 +12,8 @@ import thunk from 'redux-thunk'
         loginForm,
         signupForm,
         profileForm,
-        currentUser,
-        usersReducer,
+        user: currentUser,
+        users: usersReducer,
         postForm,
         posts: postsReducer,
     })

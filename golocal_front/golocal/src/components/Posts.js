@@ -2,13 +2,30 @@ import React from "react";
 import PostCard from "./PostCard.js";
 import styled from "styled-components";
 
-    const Posts = ({ posts, currentUser }) => {
-      return (
-        <Container>
-          <Header>All Posts</Header>
-          <PostCard />
-        </Container>
-      )
+    export default class Posts extends React.Component {
+    
+      state = {
+        posts: []
+      }
+    
+      componentDidMount(){
+        fetch('http://localhost:3001/api/v1/post')
+          .then(response => response.json())
+          .then(posts => {
+            this.setState({ posts: posts.data });
+            console.log(posts);
+          });
+      }
+    
+      render(){
+        return (
+          <Container>
+              {this.state.posts.map(function(item, index){
+                return <div key={item.id}>{item.message}</div>
+              })}
+          </Container>
+        );
+      }
     }
 
     const Container = styled.div`
@@ -35,5 +52,3 @@ import styled from "styled-components";
       line-height: 59px;
       color: #000000;
     `;
-
-    export default Posts 

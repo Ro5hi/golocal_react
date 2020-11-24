@@ -113,6 +113,7 @@ import styled from 'styled-components'
                 left: 29px;
                 top: 300px;
             `
+            
             const Username = styled.div`
                 position: absolute;
                 width: 360px;
