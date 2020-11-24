@@ -42,10 +42,10 @@ import styled from 'styled-components'
 
       const Container = styled.div`
         position: absolute;
-        width: 300px;
-        height: 500px;
-        left: 800px;
-        top: 350px;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
         background: #FBEABE;
         border: 1px solid rgba(9, 112, 38, 0.1);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

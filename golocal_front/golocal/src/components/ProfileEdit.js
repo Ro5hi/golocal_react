@@ -42,11 +42,10 @@ import styled from 'styled-components'
         
                 const Container = styled.div`
                 position: absolute;
-                display: flex;
                 width: 100%;
                 height: 100%;
                 left: 0px;
-                top: 4px;
+                top: 0px;
                 background: #FBEABE;
             `
 

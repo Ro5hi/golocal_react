@@ -15,8 +15,8 @@ import { Component } from 'react'
 
     const UserProfile = styled.div`
         position: absolute;
-        width: 390px;
-        height: 875px;
-        left: 104px;
-        top: 72px;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
     `
