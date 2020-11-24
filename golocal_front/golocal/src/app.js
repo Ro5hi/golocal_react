@@ -23,7 +23,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
             this.props.getCurrentSession() 
         }
         render() {
-            const { loggedIn, posts, users } = this.props 
+            const { loggedIn, posts} = this.props 
             return (
                 <Background>
                         { loggedIn ? <Navbar location={this.props.location}/> : <Join /> }
@@ -49,13 +49,14 @@ import { Route, Switch, withRouter } from 'react-router-dom'
     }
     const mapStateToProps = state => {
         return ({
-                loggedIn: !!state.currentUser,
+                loggedIn: !!state.user,
                 posts: state.userPosts
         })  
     }
 
         const Background = styled.div`
-            position: absolute;
+            display: flex;
+            position: relative;
             width: 100%;
             height: 100%;
             left: 0px;

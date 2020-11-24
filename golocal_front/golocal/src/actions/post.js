@@ -9,7 +9,7 @@ import { updatePostForm } from './postForm.js'
         posts
       }
     }
-
+    
   export const clearPosts = () => {
     return {
       type: "CLEAR_POSTS"
@@ -64,13 +64,14 @@ import { updatePostForm } from './postForm.js'
         method: "GET",
         headers: {
           "Content-Type": "application/json"
-        },
-      })
-        .then(r => r.json())
-        .then(posts => {
-          if (posts.error) {
-            alert(posts.error)
-          } else {
+          },
+        })
+      .then(r => r.json())
+      .then(posts => {
+        console.log("posts:", posts)
+        if (posts.error) {
+          alert(posts.error)
+        } else {
             console.log("Posts Data:", posts.data)
             dispatch(userPosts(posts.data))
           }

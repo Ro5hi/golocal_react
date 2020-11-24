@@ -1,9 +1,9 @@
 import React from 'react'
-import connect from 'react-redux/lib/connect/connect'
+import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-    const Navbar = ({ currentUser, loggedIn }) => {
+    const Navbar = ({ user, loggedIn }) => {
         return (
             <Bar>
                 <Logo>
@@ -12,17 +12,17 @@ import styled from 'styled-components'
                     <li><NavLink exact to="/home">Home</NavLink></li>
                     <li><NavLink exact to="/posts">Feed</NavLink></li>
                     <li><NavLink exact to="/newpost">New Post</NavLink></li>
-                    <li><NavLink exact to="/profile">Profile</NavLink></li>
-                    <li><NavLink exact to="/editprofile">Account</NavLink></li>
-                { loggedIn ? <><p id="loggedIn">Hello, {currentUser.attributes.username}</p><loggingOut/></> : null}
+                    <li><NavLink exact to={`/profile/${user.id}`}>Profile</NavLink></li>
+                    <li><NavLink exact to={`/editprofile/${user.id}`}>Account</NavLink></li>
+                { loggedIn ? <><p id="loggedIn">Hello, {user.attributes.username}</p><loggingOut/></> : null}
             </Bar>
         )
     }
     
-    const mapStateToProps = ({ currentUser }) => {
+    const mapStateToProps = ({ user }) => {
         return {
-            currentUser,
-            loggedIn: !!currentUser
+            user,
+            loggedIn: !!user
         }
     }
 

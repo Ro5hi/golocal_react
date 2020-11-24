@@ -4,12 +4,7 @@ import { getPosts } from '../actions/post.js'
 import { connect } from 'react-redux'
 
   class Posts extends React.Component {
-        state = {
-          posts: []
-        }
-
         componentDidMount(){
-          debugger
           this.props.getPosts()
         }
       
@@ -17,7 +12,7 @@ import { connect } from 'react-redux'
           return (
             <Container>
                 <Card>
-                  {this.state.posts.map(function(post){
+                  {this.props.posts.map(function(post){
                     return <div key={post.id}>{post.caption}</div>
                   })}
                 </Card>
@@ -35,7 +30,8 @@ import { connect } from 'react-redux'
       export default connect(mapStateToProps, { getPosts })(Posts)
 
     const Container = styled.div`
-      position: absolute;
+      position: relative;
+      display: flex;
       width: 100%;
       height: 100%;
       left: 0px;
@@ -46,7 +42,8 @@ import { connect } from 'react-redux'
     `;
 
     const Card = styled.div`
-      position: absolute;
+      position: relative;
+      display: flex;
       width: 75%;
       height: 100%;
       left: 14%;
