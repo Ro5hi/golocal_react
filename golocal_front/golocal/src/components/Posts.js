@@ -1,28 +1,38 @@
 import React from "react";
-import PostCard from "./PostCard.js";
 import styled from "styled-components";
 import { getPosts } from '../actions/post.js'
+import { connect } from 'react-redux'
 
-      export default class Posts extends React.Component {
-      
+  class Posts extends React.Component {
         state = {
           posts: []
         }
-      
+
         componentDidMount(){
+          debugger
           this.props.getPosts()
         }
       
         render(){
           return (
             <Container>
-                {this.state.posts.map(function(post){
-                  return <div key={post.id}>{post.caption}</div>
-                })}
+                <Card>
+                  {this.state.posts.map(function(post){
+                    return <div key={post.id}>{post.caption}</div>
+                  })}
+                </Card>
             </Container>
           );
         }
       }
+
+      const mapStateToProps = state => {
+        return {
+          posts: state.posts
+        }
+      }
+
+      export default connect(mapStateToProps, { getPosts })(Posts)
 
     const Container = styled.div`
       position: absolute;
@@ -35,16 +45,11 @@ import { getPosts } from '../actions/post.js'
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     `;
 
-    const Header = styled.div`
+    const Card = styled.div`
       position: absolute;
-      width: 663px;
-      height: 71px;
-      left: 29px;
-      top: 13%;
-      font-family: Montserrat;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 28px;
-      line-height: 59px;
-      color: #000000;
+      width: 75%;
+      height: 100%;
+      left: 14%;
+      top: 0px;
+      background: #FFFFFF;
     `;

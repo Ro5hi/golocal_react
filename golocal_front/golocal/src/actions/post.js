@@ -32,7 +32,6 @@ import { updatePostForm } from './postForm.js'
 
   // Asynchronous
 
-  // debugger
   export const createPost = (post, history) => {
    return dispatch => {
       console.log("Trying to create", post)
@@ -68,12 +67,12 @@ import { updatePostForm } from './postForm.js'
         },
       })
         .then(r => r.json())
-        .then(response => {
-          if (response.error) {
-            alert(response.error)
+        .then(posts => {
+          if (posts.error) {
+            alert(posts.error)
           } else {
-            console.log(response.data)
-            dispatch(userPosts(response.data))
+            console.log("Posts Data:", posts.data)
+            dispatch(userPosts(posts.data))
           }
         })
         .catch(console.log)

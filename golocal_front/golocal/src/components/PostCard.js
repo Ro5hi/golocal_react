@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
                 <Link to={`/profile/${user.attributes.username}`}><h2>{user.attributes.username}</h2></Link>
                 </Username>
                     <Business>
-                        <h2>{user.attributes.business}</h2>
+                        <h2>{user.attributes.business.name}</h2>
                     </Business>
                     <Caption>
                         <h3>{post.attributes.caption}</h3>
