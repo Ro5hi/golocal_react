@@ -5,6 +5,7 @@ before_action :find_user, only: [:index, :new, :create, :show, :edit, :update, :
 
 def index 
     @posts = Post.all
+    render json: PostSerializer.new(@posts), status: :ok
 end
 
 def new 
@@ -13,6 +14,7 @@ def new
 end
 
 def show
+    render json: @post
 end
 
 def create

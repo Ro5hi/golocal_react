@@ -5,6 +5,8 @@ class API::V1::UsersController < ApplicationController
     # GET /users
     def index
         @users = User.all
+        render json: @users 
+        render json: UserSerializer.new(@users)
     end 
 
     # POST /users
