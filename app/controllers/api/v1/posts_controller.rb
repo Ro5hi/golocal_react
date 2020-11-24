@@ -4,7 +4,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 before_action :find_user, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
 def index 
-    @posts = Post.order("created_at DESC")
+    @posts = Post.all
 end
 
 def new 
@@ -12,6 +12,8 @@ def new
     @user = current_user
 end
 
+def show
+end
 
 def create
     @post = current_user.posts.build(create_params)
@@ -22,9 +24,6 @@ def create
         render json: @post.error
     end 
 end 
-
-def show
-end  
 
 def edit
     @user == current_user
