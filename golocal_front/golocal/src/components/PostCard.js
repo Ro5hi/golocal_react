@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { deletePost } from '../actions/post.js'
 import { Link } from 'react-router-dom'
 
-    const PostCard = ({ user, post }) => {
+    const PostCard = ({ user, posts }) => {
         return (
-            post ? 
+            posts ? 
             <Card>
                 <Username>
                 <Link to={`/profile/${user.attributes.username}`}><h2>{user.attributes.username}</h2></Link>
@@ -14,17 +14,17 @@ import { Link } from 'react-router-dom'
                         <h2>{user.attributes.business.name}</h2>
                     </Business>
                     <Caption>
-                        <h3>{post.attributes.caption}</h3>
+                        <h3>{posts.attributes.caption}</h3>
                     </Caption>
-                    <Link to={`/posts/${post.id}/edit`}>Edit this Post</Link>
+                    <Link to={`/posts/${posts.id}/edit`}>Edit this Post</Link>
                 <button onClick={deletePost}>Delete</button>
             </Card> :
-          <p>No content made.</p>
+          <Box><p>No content has been made.</p></Box>
         )
     }
 
     const Card = styled.div`
-        position: absolute;
+        position: relative;
         width: 475px;
         height: 287px;
         left: 112px;
@@ -32,8 +32,17 @@ import { Link } from 'react-router-dom'
         background: #FFFFFF;
     `
 
+    const Box = styled.div`
+        position: relative;
+        background: #FFFFFF;
+        top: 20px;
+        left: 20px;
+        width: 200px;
+        text-align: center;
+    `
+
     const Username = styled.div`
-        position: absolute;
+        position: relative;
         width: 184px;
         height: 24px;
         left: 146px;
@@ -49,7 +58,7 @@ import { Link } from 'react-router-dom'
     `
 
     const Business = styled.div`
-        position: absolute;
+        position: relative;
         width: 184px;
         height: 24px;
         left: 433px;
@@ -65,7 +74,7 @@ import { Link } from 'react-router-dom'
     `
 
     const Caption = styled.div`
-        position: absolute;
+        position: relative;
         width: 227px;
         height: 153px;
         left: 411px;

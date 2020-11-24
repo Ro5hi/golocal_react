@@ -29,6 +29,11 @@ import styled from 'styled-components'
                     <input type="submit" value="submit"/>
                 </form>
               </FormBox>
+              <Footer>
+              <FooterText>
+                        Go Local ©  2020
+                    </FooterText>
+                </Footer>  
           </Container>  
         );
       }
@@ -41,18 +46,16 @@ import styled from 'styled-components'
       }
 
       const Container = styled.div`
-        position: absolute;
-        width: 100%;
+        position: relative;
+        width: 30%;
         height: 100%;
-        left: 0px;
-        top: 0px;
+        left: 100px;
+        top: 50px;
         background: #FBEABE;
-        border: 1px solid rgba(9, 112, 38, 0.1);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       `
 
       const Header = styled.div`
-        position: absolute;
+        position: relative;
         width: 663px;
         height: 71px;
         left: 29px;
@@ -66,19 +69,36 @@ import styled from 'styled-components'
       `
 
       const FormBox = styled.div`
-        position: absolute;
+        position: relative;
         width: 778px;
         height: 600px;
         left: 29px;
         top: 300px;
       `
 
-      const submitButton = styled.div`
-        position: absolute;
-        width: 102px;
-        height: -46px;
-        left: 29px;
-        top: 375px;
+      const Footer = styled.div`
+          position: absolute;
+          display: flex;
+          width: 301px;
+          height: 80px;
+          left: -200px;
+          top: 750px;
       `
+      const FooterText = styled.div`
+          position: absolute;
+          display: flex;
+          width: 301px;
+          height: 24px;
+          left: 800px;
+          top: 37px;
+          font-family: Montserrat;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 24px;
+          line-height: 24px;
+          text-align: center;
+          letter-spacing: -0.015em;
+          color: rgba(0, 0, 0, 0.8);
+        `
       
 export default connect(mapStateToProps, { createPost, updatePostForm })(PostForm);

@@ -1,18 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
-import Join from './Join.js';
 import Navbar from './Navbar.js'
-import PostForm from './PostForm.js'
-import Posts from './Posts.js'
-import { loggedIn } from '../actions/currentUser.js'
-
 
     const Index = () => {
         return (
             <Container>
                 <Navbar />
-                    <Posts />
-                    
                     <Footer>
                     <FooterText>
                         Go Local ©  2020

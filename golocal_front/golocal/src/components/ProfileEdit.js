@@ -31,6 +31,11 @@ import styled from 'styled-components'
                                 <input type="submit" value="submit"/>
                             </Button>
                         </form>
+                        <Footer>
+                            <FooterText>
+                                Go Local ©  2020
+                            </FooterText>
+                        </Footer>  
                     </Container>
                     );
                 }
@@ -40,25 +45,25 @@ import styled from 'styled-components'
                     }
                 }
         
-                const Container = styled.div`
-                position: absolute;
-                width: 100%;
+            const Container = styled.div`
+                position: relative;
+                width: 400px;
                 height: 100%;
-                left: 0px;
-                top: 0px;
+                left: 100px;
+                top: 50px;
                 background: #FBEABE;
             `
 
             const Header = styled.div`
-                position: absolute;
+                position: relative;
                 width: 663px;
                 height: 71px;
                 left: 29px;
-                top: 36px;
+                top: 13%;
                 font-family: Montserrat;
                 font-style: normal;
                 font-weight: normal;
-                font-size: 48px;
+                font-size: 28px;
                 line-height: 59px;
                 color: #000000;
             `
@@ -72,11 +77,37 @@ import styled from 'styled-components'
             `
 
             const Button = styled.div`
-                position: absolute;
+                position: relative;
                 width: 102px;
-                height: 100px;
+                height: -46px;
                 left: 29px;
-                top: 500px;
+                top: 375px;
+            `
+
+                    
+            const Footer = styled.div`
+                position: absolute;
+                display: flex;
+                width: 301px;
+                height: 80px;
+                left: -200px;
+                top: 750px;
+            `
+            const FooterText = styled.div`
+                position: absolute;
+                display: flex;
+                width: 301px;
+                height: 24px;
+                left: 800px;
+                top: 37px;
+                font-family: Montserrat;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 24px;
+                line-height: 24px;
+                text-align: center;
+                letter-spacing: -0.015em;
+                color: rgba(0, 0, 0, 0.8);
             `
                 
     export default connect(mapStateToProps, { updateProfileForm, edit} )(editProfile)

@@ -46,7 +46,7 @@ import { userPosts } from './post.js'
                 dispatch(currentUser(user.data))
                 dispatch(userPosts())
                 dispatch(resetLoginForm)
-                history.push(`/`)
+                history.push(`/feed`)
             }
             })
             .catch(console.log)
@@ -98,7 +98,7 @@ import { userPosts } from './post.js'
                 } else {
                     dispatch(currentUser(user.data))
                     dispatch(setProfileDataForEdit)
-                    history.push('/')
+                    history.push('/feed')
                 }
             })
             .catch(console.log)

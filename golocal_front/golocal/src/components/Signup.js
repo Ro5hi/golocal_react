@@ -88,8 +88,6 @@ import styled from 'styled-components'
                 left: 1000px;
                 top: 100px;
                 background: #FBEABE;
-                border: 1px solid rgba(9, 112, 38, 0.1);
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             `
 
             const Header = styled.div`

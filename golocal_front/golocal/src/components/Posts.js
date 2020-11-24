@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { getPosts } from '../actions/post.js'
 import { connect } from 'react-redux'
+import PostCard from './PostCard.js'
 
   class Posts extends React.Component {
         componentDidMount(){
@@ -11,11 +12,15 @@ import { connect } from 'react-redux'
         render(){
           return (
             <Container>
-                <Card>
-                  {this.props.posts.map(function(post){
+                <PostCard />
+                  {/* {this.props.posts.map(function(post){
                     return <div key={post.id}>{post.caption}</div>
-                  })}
-                </Card>
+                  })} */}
+                <Footer>
+                    <FooterText>
+                        Go Local ©  2020
+                    </FooterText>
+                </Footer>
             </Container>
           );
         }
@@ -37,8 +42,6 @@ import { connect } from 'react-redux'
       left: 0px;
       top: 0px;
       background: #fbeabe;
-      border: 1px solid rgba(9, 112, 38, 0.1);
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     `;
 
     const Card = styled.div`
@@ -50,3 +53,29 @@ import { connect } from 'react-redux'
       top: 0px;
       background: #FFFFFF;
     `;
+
+    
+    const Footer = styled.div`
+        position: absolute;
+        display: flex;
+        width: 301px;
+        height: 80px;
+        left: -100px;
+        top: 800px;
+    `
+    const FooterText = styled.div`
+        position: absolute;
+        display: flex;
+        width: 301px;
+        height: 24px;
+        left: 800px;
+        top: 37px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: -0.015em;
+        color: rgba(0, 0, 0, 0.8);    
+    `

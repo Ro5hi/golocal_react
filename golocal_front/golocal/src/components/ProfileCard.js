@@ -1,23 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import { render } from 'react-dom'
+import { connect } from 'react-redux'
 import currentUser from '../actions/currentUser.js'
 
-    const ProfileCard = ({ user, business }) => {
-        render() 
+    const ProfileCard = ({ user }) => {
+        debugger
             return (
             <Card>
                 <Name>
-                    <h4> {user.attributes.name }</h4>
+                    <h4> {user.attributes.name }</h4> <br /><br />
                 </Name>
                     <Business>
-                        <h5>
-                            { business.attributes.name }  
-                            { business.attributes.address }
-                            { business.attributes.city }
-                            { business.attributes.state }
-                            { business.attributes.zipcode }
-                            { business.attributes.country}
+                        <br/><h5>
+                            { user.attributes.business.name }  <br/><br/>
+                            { user.attributes.business.address } <br/>
+                            { user.attributes.business.city } <br/>
+                            { user.attributes.business.state } <br/>
+                            { user.attributes.business.zipcode } <br/>
+                            { user.attributes.business.country} <br/>
                         </h5>
                     </Business>
                 <Bio>
@@ -27,12 +27,18 @@ import currentUser from '../actions/currentUser.js'
         )
     }
 
+    const mapStateToProps = ({ user }) => {
+        return {
+            user
+        }
+    }
+
     const Card = styled.div`
         position: absolute;
-        width: 475px;
+        width: 186px;
         height: 287px;
         left: 112px;
-        top: 430px;
+        top: 43px;
         background: #FFFFFF;
     `
 
@@ -40,8 +46,8 @@ import currentUser from '../actions/currentUser.js'
         position: absolute;
         width: 184px;
         height: 24px;
-        left: 100px;
-        top: 253px;
+        left: 0px;
+        top: 0px;
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
@@ -49,15 +55,15 @@ import currentUser from '../actions/currentUser.js'
         line-height: 25px;
         text-align: center;
         letter-spacing: -0.035em;
-        color: #000000;
+        color: red;
     `
 
     const Business = styled.div`
-        position: absolute;
+        position: relative;
         width: 184px;
-        height: 24px;
-        left: 100px;
-        top: 299px;
+        height: 285px;
+        left: 0px;
+        top: 0px;
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
@@ -66,6 +72,7 @@ import currentUser from '../actions/currentUser.js'
         text-align: center;
         letter-spacing: -0.035em;
         color: #000000;
+        border: 2px solid black;
     `
 
     const Bio = styled.div`
@@ -84,4 +91,4 @@ import currentUser from '../actions/currentUser.js'
         color: #000000;
     `
 
-    export default ProfileCard
+    export default connect(mapStateToProps)(ProfileCard)
