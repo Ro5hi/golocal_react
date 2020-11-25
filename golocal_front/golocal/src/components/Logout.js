@@ -5,32 +5,35 @@ import { logout } from "../actions/currentUser.js";
 
 const loggingOut = ({ logout, history }) => {
   return (
-    <LogOutButton>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          logout();
-          history.push("/");
-        }}
-      >
-        <input type="submit" value="Log Out" />
-      </form>
+    <>
+    <Message>
+      Are you done for today?
+    </Message>
+      <LogOutButton>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            logout();
+            history.push("/");}}>
+          <input type="submit" value="Log Out" />
+        </form>
       </LogOutButton>
+    </>
   );
 };
 
+  const Message = styled.div`
+    position: relative;
+    width: 160px;
+    height: 25px;
+    left: 20px;
+    background: white;
+  `
+
   const LogOutButton = styled.div`
-    display: flex;
-    width: 100%;
-    height: 100%;
-    left: 0px;
-    top: 500px;
-    background: #FBEABE;position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0px;
-    top: 0px;
-    background: #FBEABE;
+    position: relative;
+    left: -100px;
+    top: 50px;
   `
 
 export default connect(null, { logout })(loggingOut);

@@ -17,7 +17,7 @@ import styled from 'styled-components'
           event.preventDefault();
           createPost(formData, history);
         }
-
+        
         return (
           <Container>
             <Header>
@@ -25,7 +25,7 @@ import styled from 'styled-components'
             </Header>
               <FormBox>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" name="caption" placeholder="Make your new post here..." value={caption} onChange={changeHandler}/>
+                    <input type="text" name="caption" placeholder="Make your new post here." value={caption} onChange={changeHandler}/>
                     <input type="submit" value="submit"/>
                 </form>
               </FormBox>
@@ -73,7 +73,7 @@ import styled from 'styled-components'
         width: 778px;
         height: 600px;
         left: 29px;
-        top: 300px;
+        top: 200px;
       `
 
       const Footer = styled.div`

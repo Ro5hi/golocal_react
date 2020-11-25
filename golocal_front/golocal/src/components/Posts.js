@@ -13,9 +13,6 @@ import PostCard from './PostCard.js'
           return (
             <Container>
                 <PostCard />
-                  {/* {this.props.posts.map(function(post){
-                    return <div key={post.id}>{post.caption}</div>
-                  })} */}
                 <Footer>
                     <FooterText>
                         Go Local ©  2020

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Component } from 'react'
 
     export default class Profile extends Component {
+
         render() {
             return (
                 <UserProfile>
@@ -14,9 +15,10 @@ import { Component } from 'react'
     }
 
     const UserProfile = styled.div`
-        position: absolute;
-        width: 100%;
-        height: 100%;
+        position: relative;
+        width: 0px;
+        height: 0px;
         left: 0px;
         top: 0px;
     `
+    

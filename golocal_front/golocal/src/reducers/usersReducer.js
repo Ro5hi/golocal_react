@@ -1,7 +1,8 @@
-export const usersReducer = (state = [], action) => {
+const usersReducer = (state = [], action) => {
     switch (action.type) {
-        case 'FETCH_USERS':
-            return action.payload
+        case "GET_USERS":
+            console.log("reducer", action.users)
+            return action.users 
         default:
             return state
     }

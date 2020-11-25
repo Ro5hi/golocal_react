@@ -1,19 +1,27 @@
 import React from 'react';
 import styled from "styled-components";
 import Navbar from './Navbar.js'
+import { connect } from 'react-redux'
+import { getAllUsers } from '../actions/user.js'
 
-    const Index = () => {
+    class Index extends React.Component {
+        componentDidMount(){
+            this.props.getAllUsers()
+          }
+
+    render(){
         return (
             <Container>
-                <Navbar />
-                    <Footer>
-                    <FooterText>
-                        Go Local ©  2020
-                    </FooterText>
-                </Footer>
-            </Container>
+            <Navbar />
+                <Footer>
+                <FooterText>
+                    Go Local ©  2020
+                </FooterText>
+            </Footer>
+        </Container>
         );
-    };
+      }
+    }
 
     const Container = styled.div`
         display: flex;
@@ -54,4 +62,4 @@ import Navbar from './Navbar.js'
         color: rgba(0, 0, 0, 0.8);    
     `
 
-    export default Index
+    export default connect(null, {getAllUsers})(Index)

@@ -1,34 +1,56 @@
 import React from 'react'
 import styled from 'styled-components'
-import { deletePost } from '../actions/post.js'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Component } from 'react'
 
-    const PostCard = ({ user, posts }) => {
-        return (
-            posts ? 
-            <Card>
-                <Username>
-                <Link to={`/profile/${user.attributes.username}`}><h2>{user.attributes.username}</h2></Link>
+
+    class PostCard extends Component {  
+
+        render(){
+             if (this.props.posts) {
+            return (
+                <>
+                {this.props.users.map( user => {
+                    return(
+                    <Card>
+                        <Username>
+                    <Link to={`/profile/${user.attributes.username}`}><h2>{user.attributes.username}</h2></Link>
                 </Username>
                     <Business>
-                        <h2>{user.attributes.business.name}</h2>
+                        <h4>{user.attributes.business.name}</h4>
                     </Business>
-                    <Caption>
-                        <h3>{posts.attributes.caption}</h3>
-                    </Caption>
-                    <Link to={`/posts/${posts.id}/edit`}>Edit this Post</Link>
-                <button onClick={deletePost}>Delete</button>
-            </Card> :
-          <Box><p>No content has been made.</p></Box>
-        )
+                            <Caption>
+                        {this.props.posts.map( post => {
+                            if (user.id === post.relationships.user.data.id)
+                            { return <div key={post.id}>{post.attributes.caption}</div>}
+                        })}
+                        </Caption>
+                        </Card> )
+                    })
+                } </>
+        )}
+             else {
+                 return (
+        <Box><p>No content has been made.</p></Box>
+            )
+        }}
+    }
+
+    const mapStateToProps = ({ user, users, posts }) => {
+        return {
+            users,
+            user, 
+            posts
+        }
     }
 
     const Card = styled.div`
         position: relative;
-        width: 475px;
+        width: 275px;
         height: 287px;
         left: 112px;
-        top: 430px;
+        top: 10px;
         background: #FFFFFF;
     `
 
@@ -45,8 +67,8 @@ import { Link } from 'react-router-dom'
         position: relative;
         width: 184px;
         height: 24px;
-        left: 146px;
-        top: 60px;
+        left: -40px;
+        top: 0px;
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
@@ -61,8 +83,8 @@ import { Link } from 'react-router-dom'
         position: relative;
         width: 184px;
         height: 24px;
-        left: 433px;
-        top: 60px;
+        left: -43px;
+        top: -10px;
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
@@ -77,11 +99,11 @@ import { Link } from 'react-router-dom'
         position: relative;
         width: 227px;
         height: 153px;
-        left: 411px;
-        top: 281px;
+        left: 23px;
+        top: 1px;
         background: #FFFFFF;
         border: 1px solid rgba(0, 0, 0, 0.25);
         box-sizing: border-box;
     `
 
-    export default PostCard
+    export default connect(mapStateToProps)(PostCard)

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getCurrentSession } from './actions/currentUser.js'
+import { getAllUsers } from './actions/user.js'
 import Index from './components/Index.js'
 import Navbar from './components/Navbar.js'
 import Signup from './components/Signup.js'
@@ -8,7 +9,6 @@ import Join from './components/Join.js'
 import Login from './components/Login.js'
 import loggingOut from './components/Logout.js'
 import Profile from './components/Profile.js'
-import ProfileEdit from './components/ProfileEdit.js'
 import ProfileCard from './components/ProfileCard.js'
 import Posts from './components/Posts.js'
 import PostCard from './components/PostCard.js'
@@ -21,7 +21,9 @@ import { Route, Switch, withRouter } from 'react-router-dom'
     class App extends React.Component {
         componentDidMount() {
             this.props.getCurrentSession() 
+            this.props.getAllUsers()
         }
+
         render() {
             const { loggedIn, posts} = this.props 
             return (
@@ -33,7 +35,6 @@ import { Route, Switch, withRouter } from 'react-router-dom'
                             <Route exact path='/logout' component={loggingOut}/>
                             <Route exact path='/home' component={Index}/>
                             <Route exact path='/profile/:id' component={Profile}/>
-                            <Route exact path='/editprofile/:id' component={ProfileEdit}/>
                             <Route exact path='/newpost' component={PostForm}/>
                             <Route exact path='/posts' component={Posts}/>
                             <Route exact path='/posts/:id' render={props => {
@@ -64,4 +65,4 @@ import { Route, Switch, withRouter } from 'react-router-dom'
             background: #FBEABE;
         `
         
-export default withRouter(connect(mapStateToProps, { getCurrentSession })(App))
+export default withRouter(connect(mapStateToProps, { getCurrentSession, getAllUsers} )(App))

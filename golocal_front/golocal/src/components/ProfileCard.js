@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import currentUser from '../actions/currentUser.js'
 
-    const ProfileCard = ({ user }) => {
-        debugger
+    const ProfileCard = ({ user }) => { 
             return (
             <Card>
                 <Name>

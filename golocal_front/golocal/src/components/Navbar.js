@@ -11,7 +11,7 @@ import loggingOut from './Logout'
                 <ul><NavLink exact to="/posts">Feed</NavLink></ul>
                 <ul><NavLink exact to="/newpost">New Post</NavLink></ul><br />
                 <ul><NavLink exact to={`/profile/${user.id}`}>Profile</NavLink></ul>
-                <ul><NavLink exact to={`/editprofile/${user.id}`}>Account</NavLink></ul>
+                <ul><NavLink exact to="/logout">Log out</NavLink></ul>
                 </Links>
                 <User>{ loggedIn ? <><p id="loggedIn">Hello, {user.attributes.username}</p> <loggingOut /> </> : null}</User>
             </Bar>
@@ -26,7 +26,7 @@ import loggingOut from './Logout'
     }
 
         const Links = styled.div`
-        a:link, a:hover {
+            a:link, a:hover {
             display: block;
             color: white;
             text-align: center;
