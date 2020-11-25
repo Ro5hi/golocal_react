@@ -81,30 +81,6 @@ import { userPosts } from './post.js'
         }
     }
 
-    export const edit = (formData, history) => {
-        return dispatch => {
-            return fetch("http://localhost:3001/api/v1/editprofile", {
-                credentials: "include",
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(r => r.json())
-            .then(user => {
-                if (user.error) {
-                    alert(user.error)
-                } else {
-                    dispatch(currentUser(user.data))
-                    dispatch(setProfileDataForEdit)
-                    history.push('/feed')
-                }
-            })
-            .catch(console.log)
-        }
-    }
-
         export const logout = (credentials, history) => {
             return dispatch => {
                 dispatch(clearSession())

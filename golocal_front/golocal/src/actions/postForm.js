@@ -11,14 +11,3 @@ export const updatePostForm = (name, value) => {
       type: "RESET_NEW_POST_FORM",
     }
   }
-  
-  export const setFormDataForEdit = post => {
-    const postFormData = {
-      caption: post.attributes.caption
-    }
-    return {
-      type: "POST_FORM_FOR_EDIT",
-      postFormData
-    }
-  }
-  

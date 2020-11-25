@@ -5,7 +5,7 @@ import { createPost } from '../actions/post.js';
 import { updatePostForm } from '../actions/postForm.js'
 import styled from 'styled-components'
 
-    const PostForm = ({ formData, userId, post, history, createPost, updatePostForm}) => {
+    const PostForm = ({ formData, user, post, history, createPost, updatePostForm}) => {
 
         const { caption } = formData 
 
@@ -35,10 +35,10 @@ import styled from 'styled-components'
         );
       }
       const mapStateToProps = state => {
-        const userId = state.currentUser ? state.currentUser.id : ""
+        const user = state.user ? state.user.id : ""
         return {
           formData: state.postForm,
-          userId
+          user
         }
       }
 

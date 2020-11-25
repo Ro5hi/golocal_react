@@ -27,8 +27,8 @@ import Footer from './Footer.js'
       }
 
       export default connect(mapStateToProps, { getPosts })(Posts)
-
-    const Container = styled.div`
+      
+      const Container = styled.div`
       position: relative;
       display: flex;
       width: 100%;
@@ -36,9 +36,9 @@ import Footer from './Footer.js'
       left: 0px;
       top: 0px;
       background: #fbeabe;
-    `;
-
-    const Card = styled.div`
+      `;
+      
+      const Card = styled.div`
       position: relative;
       display: flex;
       width: 75%;
@@ -46,4 +46,4 @@ import Footer from './Footer.js'
       left: 14%;
       top: 0px;
       background: #FFFFFF;
-    `;
+      `;

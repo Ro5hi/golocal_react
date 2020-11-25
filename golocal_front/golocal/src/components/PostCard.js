@@ -1,14 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getCurrentSession } from '../actions/currentUser'
 import { connect } from 'react-redux'
 import { Component } from 'react'
 
 
-    class PostCard extends Component {  
-        componentDidMount(){
-            this.props.getCurrentSession()
-          }
+    class PostCard extends Component {
         
 
         render(){
@@ -28,20 +24,21 @@ import { Component } from 'react'
                             <h4>{user.attributes.business.address}</h4>
                         </Address>    
                     <Caption>
-                        {this.props.posts.map( post => {
-                            if (user.id === post.relationships.user.data.id)
-                            { return <div key={post.id}>{post.attributes.caption}</div>}
+                        {this.props.posts.map( posts => {
+                            if (user.id === posts.relationships.user.data.id)
+                            { return <div key={posts.id}>{posts.attributes.caption}</div>}
                         })}
                     </Caption>
                 </Card> )
                     })
                 } </>
-        )}
+            )}
              else {
                  return (
-        <Box><p>No content has been made.</p></Box>
-            )
-        }}
+                    <Box><p>No content has been made.</p></Box>
+                )
+            }
+        }
     }
 
     const mapStateToProps = ({ user, users, posts }) => {
@@ -103,19 +100,19 @@ import { Component } from 'react'
     `
 
     const Address = styled.div`
-    position: relative;
-    width: 184px;
-    height: 24px;
-    left: -33px;
-    top: -20px;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 25px;
-    text-align: center;
-    letter-spacing: -0.035em;
-    color: #000000;
+        position: relative;
+        width: 184px;
+        height: 24px;
+        left: -33px;
+        top: -20px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+        letter-spacing: -0.035em;
+        color: #000000;
     `
 
     const Caption = styled.div`
@@ -130,4 +127,4 @@ import { Component } from 'react'
         box-sizing: border-box;
     `
 
-    export default connect(mapStateToProps, { getCurrentSession })(PostCard)
+    export default connect(mapStateToProps )(PostCard)

@@ -1,5 +1,4 @@
 import { resetPostForm } from './postForm.js'
-import { updatePostForm } from './postForm.js'
 
 // Synchronous
 
@@ -43,7 +42,7 @@ import { updatePostForm } from './postForm.js'
           console.log("successfully created", post)
           dispatch(addPost(post))
           dispatch(resetPostForm())
-          history.push(`/posts/${post.id}`)
+          history.push(`/posts`)
         }
         })
         .catch(console.log)
