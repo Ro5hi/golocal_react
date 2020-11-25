@@ -1,6 +1,5 @@
 import { resetLoginForm } from './loginForm.js'
 import { resetSignupForm } from './signupForm.js'
-import { setProfileDataForEdit } from './editProfileForm'
 import { userPosts } from './post.js'
 
     // See current user 

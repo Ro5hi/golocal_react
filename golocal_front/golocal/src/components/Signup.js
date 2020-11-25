@@ -86,7 +86,7 @@ import styled from 'styled-components'
                 width: 400px;
                 height: 720px;
                 left: 1000px;
-                top: 100px;
+                top: 50px;
                 background: #FBEABE;
             `
 

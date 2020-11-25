@@ -29,21 +29,10 @@ import Footer from './Footer.js'
       export default connect(mapStateToProps, { getPosts })(Posts)
       
       const Container = styled.div`
-      position: relative;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      left: 0px;
-      top: 0px;
-      background: #fbeabe;
-      `;
-      
-      const Card = styled.div`
-      position: relative;
-      display: flex;
-      width: 75%;
-      height: 100%;
-      left: 14%;
-      top: 0px;
-      background: #FFFFFF;
+        position: relative;
+        display: flex;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        background: #fbeabe;
       `;

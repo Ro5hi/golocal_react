@@ -26,7 +26,6 @@ import { getAllUsers } from '../actions/user.js'
         height: 100%;
         left: 0px;
         top: 0px;
-        background: #FBEABE;position: absolute;
         width: 100%;
         height: 100%;
         left: 0px;

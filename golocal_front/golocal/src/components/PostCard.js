@@ -17,9 +17,9 @@ import { Component } from 'react'
                     <Username>
                         <h2>{user.attributes.username}</h2>
                     </Username>
-                        <BusinessName>
-                            <h4>{user.attributes.business.name}</h4>
-                        </BusinessName>
+                        <BusinessCity>
+                            <h4>{user.attributes.business.city}</h4>
+                        </BusinessCity>
                         <Address>
                             <h4>{user.attributes.business.address}</h4>
                         </Address>    
@@ -51,9 +51,9 @@ import { Component } from 'react'
 
     const Card = styled.div`
         position: relative;
-        width: 275px;
-        height: 487px;
-        left: 112px;
+        width: 100%;
+        height: 500px;
+        left: 0px;
         top: 10px;
         background: #FFFFFF;
     `
@@ -83,7 +83,7 @@ import { Component } from 'react'
         color: #000000;
     `
 
-    const BusinessName = styled.div`
+    const BusinessCity = styled.div`
         position: relative;
         width: 184px;
         height: 24px;

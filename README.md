@@ -19,6 +19,10 @@ Install the required gems for Rails and the required NPM packages for React.
 
 Run the app on localhost.
 
+## Future Additions: 
+
+- Image uploading (for posts and profile pictures)
+- Google Maps API
 
 ____________________________
 
