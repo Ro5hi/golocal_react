@@ -12,8 +12,6 @@
             return inputVal
         case "RESET_POST_FORM":
             return initialState
-        case "EDIT_POST_FORM":
-            return action.postformData 
         default:
             return state;
         }

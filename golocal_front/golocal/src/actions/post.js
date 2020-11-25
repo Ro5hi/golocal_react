@@ -23,13 +23,6 @@ import { updatePostForm } from './postForm.js'
     }
   }
 
-  export const deletedPost = postId => {
-    return {
-      type: "DELETE_POST",
-      postId
-    }
-  }
-
   // Asynchronous
 
   export const createPost = (post, history) => {
@@ -50,7 +43,7 @@ import { updatePostForm } from './postForm.js'
           console.log("successfully created", post)
           dispatch(addPost(post))
           dispatch(resetPostForm())
-          history.push("/posts")
+          history.push(`/posts/${post.id}`)
         }
         })
         .catch(console.log)
@@ -79,52 +72,3 @@ import { updatePostForm } from './postForm.js'
         .catch(console.log)
     }
   }
-
-  export const editPost = (postData, history) => {
-    return dispatch => {
-        const postEditData = {
-            caption: postData.caption
-        }
-        return fetch(`http://localhost:3001/api/posts/${postData.postId}`, {
-            credentials: "include",
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(postEditData)
-        })
-        .then(r => r.json())
-        .then(resp => {
-            if (resp.error) {
-                alert(resp.error)
-            } else {
-                dispatch(updatePostForm(resp.data))
-                history.push(`/posts/${resp.data.id}`)
-            }
-        })
-        .catch(console.log)
-      }
-  }
-
-  export const deletePost = (postId, history) => {
-    return dispatch => {
-      return fetch(`http://localhost:3001/api/v1/posts/${postId}`, {
-        credentials: "include",
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      .then(r => r.json())
-      .then(resp => {
-        if (resp.error) {
-        alert(resp.error)
-      } else {
-        dispatch(deletedPost(postId))
-        dispatch(getPosts())
-        history.push(`/posts`)
-      }
-    })
-    .catch(console.log)
-  }
-}

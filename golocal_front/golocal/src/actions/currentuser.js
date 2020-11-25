@@ -46,7 +46,7 @@ import { userPosts } from './post.js'
                 dispatch(currentUser(user.data))
                 dispatch(userPosts())
                 dispatch(resetLoginForm)
-                history.push(`/feed`)
+                history.push(`/`)
             }
             })
             .catch(console.log)
@@ -107,14 +107,14 @@ import { userPosts } from './post.js'
 
         export const logout = (credentials, history) => {
             return dispatch => {
-              dispatch(clearSession())
-              return fetch('http://localhost:3001/api/v1/logout', {
-                credentials: "include",
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-              })
+                dispatch(clearSession())
+                return fetch('http://localhost:3001/api/v1/logout', {
+                    credentials: "include",
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
             }
         }
           

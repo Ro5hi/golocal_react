@@ -1,6 +1,6 @@
 # Go Local
 
-A React & Redux project with Rails running in the back-end. Allows local business owners to create their online presence with a customizable profile that they can create posts with to promote their niche. 
+A React & Redux project with Rails running in the back-end. Allows local business owners to create their online presence with a that they can create posts with to promote their niche. 
 
 # Backend
 
@@ -13,13 +13,11 @@ Structured using React and Redux. Coded in ES6 syntax.
 
 ## Installation:
 
-
-## Requirements:
-
-
+Install the required gems for Rails and the required NPM packages for React. 
 
 ## Usage:
 
+Run the app on localhost.
 
 
 ____________________________

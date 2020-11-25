@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer.js'
 import { connect } from "react-redux";
 import { createPost } from '../actions/post.js';
 import { updatePostForm } from '../actions/postForm.js'
@@ -29,11 +30,7 @@ import styled from 'styled-components'
                     <input type="submit" value="submit"/>
                 </form>
               </FormBox>
-              <Footer>
-              <FooterText>
-                        Go Local ©  2020
-                    </FooterText>
-                </Footer>  
+             <Footer />
           </Container>  
         );
       }
@@ -75,30 +72,5 @@ import styled from 'styled-components'
         left: 29px;
         top: 200px;
       `
-
-      const Footer = styled.div`
-          position: absolute;
-          display: flex;
-          width: 301px;
-          height: 80px;
-          left: -200px;
-          top: 750px;
-      `
-      const FooterText = styled.div`
-          position: absolute;
-          display: flex;
-          width: 301px;
-          height: 24px;
-          left: 800px;
-          top: 37px;
-          font-family: Montserrat;
-          font-style: normal;
-          font-weight: normal;
-          font-size: 24px;
-          line-height: 24px;
-          text-align: center;
-          letter-spacing: -0.015em;
-          color: rgba(0, 0, 0, 0.8);
-        `
       
 export default connect(mapStateToProps, { createPost, updatePostForm })(PostForm);

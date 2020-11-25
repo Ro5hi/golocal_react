@@ -14,7 +14,6 @@ import Posts from './components/Posts.js'
 import PostCard from './components/PostCard.js'
 import PostForm from './components/PostForm.js'
 import PostNew from './components/PostNew.js'
-import PostEdit from './components/PostEdit.js'
 import styled from 'styled-components'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
@@ -33,15 +32,10 @@ import { Route, Switch, withRouter } from 'react-router-dom'
                             <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
                             <Route exact path='/login' component={Login}/>
                             <Route exact path='/logout' component={loggingOut}/>
-                            <Route exact path='/home' component={Index}/>
                             <Route exact path='/profile/:id' component={Profile}/>
                             <Route exact path='/newpost' component={PostForm}/>
                             <Route exact path='/posts' component={Posts}/>
-                            <Route exact path='/posts/:id' render={props => {
-                                const post = posts.find(post => post.id === props.match.params.id)
-                                return <PostEdit post={post} {...props}/>
-                            }
-                            }/>
+                            <Route exact path='/posts/:id' component={PostCard}/>
                         </Switch>
                     
                 </Background>

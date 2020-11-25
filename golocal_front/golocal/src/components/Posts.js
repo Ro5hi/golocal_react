@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { getPosts } from '../actions/post.js'
 import { connect } from 'react-redux'
 import PostCard from './PostCard.js'
+import Footer from './Footer.js'
 
   class Posts extends React.Component {
         componentDidMount(){
@@ -13,11 +14,7 @@ import PostCard from './PostCard.js'
           return (
             <Container>
                 <PostCard />
-                <Footer>
-                    <FooterText>
-                        Go Local ©  2020
-                    </FooterText>
-                </Footer>
+                <Footer />
             </Container>
           );
         }
@@ -50,29 +47,3 @@ import PostCard from './PostCard.js'
       top: 0px;
       background: #FFFFFF;
     `;
-
-    
-    const Footer = styled.div`
-        position: absolute;
-        display: flex;
-        width: 301px;
-        height: 80px;
-        left: -100px;
-        top: 800px;
-    `
-    const FooterText = styled.div`
-        position: absolute;
-        display: flex;
-        width: 301px;
-        height: 24px;
-        left: 800px;
-        top: 37px;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 24px;
-        line-height: 24px;
-        text-align: center;
-        letter-spacing: -0.015em;
-        color: rgba(0, 0, 0, 0.8);    
-    `
