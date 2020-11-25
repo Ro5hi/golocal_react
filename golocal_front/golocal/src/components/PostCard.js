@@ -10,29 +10,29 @@ import { Component } from 'react'
         render(){
              if (this.props.posts) {
             return (
-                <>
-                {this.props.users.map( user => {
-                    return(
-                <Card>
-                    <Username>
-                        <h2>{user.attributes.username}</h2>
-                    </Username>
-                        <BusinessCity>
-                            <h4>{user.attributes.business.city}</h4>
-                        </BusinessCity>
-                        <Address>
-                            <h4>{user.attributes.business.address}</h4>
-                        </Address>    
-                    <Caption>
+                    <>
+                    {this.props.users.map( user => {
+                        return(
+                    <Card>
+                        <Username>
+                            <h2>{user.attributes.username}</h2>
+                        </Username>
+                            <BusinessCity>
+                                <h4>{user.attributes.business.city}</h4>
+                            </BusinessCity>
+                            <Address>
+                                <h4>{user.attributes.business.address}</h4>
+                            </Address>    
+                        <Caption>
                         {this.props.posts.map( posts => {
                             if (user.id === posts.relationships.user.data.id)
                             { return <div key={posts.id}>{posts.attributes.caption}</div>}
                         })}
-                    </Caption>
-                </Card> )
-                    })
-                } </>
-            )}
+                        </Caption>
+                    </Card> )
+                })
+            } </>
+        )}
              else {
                  return (
                     <Box><p>No content has been made.</p></Box>
