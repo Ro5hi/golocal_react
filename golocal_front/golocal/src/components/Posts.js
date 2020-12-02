@@ -31,8 +31,9 @@ import Footer from './Footer.js'
       const Container = styled.div`
         position: relative;
         display: flex;
-        height: 100%;
+        height: 800px;
+        width: 2800px;
         left: 0px;
         top: 0px;
-        background: #fbeabe;
-      `;
+        background-image: linear-gradient(to right, rgb(217,	180,	105), rgb(255, 255, 255));
+      `

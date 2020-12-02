@@ -7,6 +7,7 @@ import Recent from './Recent.js'
 
     const Join = () => {
         return (
+            <Background>
                 <Container>
                     <Title>GO LOCAL</Title>
                     <Body>
@@ -23,9 +24,14 @@ import Recent from './Recent.js'
                             </LogInButtonText>  
                         </LogInButton>
                         <Recent />
-                </Container> 
+                </Container>
+            </Background> 
         );
     };
+
+    const Background = styled.div `
+        background: black;
+    `
 
     const Container = styled.div`
         position: absolute;
@@ -33,7 +39,8 @@ import Recent from './Recent.js'
         height: 287px;
         left: 112px;
         top: 430px;
-        background: #FBEABE;
+        background: white;
+
     `
     
     const Title = styled.div`
@@ -44,7 +51,6 @@ import Recent from './Recent.js'
         bottom: 55.37%;
         font-family: Abril Fatface;
         font-style: normal;
-        font-weight: bold;
         font-size: 124px;
         line-height: 140px;
         display: flex;
@@ -86,7 +92,7 @@ import Recent from './Recent.js'
         text-decoration: none;
         color: white;
         position: absolute;
-        left: 62px;
+        left: 52px;
         top: 15px;
         bottom: 30.19%;
         font-family: Montserrat;

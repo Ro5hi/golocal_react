@@ -19,9 +19,6 @@ import currentUser from '../actions/currentUser.js'
                             { user.attributes.business.country} <br/>
                         </h5>
                     </Business>
-                <Bio>
-                    <h4> { user.attributes.bio } </h4>
-                </Bio>
             </Card>
         )
     }
@@ -34,59 +31,41 @@ import currentUser from '../actions/currentUser.js'
 
     const Card = styled.div`
         position: absolute;
-        width: 186px;
-        height: 287px;
-        left: 112px;
-        top: 43px;
-        background: #FFFFFF;
+        width: 1200px;
+        height: 800px;
+        left: 0px;
+        top: 0px;
+        background-image: linear-gradient(to right, rgb(217, 180, 105), rgb(255, 255, 255));
     `
 
     const Name = styled.div`
         position: absolute;
         width: 184px;
         height: 24px;
-        left: 0px;
+        left: 20px;
         top: 0px;
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
+        font-size: 100px;
         line-height: 25px;
         text-align: center;
         letter-spacing: -0.035em;
-        color: red;
+        color: white;
     `
 
     const Business = styled.div`
         position: relative;
-        width: 184px;
+        width: 284px;
         height: 285px;
-        left: 0px;
-        top: 0px;
+        left: 20px;
+        top: 150px;
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 25px;
-        text-align: center;
-        letter-spacing: -0.035em;
-        color: #000000;
-        border: 2px solid black;
-    `
-
-    const Bio = styled.div`
-        position: absolute;
-        width: 184px;
-        height: 24px;
-        left: 103px;
-        top: 345px;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 25px;
-        text-align: center;
-        letter-spacing: -0.035em;
+        font-size: 50px;
+        line-height: 40px;
+        text-align: left;
         color: #000000;
     `
 

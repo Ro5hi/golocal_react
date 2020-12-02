@@ -44,10 +44,10 @@ import styled from 'styled-components'
 
       const Container = styled.div`
         position: relative;
-        width: 30%;
-        height: 100%;
-        left: 100px;
-        top: 50px;
+        width: 100%;
+        height: 800px;
+        left: 0px;
+        top: 0px;
         background: #FBEABE;
       `
 

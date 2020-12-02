@@ -17,7 +17,7 @@ import styled from 'styled-components'
 
         const userSubmit = event => {
             event.preventDefault()
-            login(loginFormData)
+            login(loginFormData, history)
         }
         
         return (

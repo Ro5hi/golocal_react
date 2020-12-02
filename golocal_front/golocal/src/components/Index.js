@@ -21,6 +21,7 @@ import { getAllUsers } from '../actions/user.js'
     }
 
     const Container = styled.div`
+        position: relative;
         display: flex;
         width: 100%;
         height: 100%;

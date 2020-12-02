@@ -29,6 +29,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
                 <Background>
                         { loggedIn ? <Navbar location={this.props.location}/> : <Join /> }
                         <Switch>
+                            <Route exact path='/join' component={Join}/>
                             <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
                             <Route exact path='/login' component={Login}/>
                             <Route exact path='/logout' component={loggingOut}/>
@@ -55,7 +56,6 @@ import { Route, Switch, withRouter } from 'react-router-dom'
             height: 100%;
             left: 0px;
             top: 0px;
-            background: #FBEABE;
         `
         
 export default withRouter(connect(mapStateToProps, { getCurrentSession, getAllUsers} )(App))

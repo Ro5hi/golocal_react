@@ -37,7 +37,7 @@ import loggingOut from './Logout'
             height: 0px;
             left: -39px;
             top: 100px;
-            font-family: Abril Fatface;
+            font-family: Montserrat;
             font-style: normal;
             font-weight: normal;
             font-size: 12px;
@@ -59,10 +59,10 @@ import loggingOut from './Logout'
             height: 0px;
             left: -72px;
             top: 10px;
-            font-family: Abril Fatface;
+            font-family: Montserrat;
             font-style: normal;
             font-weight: normal;
-            font-size: 12px;
+            font-size: 11px;
             line-height: 25px;
             text-align: center;
             letter-spacing: 0.13em;
@@ -73,11 +73,11 @@ import loggingOut from './Logout'
         const Bar = styled.div`
             position: left;
             display: flex;
-            width: 100px;
+            width: 150px;
+            left: 0px;
             height: 800px;
             top: 75px;
-            background: #EAAD75;
-            border: 1px solid rgba(255, 122, 0, 0.44);
+            background: #D9B469;
             box-sizing: border-box;
         `
         export default connect(mapStateToProps)(Navbar)

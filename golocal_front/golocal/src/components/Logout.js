@@ -14,7 +14,7 @@ const loggingOut = ({ logout, history }) => {
           onSubmit={(event) => {
             event.preventDefault();
             logout();
-            history.push("/");}}>
+            history.push("/join");}}>
           <input type="submit" value="Log Out" />
         </form>
       </LogOutButton>
@@ -27,13 +27,14 @@ const loggingOut = ({ logout, history }) => {
     width: 160px;
     height: 25px;
     left: 20px;
+    top: 150px;
     background: white;
   `
 
   const LogOutButton = styled.div`
     position: relative;
     left: -100px;
-    top: 50px;
+    top: 200px;
   `
 
 export default connect(null, { logout })(loggingOut);

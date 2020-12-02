@@ -40,7 +40,7 @@ import { resetPostForm } from './postForm.js'
             alert(post.error)
           } else {
           console.log("successfully created", post)
-          dispatch(addPost(post))
+          dispatch(addPost(post.data))
           dispatch(resetPostForm())
           history.push(`/posts`)
         }
@@ -60,11 +60,10 @@ import { resetPostForm } from './postForm.js'
         })
       .then(r => r.json())
       .then(posts => {
-        console.log("posts:", posts)
         if (posts.error) {
           alert(posts.error)
         } else {
-            console.log("Posts Data:", posts.data)
+            console.log("Posts Data:", posts)
             dispatch(userPosts(posts.data))
           }
         })

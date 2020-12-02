@@ -10,10 +10,10 @@ import { Component } from 'react'
         render(){
              if (this.props.posts) {
             return (
-                    <>
+                <>
                     {this.props.users.map( user => {
                         return(
-                    <Card>
+                            <Card>
                         <Username>
                             <h2>{user.attributes.username}</h2>
                         </Username>
@@ -52,26 +52,28 @@ import { Component } from 'react'
     const Card = styled.div`
         position: relative;
         width: 100%;
-        height: 500px;
-        left: 0px;
-        top: 10px;
+        height: 400px;
+        left: 10px;
+        top: 100px;
         background: #FFFFFF;
+        border: 1px solid black;
     `
 
     const Box = styled.div`
         position: relative;
         background: #FFFFFF;
         top: 20px;
-        left: 20px;
+        left: -5px;
         width: 200px;
         text-align: center;
+        border: 1px solid black;
     `
 
     const Username = styled.div`
         position: relative;
-        width: 184px;
+        width: 200px;
         height: 24px;
-        left: -40px;
+        left: 10px;
         top: 0px;
         font-family: Montserrat;
         font-style: normal;
@@ -87,8 +89,8 @@ import { Component } from 'react'
         position: relative;
         width: 184px;
         height: 24px;
-        left: -43px;
-        top: -10px;
+        left: 10px;
+        top: 10px;
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
@@ -103,13 +105,13 @@ import { Component } from 'react'
         position: relative;
         width: 184px;
         height: 24px;
-        left: -33px;
-        top: -20px;
+        left: 10px;
+        top: 20px;
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
         font-size: 18px;
-        line-height: 25px;
+        line-height: 10px;
         text-align: center;
         letter-spacing: -0.035em;
         color: #000000;
@@ -120,8 +122,11 @@ import { Component } from 'react'
         position: relative;
         width: 227px;
         height: 153px;
-        left: 23px;
+        left: 15px;
         top: 55px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
         background: #FFFFFF;
         border: 1px solid rgba(0, 0, 0, 0.25);
         box-sizing: border-box;

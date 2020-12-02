@@ -1,6 +1,6 @@
 import { resetLoginForm } from './loginForm.js'
 import { resetSignupForm } from './signupForm.js'
-import { userPosts } from './post.js'
+import { clearPosts, userPosts } from './post.js'
 
     // See current user 
     export const currentUser = user => {
@@ -41,9 +41,7 @@ import { userPosts } from './post.js'
                 if (user.error) { 
                 alert(user.error)
             } else {
-                console.log("inside the fetch", user)
                 dispatch(currentUser(user.data))
-                dispatch(userPosts())
                 dispatch(resetLoginForm)
                 history.push(`/`)
             }
@@ -82,6 +80,7 @@ import { userPosts } from './post.js'
 
         export const logout = (credentials, history) => {
             return dispatch => {
+                dispatch(clearPosts)
                 dispatch(clearSession())
                 return fetch('http://localhost:3001/api/v1/logout', {
                     credentials: "include",
@@ -89,6 +88,8 @@ import { userPosts } from './post.js'
                     headers: {
                         "Content-Type": "application/json"
                     }
+                }).then(() => {
+                    console.log("Logged Out")
                 })
             }
         }
