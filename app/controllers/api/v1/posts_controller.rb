@@ -14,13 +14,13 @@ def new
 end
 
 def show
-    render json: @post
+    render json: PostSerializer.new(@post), status: :ok
 end
 
 def create
     @post = current_user.posts.build(create_params)
     if @post.save
-        render json: @post
+        render json: PostSerializer.new(@post), status: :ok
     else
         @post == 0 
         render json: @post.error
