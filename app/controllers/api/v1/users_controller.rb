@@ -11,7 +11,7 @@ class API::V1::UsersController < ApplicationController
     # POST /users
     def create
         @user = User.new(user_params)
-        @business = Business.find_or_create_by(name: params[:user][:business][:city], address: params[:user][:business][:address], state: params[:user][:business][:state], city: params[:user][:business][:city], country: params[:user][:business][:country], zipcode: params[:user][:business][:zipcode])
+        @business = Business.find_or_create_by(name: params[:user][:business][:name], address: params[:user][:business][:address], state: params[:user][:business][:state], city: params[:user][:business][:city], country: params[:user][:business][:country], zipcode: params[:user][:business][:zipcode])
 
         @user.business = @business
         if @user.save
