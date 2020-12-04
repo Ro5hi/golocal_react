@@ -18,7 +18,7 @@ import Footer from './Footer.js'
             </Container>
           );
         }
-      }
+  }
 
       const mapStateToProps = state => {
         return {

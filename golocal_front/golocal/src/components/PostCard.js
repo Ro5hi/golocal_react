@@ -121,7 +121,7 @@ import { Component } from 'react'
         position: relative;
         width: 227px;
         height: 153px;
-        left: 15px;
+        left: 0px;
         top: 55px;
         font-family: Montserrat;
         font-style: normal;
