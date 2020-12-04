@@ -5,7 +5,6 @@ import { currentUser } from './reducers/currentUserReducer'
 import usersReducer from './reducers/usersReducer'
 import postForm from './reducers/postReducer'
 import postsReducer from './reducers/postsReducer'
-import thunk from 'redux-thunk'
 
     const rootReducer = combineReducers({
         loginForm,

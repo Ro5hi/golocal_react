@@ -5,7 +5,6 @@ import { Component } from 'react'
 
 
     class PostCard extends Component {
-        
 
         render(){
              if (this.props.posts) {

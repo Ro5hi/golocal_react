@@ -13,7 +13,6 @@ import ProfileCard from './components/ProfileCard.js'
 import Posts from './components/Posts.js'
 import PostCard from './components/PostCard.js'
 import PostForm from './components/PostForm.js'
-import PostNew from './components/PostNew.js'
 import styled from 'styled-components'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
@@ -30,7 +29,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
                         { loggedIn ? <Navbar location={this.props.location}/> : <Join /> }
                         <Switch>
                             <Route exact path='/join' component={Join}/>
-                            <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
+                            <Route exact path='/signup' component={Signup}/>
                             <Route exact path='/login' component={Login}/>
                             <Route exact path='/logout' component={loggingOut}/>
                             <Route exact path='/profile/:id' component={Profile}/>
