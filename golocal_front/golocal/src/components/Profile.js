@@ -8,7 +8,7 @@ import { Component } from 'react'
         render() {
             return (
                 <UserProfile>
-                        <ProfileCard />
+                    <ProfileCard />
                 </UserProfile>
             );    
         }

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 
     class PostCard extends Component {
@@ -14,7 +15,7 @@ import { Component } from 'react'
                         return(
                             <Card>
                         <Username>
-                            <h2>{user.attributes.username}</h2>
+                            <Link to={`/profile/${user.id}`}><h2>{user.attributes.username}</h2></Link>
                         </Username>
                             <BusinessCity>
                                 <h4>{user.attributes.business.city}</h4>
