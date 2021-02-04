@@ -2,42 +2,40 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Component } from 'react'
-import { Route, Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom'
 
 class PostCard extends Component {
-    
     render(){
              if (this.props.posts) {
             return (
                 <>
-                    {this.props.users.map( users => {
-                        return(
-                            <Card>
-                        <Username>
-                            <Link to={`/profile/${users.id}`}><h2>{users.attributes.username}</h2></Link>
-                        </Username>
+                {this.props.users.map( user => {
+                    return(
+                        <Card>
+                            <Username>
+                                <Link to={`/profile/${user.id}`}><h2>{user.attributes.username}</h2></Link>
+                            </Username>
                             <BusinessCity>
-                                <h4>{users.attributes.business.city}</h4>
+                                <h4>{user.attributes.business.city}</h4>
                             </BusinessCity>
                             <Address>
-                                <h4>{users.attributes.business.address}</h4>
+                                <h4>{user.attributes.business.address}</h4>
                             </Address>    
-                        <Caption>
-                        {this.props.posts.map( posts => {
-                            if (users.id === posts.relationships.user.data.id)
-                            { return <div key={posts.id}>{posts.attributes.caption}</div>}
-                        })}
-                        </Caption>
-                    </Card> )
+                            <Caption>
+                                {this.props.posts.map( post => {
+                                if (user.id === post.relationships.user.data.id)
+                                { return <div key={post.id}>{post.attributes.caption}</div>}
+                                })}
+                            </Caption>
+                        </Card> 
+                    )
                 })
             } </>
         )}
              else {
                  return (
                     <Box><p>No content has been made.</p></Box>
-                )
-            }
+                )}
         }
     }
 
@@ -47,6 +45,7 @@ class PostCard extends Component {
             posts
         }
     }
+    export default connect(mapStateToProps )(PostCard)
 
     const Card = styled.div`
         position: relative;
@@ -130,5 +129,3 @@ class PostCard extends Component {
         border: 1px solid rgba(0, 0, 0, 0.25);
         box-sizing: border-box;
     `
-
-    export default connect(mapStateToProps )(PostCard)

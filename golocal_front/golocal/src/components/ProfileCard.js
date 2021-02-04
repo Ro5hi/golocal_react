@@ -1,34 +1,38 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { Route, Link } from 'react-router-dom'
 
-    const ProfileCard = ({ user }) => { 
-            return (
-            <Card>
-                <Name>
-                    <h4> {user.attributes.name }</h4> <br /><br />
-                </Name>
-                    <Business>
-                        <br/><h5>
-                            { user.attributes.business.name }  <br/><br/>
-                            { user.attributes.business.address } <br/>
-                            { user.attributes.business.city } <br/>
-                            { user.attributes.business.state } <br/>
-                            { user.attributes.business.zipcode } <br/>
-                            { user.attributes.business.country} <br/>
-                        </h5>
-                    </Business>
-            </Card>
-        )
-    }
-
-    const mapStateToProps = ({ user }) => {
-        return {
-            user
+    class ProfileCard extends Component {
+            render(){
+                return (
+                <Card>
+                    <Name>
+                        <h4> {user.attributes.name }</h4> 
+                        <br /><br />
+                    </Name>
+                        <Business>
+                            <br /><br />
+                            <h5>
+                                { user.attributes.business.name }  <br/><br/>
+                                { user.attributes.business.address } <br/>
+                                { user.attributes.business.city } <br/>
+                                { user.attributes.business.state } <br/>
+                                { user.attributes.business.zipcode } <br/>
+                                { user.attributes.business.country} <br/>
+                            </h5>
+                        </Business>
+                </Card>
+            )
         }
     }
-
+        mapStateToProps = ({ user }) => {
+            return {
+                user
+            }
+        }
+        
+    export default connect(mapStateToProps )(ProfileCard)
+        
     const Card = styled.div`
         position: absolute;
         width: 1200px;
@@ -68,5 +72,3 @@ import { Route, Link } from 'react-router-dom'
         text-align: left;
         color: #000000;
     `
-
-    export default connect(mapStateToProps)(ProfileCard)

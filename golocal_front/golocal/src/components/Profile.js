@@ -1,10 +1,14 @@
 import React from 'react'
 import ProfileCard from './ProfileCard.js'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 import { Component } from 'react'
+import { getAllUsers } from '../actions/user.js'
 
-    export default class Profile extends Component {
-
+    class Profile extends Component {
+        componentDidMount(users){            
+            console.log("This is", users)
+          }
         render() {
             return (
                 <UserProfile>
@@ -13,6 +17,8 @@ import { Component } from 'react'
             );       
         }
     }
+
+    export default connect(null, {getAllUsers})(Profile)
     
 
     const UserProfile = styled.div`
