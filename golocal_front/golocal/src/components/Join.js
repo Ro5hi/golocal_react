@@ -30,7 +30,7 @@ import Recent from './Recent.js'
     };
 
     const Background = styled.div `
-        background: black;
+        background: white;
     `
 
     const Container = styled.div`

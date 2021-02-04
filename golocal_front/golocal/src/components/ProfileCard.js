@@ -1,42 +1,33 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import { Route, Link } from 'react-router-dom'
 
-    class ProfileCard extends Component {
-        render() {
-            if (this.props.user) {
-                return (
-                    <>
-                    {this.props.users.map( user => {
-                        return(
-                            <Card>
-                                <Name>
-                                    <h4> {user.attributes.name }</h4> <br /><br />
-                                </Name>
-                                <Business>
-                                    <br/>
-                                    <h5>
-                                        { user.attributes.business.name }  <br/><br/>
-                                        { user.attributes.business.address } <br/>
-                                        { user.attributes.business.city } <br/>
-                                        { user.attributes.business.state } <br/>
-                                        { user.attributes.business.zipcode } <br/>
-                                        { user.attributes.business.country} <br/>
-                                  </h5>
-                                </Business>
-                            </Card>
-                        )
-                    })}
-                    </>
-                )
-            } 
-        }
+    const ProfileCard = ({ user }) => { 
+            return (
+            <Card>
+                <Name>
+                    <h4> {user.attributes.name }</h4> <br /><br />
+                </Name>
+                    <Business>
+                        <br/><h5>
+                            { user.attributes.business.name }  <br/><br/>
+                            { user.attributes.business.address } <br/>
+                            { user.attributes.business.city } <br/>
+                            { user.attributes.business.state } <br/>
+                            { user.attributes.business.zipcode } <br/>
+                            { user.attributes.business.country} <br/>
+                        </h5>
+                    </Business>
+            </Card>
+        )
     }
+
     const mapStateToProps = ({ user }) => {
         return {
             user
         }
-}
+    }
 
     const Card = styled.div`
         position: absolute;

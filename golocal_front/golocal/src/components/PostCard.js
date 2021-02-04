@@ -2,30 +2,30 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 
 
-    class PostCard extends Component {
-
-        render(){
+class PostCard extends Component {
+    
+    render(){
              if (this.props.posts) {
             return (
                 <>
-                    {this.props.users.map( user => {
+                    {this.props.users.map( users => {
                         return(
                             <Card>
                         <Username>
-                            <Link to={`/profile/${user.id}`}><h2>{user.attributes.username}</h2></Link>
+                            <Link to={`/profile/${users.id}`}><h2>{users.attributes.username}</h2></Link>
                         </Username>
                             <BusinessCity>
-                                <h4>{user.attributes.business.city}</h4>
+                                <h4>{users.attributes.business.city}</h4>
                             </BusinessCity>
                             <Address>
-                                <h4>{user.attributes.business.address}</h4>
+                                <h4>{users.attributes.business.address}</h4>
                             </Address>    
                         <Caption>
                         {this.props.posts.map( posts => {
-                            if (user.id === posts.relationships.user.data.id)
+                            if (users.id === posts.relationships.user.data.id)
                             { return <div key={posts.id}>{posts.attributes.caption}</div>}
                         })}
                         </Caption>

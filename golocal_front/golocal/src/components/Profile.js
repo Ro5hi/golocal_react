@@ -10,9 +10,10 @@ import { Component } from 'react'
                 <UserProfile>
                     <ProfileCard />
                 </UserProfile>
-            );    
+            );       
         }
     }
+    
 
     const UserProfile = styled.div`
         position: relative;
