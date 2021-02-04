@@ -3,33 +3,36 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 
     class ProfileCard extends Component {
+        componentDidMount() {
+            console.log("This is", this.user)
+        }
             render(){
                 return (
                 <Card>
                     <Name>
-                        <h4> {user.attributes.name }</h4> 
+                        <h4> {this.user.attributes.name }</h4> 
                         <br /><br />
                     </Name>
                         <Business>
                             <br /><br />
                             <h5>
-                                { user.attributes.business.name }  <br/><br/>
-                                { user.attributes.business.address } <br/>
-                                { user.attributes.business.city } <br/>
-                                { user.attributes.business.state } <br/>
-                                { user.attributes.business.zipcode } <br/>
-                                { user.attributes.business.country} <br/>
+                                { this.user.attributes.business.name }  <br/><br/>
+                                { this.user.attributes.business.address } <br/>
+                                { this.user.attributes.business.city } <br/>
+                                { this.user.attributes.business.state } <br/>
+                                { this.user.attributes.business.zipcode } <br/>
+                                { this.user.attributes.business.country} <br/>
                             </h5>
                         </Business>
                 </Card>
             )
         }
     }
-        mapStateToProps = ({ user }) => {
-            return {
-                user
-            }
+    const mapStateToProps = ({ user }) => {
+        return {
+            user
         }
+    }
         
     export default connect(mapStateToProps )(ProfileCard)
         

@@ -9,6 +9,7 @@ import { getAllUsers } from '../actions/user.js'
         componentDidMount(users){            
             console.log("This is", users)
           }
+          
         render() {
             return (
                 <UserProfile>
