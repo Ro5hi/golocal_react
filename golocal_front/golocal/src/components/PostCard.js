@@ -41,9 +41,8 @@ class PostCard extends Component {
         }
     }
 
-    const mapStateToProps = ({ user, users, posts }) => {
+    const mapStateToProps = ({ users, posts }) => {
         return {
-            user, 
             users,
             posts
         }

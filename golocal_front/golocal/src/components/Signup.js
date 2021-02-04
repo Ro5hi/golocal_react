@@ -40,34 +40,81 @@ import styled from 'styled-components'
                             <h1>User Profile</h1>
                         </Header>
                         <Name>
-                            <input placeholder="Name" value={signupFormData.name} name="name" type="text" onChange={userInfo} />
+                            <input 
+                                placeholder="Name" 
+                                value={signupFormData.name} 
+                                name="name" 
+                                type="text" 
+                                onChange={userInfo} />
                         </Name>
                         <Username>
-                            <input placeholder="Username" value={signupFormData.username} name="username" type="text" onChange={userInfo} />
+                            <input 
+                                placeholder="Username" 
+                                value={signupFormData.username}
+                                name="username" 
+                                type="text" 
+                                onChange={userInfo} />
                         </Username>
                         <Password>
-                            <input placeholder="Password" value={signupFormData.password} name="password" type="text" onChange={userInfo} />
+                            <input 
+                                placeholder="Password" 
+                                value={signupFormData.password} 
+                                name="password" 
+                                type="text" 
+                                onChange={userInfo} />
                         </Password>
                             <Business>
-                                <input placeholder="Business Name" value={signupFormData.business.name} name="name" type="text" onChange={businessInfo} />
+                                <input 
+                                    placeholder="Business Name" 
+                                    value={signupFormData.business.name} 
+                                    name="name" 
+                                    type="text" 
+                                    onChange={businessInfo} />
                             </Business>
                             <Address>
-                                <input placeholder="Business Address" value={signupFormData.business.address} name="address" type="text" onChange={businessInfo} />
+                                <input 
+                                    placeholder="Business Address" 
+                                    value={signupFormData.business.address} 
+                                    name="address" 
+                                    type="text" 
+                                    onChange={businessInfo} />
                             </Address>
                             <City>
-                                <input placeholder="Business City" value={signupFormData.business.city} name="city" type="text" onChange={businessInfo} />
+                                <input 
+                                    placeholder="Business City" 
+                                    value={signupFormData.business.city} 
+                                    name="city" 
+                                    type="text" 
+                                    onChange={businessInfo} />
                             </City>
                             <State>
-                                <input placeholder="Business State" value={signupFormData.business.state} name="state" type="text" onChange={businessInfo} />
+                                <input 
+                                    placeholder="Business State" 
+                                    value={signupFormData.business.state} 
+                                    name="state" 
+                                    type="text" 
+                                    onChange={businessInfo} />
                             </State>
                             <Country>
-                                <input placeholder="Business Country" value={signupFormData.business.country} name="country" type="text" onChange={businessInfo} />
+                                <input 
+                                    placeholder="Business Country" 
+                                    value={signupFormData.business.country} 
+                                    name="country" 
+                                    type="text" 
+                                    onChange={businessInfo} />
                             </Country>
                             <Zipcode>
-                                <input placeholder="Business Zipcode" value={signupFormData.business.zipcode} name="zipcode" type="text" onChange={businessInfo} />
+                                <input 
+                                    placeholder="Business Zipcode" 
+                                    value={signupFormData.business.zipcode} 
+                                    name="zipcode" 
+                                    type="text" 
+                                    onChange={businessInfo} />
                             </Zipcode>
                         <Button>
-                            <input type="submit" value="Register"/>
+                            <input 
+                                type="submit" 
+                                value="Register"/>
                         </Button>
                     </Container>
                 </form>
