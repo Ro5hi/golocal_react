@@ -6,9 +6,10 @@ import { Component } from 'react'
 import { getAllUsers } from '../actions/user.js'
 
     class Profile extends Component {
-        componentDidMount(users){            
-            console.log("This is", users)
-          }
+        componentDidMount() {
+            console.log("These users are", this.props.users)
+            this.props.getAllUsers()
+        }
           
         render() {
             return (

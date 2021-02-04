@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import { getAllUsers } from '../actions/user'
 
     class ProfileCard extends Component {
         componentDidMount() {
@@ -10,31 +11,31 @@ import { connect } from 'react-redux'
                 return (
                 <Card>
                     <Name>
-                        <h4> {this.user.attributes.name }</h4> 
+                        <h4> {this.props.users.name }</h4> 
                         <br /><br />
                     </Name>
                         <Business>
                             <br /><br />
                             <h5>
-                                { this.user.attributes.business.name }  <br/><br/>
-                                { this.user.attributes.business.address } <br/>
-                                { this.user.attributes.business.city } <br/>
-                                { this.user.attributes.business.state } <br/>
-                                { this.user.attributes.business.zipcode } <br/>
-                                { this.user.attributes.business.country} <br/>
+                                { this.props.users.business.name }  <br/><br/>
+                                { this.props.users.business.address } <br/>
+                                { this.props.users.business.city } <br/>
+                                { this.props.users.business.state } <br/>
+                                { this.props.users.business.zipcode } <br/>
+                                { this.props.users.business.country} <br/>
                             </h5>
                         </Business>
                 </Card>
             )
         }
     }
-    const mapStateToProps = ({ user }) => {
+    const mapStateToProps = ({ users }) => {
         return {
-            user
+            users
         }
     }
         
-    export default connect(mapStateToProps )(ProfileCard)
+    export default connect(mapStateToProps, { getAllUsers })(ProfileCard)
         
     const Card = styled.div`
         position: absolute;
