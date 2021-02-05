@@ -11,7 +11,7 @@ const loggingOut = ({ logout, history }) => {
     </Message>
       <LogOutButton>
         <form
-          onSubmit={(event) => {
+            onSubmit={(event) => {
             event.preventDefault();
             logout();
             history.push("/join");}}>

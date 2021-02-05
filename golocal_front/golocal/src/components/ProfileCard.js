@@ -1,28 +1,26 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { getAllUsers } from '../actions/user'
 
     class ProfileCard extends Component {
-        componentDidMount() {
-            console.log("This is", this.user)
-        }
-            render(){
+        render(){ 
+            console.log(this.props.users)
+                const user = this.props.users.find(u => u.id == this.props.match.id)
                 return (
                 <Card>
                     <Name>
-                        <h4> {this.props.users.name }</h4> 
+                        <h4> {user.attributes.name }</h4> 
                         <br /><br />
                     </Name>
                         <Business>
                             <br /><br />
                             <h5>
-                                { this.props.users.business.name }  <br/><br/>
-                                { this.props.users.business.address } <br/>
-                                { this.props.users.business.city } <br/>
-                                { this.props.users.business.state } <br/>
-                                { this.props.users.business.zipcode } <br/>
-                                { this.props.users.business.country} <br/>
+                                { user.attributes.business.name }    <br/><br/>
+                                { user.attributes.business.address } <br/>
+                                { user.attributes.business.city } <br/>
+                                { user.attributes.business.state } <br/>
+                                { user.attributes.business.zipcode } <br/>
+                                { user.attributes.business.country} <br/> 
                             </h5>
                         </Business>
                 </Card>
@@ -35,7 +33,7 @@ import { getAllUsers } from '../actions/user'
         }
     }
         
-    export default connect(mapStateToProps, { getAllUsers })(ProfileCard)
+    export default connect(mapStateToProps )(ProfileCard)
         
     const Card = styled.div`
         position: absolute;

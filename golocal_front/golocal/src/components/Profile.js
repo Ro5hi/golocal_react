@@ -7,14 +7,12 @@ import { getAllUsers } from '../actions/user.js'
 
     class Profile extends Component {
         componentDidMount() {
-            console.log("These users are", this.props.users)
             this.props.getAllUsers()
         }
-          
         render() {
             return (
                 <UserProfile>
-                    <ProfileCard />
+                    <ProfileCard history={this.props.history} match={this.props.match.params}/>
                 </UserProfile>
             );       
         }
