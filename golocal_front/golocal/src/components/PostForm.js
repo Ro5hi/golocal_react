@@ -13,12 +13,10 @@ import styled from 'styled-components'
           const { name, value } = event.target 
           updatePostForm(name, value)
         }
-
         const handleSubmit = (event) => {
           event.preventDefault();
           createPost(formData, history);
         }
-        
         return (
           <Container>
             <Header>
@@ -26,8 +24,15 @@ import styled from 'styled-components'
             </Header>
               <FormBox>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" name="caption" placeholder="Make your new post here." value={caption} onChange={changeHandler}/>
-                    <input type="submit" value="submit"/>
+                    <input 
+                      type="text" 
+                      name="caption" 
+                      placeholder="Make your new post here." 
+                      value={caption} 
+                      onChange={changeHandler}/>
+                    <input 
+                      type="submit" 
+                      value="submit"/>
                 </form>
               </FormBox>
              <Footer />
@@ -41,6 +46,8 @@ import styled from 'styled-components'
           user
         }
       }
+      
+  export default connect(mapStateToProps, { createPost, updatePostForm })(PostForm);
 
       const Container = styled.div`
         position: relative;
@@ -73,4 +80,3 @@ import styled from 'styled-components'
         top: 200px;
       `
       
-export default connect(mapStateToProps, { createPost, updatePostForm })(PostForm);

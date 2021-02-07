@@ -15,7 +15,6 @@ import { connect } from 'react-redux'
                         <Business>
                             <br /><br />
                             <h5>
-                                { user.attributes.business.name }    <br/><br/>
                                 { user.attributes.business.address } <br/>
                                 { user.attributes.business.city } <br/>
                                 { user.attributes.business.state } <br/>
