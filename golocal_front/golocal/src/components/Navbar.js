@@ -25,6 +25,8 @@ import loggingOut from './Logout'
         }
     }
 
+  export default connect(mapStateToProps)(Navbar)
+  
         const Links = styled.div`
             a:link, a:hover {
             display: block;
@@ -80,4 +82,4 @@ import loggingOut from './Logout'
             background: #D9B469;
             box-sizing: border-box;
         `
-        export default connect(mapStateToProps)(Navbar)
+      

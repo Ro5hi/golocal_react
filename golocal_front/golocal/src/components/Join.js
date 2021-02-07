@@ -28,6 +28,8 @@ import Recent from './Recent.js'
         );
     };
 
+    export default Join;
+    
     const Background = styled.div `
         background: white;
     `
@@ -139,4 +141,4 @@ import Recent from './Recent.js'
         color: #FFFFFF; }
     `
 
-    export default Join;
+    

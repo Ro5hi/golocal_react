@@ -57,6 +57,8 @@ import styled from 'styled-components'
                 loginFormData: state.loginForm
             }
         }
+
+        export default connect(mapStateToProps, { updateLoginForm, login})(Login)
         
         const Container = styled.div`
             position: absolute;
@@ -105,4 +107,4 @@ import styled from 'styled-components'
             top: 375px;
         `
         
-        export default connect(mapStateToProps, { updateLoginForm, login})(Login)
+        

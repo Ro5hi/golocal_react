@@ -127,6 +127,8 @@ import styled from 'styled-components'
             }
         }
 
+    export default connect(mapStateToProps, { updateSignupForm, register} )(SignUp)
+    
             const Container = styled.div`
                 display: flex;
                 position: absolute;
@@ -229,4 +231,4 @@ import styled from 'styled-components'
                 top: 675px;
             `
 
-    export default connect(mapStateToProps, { updateSignupForm, register} )(SignUp)
+    

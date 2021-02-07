@@ -10,16 +10,18 @@ import { getAllUsers } from '../actions/user.js'
             this.props.getAllUsers()
           }
 
-    render(){
-        return (
-            <Container>
-                <Navbar />
-                <Footer />
-            </Container>
-        );
-      }
+        render(){
+            return (
+                <Container>
+                    <Navbar />
+                    <Footer />
+                </Container>
+            );
+        }
     }
 
+    export default connect(null, {getAllUsers})(Index)
+    
     const Container = styled.div`
         position: relative;
         display: flex;
@@ -34,4 +36,3 @@ import { getAllUsers } from '../actions/user.js'
         background: #FBEABE;
     `
 
-    export default connect(null, {getAllUsers})(Index)

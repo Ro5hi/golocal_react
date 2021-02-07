@@ -22,6 +22,8 @@ const loggingOut = ({ logout, history }) => {
   );
 };
 
+export default connect(null, { logout })(loggingOut);
+
   const Message = styled.div`
     position: relative;
     width: 160px;
@@ -37,4 +39,4 @@ const loggingOut = ({ logout, history }) => {
     top: 200px;
   `
 
-export default connect(null, { logout })(loggingOut);
+
