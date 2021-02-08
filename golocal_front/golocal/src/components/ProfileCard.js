@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
     class ProfileCard extends Component {
         render(){ 
-            console.log(this.props.users)
                 const user = this.props.users.find(u => u.id == this.props.match.id)
                 return (
                 <Card>
