@@ -15,12 +15,6 @@ class PostCard extends Component {
                             <Username>
                                 <Link to={`/profile/${user.id}`}><h2>{user.attributes.username}</h2></Link>
                             </Username>
-                            <BusinessCity>
-                                <h4>{user.attributes.business.city}</h4>
-                            </BusinessCity>
-                            <Address>
-                                <h4>{user.attributes.business.address}</h4>
-                            </Address>    
                             <Caption>
                                 {this.props.posts.map( post => {
                                 if (user.id === post.relationships.user.data.id)
@@ -35,16 +29,13 @@ class PostCard extends Component {
              else {
                  return (
                     <Box><p>No content has been made.</p></Box>
-                )}
-        }
+                )}}
     }
-
     const mapStateToProps = ({ users, posts }) => {
         return {
             users,
             posts
-        }
-    }
+    }}
     export default connect(mapStateToProps )(PostCard)
 
     const Card = styled.div`
@@ -78,38 +69,6 @@ class PostCard extends Component {
         font-weight: normal;
         font-size: 18px;
         line-height: 25px;
-        text-align: center;
-        letter-spacing: -0.035em;
-        color: #000000;
-    `
-
-    const BusinessCity = styled.div`
-        position: relative;
-        width: 184px;
-        height: 24px;
-        left: 10px;
-        top: 10px;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 25px;
-        text-align: center;
-        letter-spacing: -0.035em;
-        color: #000000;
-    `
-
-    const Address = styled.div`
-        position: relative;
-        width: 184px;
-        height: 24px;
-        left: 10px;
-        top: 20px;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 10px;
         text-align: center;
         letter-spacing: -0.035em;
         color: #000000;
