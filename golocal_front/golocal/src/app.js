@@ -45,6 +45,8 @@ import { Route, Switch, withRouter } from 'react-router-dom'
                 posts: state.userPosts
         }) 
     }
+   
+  
         const Background = styled.div`
             display: flex;
             position: relative;
