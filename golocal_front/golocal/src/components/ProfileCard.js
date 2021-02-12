@@ -38,7 +38,6 @@ import { connect } from 'react-redux'
         width: 1200px;
         height: 800px;
         left: 0px;
-        top: 0px;
         background-image: linear-gradient(to right, rgb(217, 180, 105), rgb(255, 255, 255));
     `
 
@@ -52,7 +51,7 @@ import { connect } from 'react-redux'
         font-style: normal;
         font-weight: normal;
         font-size: 100px;
-        line-height: 25px;
+        line-height: 100px;
         text-align: center;
         letter-spacing: -0.035em;
         color: white;
@@ -60,10 +59,10 @@ import { connect } from 'react-redux'
 
     const Business = styled.div`
         position: relative;
-        width: 284px;
+        width: 400px;
         height: 285px;
         left: 20px;
-        top: 150px;
+        top: 250px;
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
