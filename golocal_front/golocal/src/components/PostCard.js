@@ -10,26 +10,30 @@ class PostCard extends Component {
         super(props)
         this.state = {
             posts: [],
-            sorted: true /* set current state to true */
+            toggle: true // for sort-toggle-button 
         }
     }
+
     componentDidMount() {
         this.props.getAllUsers() /* get props of all registered users */
     }
 
-    toggleSort() {
-        const usersPosts = this.props.users.relationships.posts.data 
-        let sortedPosts = usersPosts 
-        if (this.state.sorted) {
-            sortedPosts = usersPosts.sort((a,b) => a.length > b.length)
-        } else { /* compare each user's length of posts created in ascending order until all sorted */
-            sortedPosts = usersPosts.sort((a,b) => a.length < b.length) 
-        }
-        this.setState({ /* setState re-renders updated state change of sorted & posts */
-            sorted: false,
-            posts: sortedPosts 
-        })
+    toggleSortPorts = (event) => {
+        event.preventDefault()
+        this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a + b) 
+        // sort user posts array in ascending order
+    } 
+
+    toggleUnsortPosts = (event) => {
+        event.preventDefault() 
+        this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a > b)
+        // sort user posts array back to original order
     }
+
+    // this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a (operator) b)
+    // (+) console: (6) [29, 13, 3, 2, 3, 5] ascending
+    // (-) console: (6) [2, 3, 3, 5, 13, 29] descending
+    // (>) console: (6) [29, 13, 3, 2, 3, 5] original order
 
     render(){
         if (this.props.posts) {
@@ -37,6 +41,7 @@ class PostCard extends Component {
                 <>
                     <div>
                         <button onClick={this.toggleSort}>Sort</button>
+                        {this.state.toggle ? this.toggleSort : this.toggleUnsortPosts }
                     </div>
                         {this.props.users.map( user => {
                             let userNumPosts = user.relationships.posts.data.length 
@@ -76,7 +81,7 @@ class PostCard extends Component {
     const Card = styled.div`
         position: relative;
         width: 100%;
-        height: 400px;
+        height: 350px;
         left: 10px;
         top: 100px;
         background: #FFFFFF;
