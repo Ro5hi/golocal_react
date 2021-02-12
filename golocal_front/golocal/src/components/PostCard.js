@@ -11,6 +11,7 @@ class PostCard extends Component {
         this.state = {
             toggle: false // set toggle to false since posts array has not been sorted in ascending order
         }
+        this.toggleSortPosts = this.toggleSortPosts.bind(this)
     }
 
     componentDidMount() {
@@ -18,34 +19,37 @@ class PostCard extends Component {
         // get props of all registered users
     }
 
-    toggleSortPosts = (event) => {
-        event.preventDefault()
-        // prevent app refresh
-        this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a + b) 
-        return this.setState({ toggle: true })
-        // grab users and map into u, u representing user object to get posts relationship data
-        // and then sort all users posts array in ascending order
-    } 
-
-    toggleUnsortPosts = (event) => {
-        event.preventDefault() 
-        this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a > b)
-        return this.setState({ toggle: false })
-        // sort user posts array back to original order
+    toggleSortPosts () {
+        if (this.state.toggle == false) { 
+            this.setState({ toggle: true })
+            return this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a + b) 
+        } else {
+            this.setState({toggle: false})
+            return this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a > b)
+        }
     }
+
+    // grab users and map into u, u representing user object to get posts relationship data
+    // and then sort all users posts array in ascending order then back to original order
+    // check if toggle state is true or false according to toggle-sorting
+    // if true return object
+    
+    toggleBtn = (event) => {
+        event.preventDefault()
+        this.toggleSortPosts()
+    } 
 
     // .sort operators
     // (+) console: (6) [29, 13, 3, 2, 3, 5] ascending
     // (-) console: (6) [2, 3, 3, 5, 13, 29] descending
     // (>) console: (6) [29, 13, 3, 2, 3, 5] original order
 
-    render(){
+    render() {
         if (this.props.posts) {
             return (
                 <>
                     <div>
-                        <button onClick={this.toggleSortPosts}>Sort</button>
-                        {this.state.toggle ? this.toggleSortPosts : this.toggleUnsortPosts }
+                        <button onClick={this.toggleBtn}>Sort</button>
                     </div>
                         {this.props.users.map( user => {
                             let userNumPosts = user.relationships.posts.data.length 
@@ -74,12 +78,13 @@ class PostCard extends Component {
                     )
                 }
             }
-    }
-    const mapStateToProps = ({ users, posts }) => {
-        return {
-            users,
-            posts
-    }}
+        }
+        const mapStateToProps = ({ users, posts }) => {
+            return {
+                users,
+                posts
+        }}
+
     export default connect(mapStateToProps, { getAllUsers } )(PostCard)
 
     const Card = styled.div`
