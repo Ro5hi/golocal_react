@@ -9,28 +9,32 @@ class PostCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            posts: [],
-            toggle: true // for sort-toggle-button 
+            toggle: false // set toggle to false since posts array has not been sorted in ascending order
         }
     }
 
     componentDidMount() {
-        this.props.getAllUsers() /* get props of all registered users */
+        this.props.getAllUsers() 
+        // get props of all registered users
     }
 
     toggleSortPosts = (event) => {
         event.preventDefault()
+        // prevent app refresh
         this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a + b) 
-        // sort user posts array in ascending order
+        return this.setState({ toggle: true })
+        // grab users and map into u, u representing user object to get posts relationship data
+        // and then sort all users posts array in ascending order
     } 
 
     toggleUnsortPosts = (event) => {
         event.preventDefault() 
         this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a > b)
+        return this.setState({ toggle: false })
         // sort user posts array back to original order
     }
 
-    // this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a (operator) b)
+    // .sort operators
     // (+) console: (6) [29, 13, 3, 2, 3, 5] ascending
     // (-) console: (6) [2, 3, 3, 5, 13, 29] descending
     // (>) console: (6) [29, 13, 3, 2, 3, 5] original order
