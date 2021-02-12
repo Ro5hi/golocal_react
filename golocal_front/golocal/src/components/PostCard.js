@@ -18,7 +18,7 @@ class PostCard extends Component {
         this.props.getAllUsers() /* get props of all registered users */
     }
 
-    toggleSortPorts = (event) => {
+    toggleSortPosts = (event) => {
         event.preventDefault()
         this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a + b) 
         // sort user posts array in ascending order
@@ -40,8 +40,8 @@ class PostCard extends Component {
             return (
                 <>
                     <div>
-                        <button onClick={this.toggleSort}>Sort</button>
-                        {this.state.toggle ? this.toggleSort : this.toggleUnsortPosts }
+                        <button onClick={this.toggleSortPosts}>Sort</button>
+                        {this.state.toggle ? this.toggleSortPosts : this.toggleUnsortPosts }
                     </div>
                         {this.props.users.map( user => {
                             let userNumPosts = user.relationships.posts.data.length 
