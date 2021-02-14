@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { getAllUsers } from '../actions/user'
+import { getPosts } from '../actions/post'
 import { connect } from 'react-redux'
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
@@ -9,83 +10,83 @@ class PostCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            toggle: false // set toggle to false since posts array has not been sorted in ascending order
+            toggle: false
         }
-        this.toggleSortPosts = this.toggleSortPosts.bind(this)
     }
 
     componentDidMount() {
-        this.props.getAllUsers() 
-        // get props of all registered users
+        this.props.getAllUsers()
+        this.props.getPosts()
     }
 
-    toggleSortPosts () {
-        if (this.state.toggle == false) { 
-            this.setState({ toggle: true })
-            return this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a + b) 
-        } else {
-            this.setState({toggle: false})
-            return this.props.users.map(u => u.relationships.posts.data.length).sort((a,b) => a > b)
+    toggleSort= () => {
+        this.setState({ toggle: !this.state.toggle })
+    }
+
+    getComparator = () => {
+        if (this.state.toggle) {
+            return (a, b) => a.relationships.posts.data.length < b.relationships.posts.data.length ? 1 : -1
+        } 
+        else {
+            return (a, b) => a.relationships.posts.data.length - b.relationships.posts.data.length ? 1 : -1
         }
     }
 
-    // grab users and map into u, u representing user object to get posts relationship data
-    // and then sort all users posts array in ascending order then back to original order
-    // check if toggle state is true or false according to toggle-sorting
-    // if true return object
-    
-    toggleBtn = (event) => {
-        event.preventDefault()
-        this.toggleSortPosts()
-    } 
+    transformProps= () => {
+        const compare = this.getComparator()
+            return this.props.users.sort(compare)
+    }
 
-    // .sort operators
-    // (+) console: (6) [29, 13, 3, 2, 3, 5] ascending
-    // (-) console: (6) [2, 3, 3, 5, 13, 29] descending
-    // (>) console: (6) [29, 13, 3, 2, 3, 5] original order
+    toggleBtn = () => {
+        const btn = <Button>
+                        <button onClick={this.toggleSort}>Sort</button>
+                        {this.state.toggle ? <span>Sorted</span> : <span>All</span>}
+                    </Button> 
+            return btn
+    }
+
+    allPostCards = () => {
+        return this.transformProps().map(user => 
+            <>{this.toggleBtn()}
+                <Card>
+                    <Username>
+                        <Link to={`/profile/${user.id}`}><h2>{user.attributes.username}</h2></Link>
+                    </Username>
+                    <Caption>
+                        {this.props.posts.map( post => 
+                            {if (user.id == post.relationships.user.data.id) 
+                                {return <div key={post.id}>{post.attributes.caption}</div>}
+                            }
+                            )}
+                    </Caption>
+                </Card>
+            </>
+        )
+    }
 
     render() {
-        if (this.props.posts) {
-            return (
-                <>
-                    <div>
-                        <button onClick={this.toggleBtn}>Sort</button>
-                    </div>
-                        {this.props.users.map( user => {
-                            let userNumPosts = user.relationships.posts.data.length 
-                            return(
-                                <Card>
-                                    <Username>
-                                        <p>Total posts: {userNumPosts}</p>
-                                        <Link to={`/profile/${user.id}`}><h2>{user.attributes.username}</h2></Link>
-                                    </Username>
-                                    <Caption>
-                                        {this.props.posts.map( post => 
-                                            { if (user.id === post.relationships.user.data.id)
-                                                { return <div key={post.id}>{post.attributes.caption}</div>}
-                                            }
-                                        )}
-                                    </Caption>
-                                </Card> 
-                            )
-                        })}  
-                </>
-            )
-        }
-            else {
-                    return (
-                        <Box><p>No content has been made.</p></Box>
-                    )
-                }
+        return (
+                this.allPostCards()
+                )
             }
         }
+
         const mapStateToProps = ({ users, posts }) => {
             return {
                 users,
                 posts
-        }}
+            }
+        }
 
-    export default connect(mapStateToProps, { getAllUsers } )(PostCard)
+    export default connect(mapStateToProps, { getAllUsers, getPosts } )(PostCard)
+
+    const Button = styled.div`
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        left: -1px;
+        top: 0px;
+    `
 
     const Card = styled.div`
         position: relative;
@@ -94,16 +95,6 @@ class PostCard extends Component {
         left: 10px;
         top: 100px;
         background: #FFFFFF;
-        border: 1px solid black;
-    `
-
-    const Box = styled.div`
-        position: relative;
-        background: #FFFFFF;
-        top: 20px;
-        left: -5px;
-        width: 200px;
-        text-align: center;
         border: 1px solid black;
     `
 
