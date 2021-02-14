@@ -24,11 +24,12 @@ class PostCard extends Component {
     }
 
     getComparator = () => {
+        console.log("Toggled?", this.props.users)
         if (this.state.toggle) {
             return (a, b) => a.relationships.posts.data.length < b.relationships.posts.data.length ? 1 : -1
         } 
         else {
-            return (a, b) => a.relationships.posts.data.length - b.relationships.posts.data.length ? 1 : -1
+            return (a, b) => a.relationships.posts.data.length > b.relationships.posts.data.length ? 1 : 1
         }
     }
 
