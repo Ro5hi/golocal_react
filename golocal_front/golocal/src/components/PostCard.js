@@ -12,6 +12,7 @@ class PostCard extends Component {
         this.state = {
             toggle: false
         }
+        this.transformProps = this.transformProps.bind(this)
     }
 
     componentDidMount() {
@@ -28,18 +29,21 @@ class PostCard extends Component {
             return (a, b) => a.relationships.posts.data.length < b.relationships.posts.data.length ? 1 : -1
         } 
         else {
-            return (a, b) => a.relationships.posts.data.length > b.relationships.posts.data.length ? 1 : 1
+            return (a, b) => a.relationships.posts.data.length > b.relationships.posts.data.length ? -1 : 1
         }
     }
 
     transformProps= () => {
         const compare = this.getComparator()
-            return this.props.users.sort(compare)
+            return [...this.props.users].sort(compare)
     }
 
     toggleBtn = () => {
         const btn = <Button>
-                        <button onClick={this.toggleSort}>Sort in ascending order</button>
+                        <button 
+                            type="button" 
+                            onClick={this.toggleSort} 
+                            name="sort">Sort in ascending order</button>
                     </Button> 
             return btn
     }
