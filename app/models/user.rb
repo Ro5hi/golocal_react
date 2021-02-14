@@ -10,10 +10,5 @@ class User < ActiveRecord::Base
 
     validates :name, :username, :password, :business, presence: true 
     validates :username, uniqueness: true
-
-    def profile_photo
-        @user = User.find(params[:image])
-    end 
-
     
 end 
