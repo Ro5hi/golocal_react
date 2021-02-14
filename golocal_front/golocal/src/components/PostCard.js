@@ -24,7 +24,6 @@ class PostCard extends Component {
     }
 
     getComparator = () => {
-        console.log("Toggled?", this.props.users)
         if (this.state.toggle) {
             return (a, b) => a.relationships.posts.data.length < b.relationships.posts.data.length ? 1 : -1
         } 
@@ -40,8 +39,7 @@ class PostCard extends Component {
 
     toggleBtn = () => {
         const btn = <Button>
-                        <button onClick={this.toggleSort}>Sort</button>
-                        {this.state.toggle ? <span>Sorted</span> : <span>All</span>}
+                        <button onClick={this.toggleSort}>Sort in ascending order</button>
                     </Button> 
             return btn
     }
