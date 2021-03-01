@@ -9,11 +9,18 @@ import { getAllUsers } from '../actions/user.js'
         componentDidMount() {
             this.props.getAllUsers()
         }
-        render() {
-            return (
+
+        userProfile = () => {
+            const profileCard = 
                 <UserProfile>
                     <ProfileCard history={this.props.history} match={this.props.match.params}/>
                 </UserProfile>
+            return profileCard
+        }
+
+        render() {
+            return (
+                this.userProfile()
             );       
         }
     }
