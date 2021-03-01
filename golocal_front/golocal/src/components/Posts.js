@@ -11,13 +11,19 @@ import Footer from './Footer.js'
           this.props.getPosts()
           this.props.getAllUsers()
         }
+
+        renderAllPosts = () => {
+          const userPosts = 
+            <Container>
+              <PostCard />
+              <Footer />
+            </Container>
+          return userPosts
+        }
         
         render(){
           return (
-            <Container>
-                <PostCard />
-                <Footer />
-            </Container>
+            this.renderAllPosts()
           );
         }
       }
