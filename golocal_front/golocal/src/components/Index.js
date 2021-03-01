@@ -10,13 +10,17 @@ import { getAllUsers } from '../actions/user.js'
             this.props.getAllUsers()
           }
 
+        renderComponents = () => {
+            <Container>
+                <Navbar />
+                <Footer />
+            </Container>
+        }
+
         render(){
             return (
-                <Container>
-                    <Navbar />
-                    <Footer />
-                </Container>
-            );
+               this.renderComponents()
+            )
         }
     }
 
