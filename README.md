@@ -1,10 +1,10 @@
 # Go Local
 
-A React & Redux project with Rails running in the back-end. Allows local business owners to create their online presence so that they can create posts and update the community about their business.
+A React & Redux project with Rails running as an API. Allows local business owners to create their online presence so that they can create posts and update the community about their business. Guests can view information about the business by viewing recent activity and view the address of the local business they're interested in.
 
 # Backend
 
-Back-end files are in the Master branch and are structured with Rails.
+Back-end files are in the Master branch and are structured with Rails. Database used is PGSQL.
 
 ## Frontend
 
@@ -19,6 +19,10 @@ Install the required gems for Rails and the required NPM packages for React.
 
 Run the app on localhost.
 
+## Screenshot: 
+
+![Homepage](https://miro.medium.com/max/2400/1*bEh7tZre6puYENocA3urrQ.png)
+
 ## Future Plans: 
 
 - Image uploading (for posts and profile pictures)
@@ -26,6 +30,7 @@ Run the app on localhost.
 - Develop into a mobile application
 - Improved UI
 - Better styling
+- Deploy for public use.
 
 ____________________________
 
