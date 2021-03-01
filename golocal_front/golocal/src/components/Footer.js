@@ -2,17 +2,26 @@ import React from 'react';
 import styled from "styled-components";
 
 
-    export default class Footer extends React.Component {
+    class Footer extends React.Component {
 
-    render(){
-        return (
+        pageFooter = () => {
+            const footer = 
                 <FooterContainer>
                     <FooterText>
                         Go Local ©  2020
                     </FooterText>
-            </FooterContainer>
-        );
-    }}
+                </FooterContainer>
+            return footer 
+        }
+
+        render() {
+            return (
+                    this.pageFooter()
+            )
+        }
+    }
+
+    export default Footer 
     
     const FooterContainer = styled.div`
         position: absolute;
