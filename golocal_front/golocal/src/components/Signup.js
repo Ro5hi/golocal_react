@@ -60,7 +60,7 @@ import styled from 'styled-components'
                                 placeholder="Password" 
                                 value={signupFormData.password} 
                                 name="password" 
-                                type="text" 
+                                type="password" 
                                 onChange={userInfo} />
                         </Password>
                             <Business>

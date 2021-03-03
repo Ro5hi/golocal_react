@@ -39,7 +39,7 @@ import styled from 'styled-components'
                                     placeholder="password" 
                                     value={loginForm.password} 
                                     name="password" 
-                                    type="text" 
+                                    type="password" 
                                     onChange={userInput} />
                             </Password>
                     <Button>
