@@ -23,6 +23,8 @@ Run the app on localhost.
 
 ![Homepage](https://miro.medium.com/max/2400/1*bEh7tZre6puYENocA3urrQ.png)
 
+Watch the video demo here: https://www.youtube.com/watch?v=tpAwqA5TOxc
+
 ## Future Plans: 
 
 - Image uploading (for posts and profile pictures)
